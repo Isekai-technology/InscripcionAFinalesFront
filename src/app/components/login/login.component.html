@@ -1,5 +1,5 @@
 <ng-container *ngIf="!notRegistered" >
-    <div class="login-container" >
+    <div class="login-container mat-elevation-z8" >
         <div class="image-container">
             <img src="../../../assets/imgs/gato.jpg" alt="">
         </div>
@@ -8,12 +8,14 @@
             <h2>Inscripcion a finales</h2>
             <div class="inputContainer">
                 <mat-form-field>
+                    <mat-icon matPrefix>account_circle</mat-icon>
                     <mat-label>Nombre de usuario</mat-label>
                     <input matInput type="text" formControlName="username" >
-                  </mat-form-field>
+                </mat-form-field>
             </div>
             <div class="inputContainer">
                 <mat-form-field >
+                    <mat-icon matPrefix>lock</mat-icon>
                     <mat-label>Contraseña</mat-label>
                     <input matInput type="password" formControlName="password" >
                   </mat-form-field>
