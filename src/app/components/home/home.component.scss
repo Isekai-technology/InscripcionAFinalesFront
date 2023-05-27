@@ -1,0 +1,32 @@
+.home-main{
+    background-color: white;
+}
+
+.boton-ayuda{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.menu-mesas{
+    margin: 16px;
+}
+
+.seccion-ayuda{
+   padding-top: 10px;
+}
+
+.contenedor-mesas{
+    display: flex;
+}
+
+.exam-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    min-height: 100px;
+    min-width: 100px;
+    max-width: 400px;
+}
