@@ -1,80 +1,102 @@
 <!-- NAVBAR(?) -->
 <p>
-<mat-toolbar color="primary"><span>HILET</span></mat-toolbar>
+  <mat-toolbar class="toolbar">
+    <div class="left-section">
+      <span class="logo">HILET</span>
+      <span class="toolbar-text">Inscripcion a Finales</span>
+    </div>
+    <div class="right-section">  
+      <span class="toolbar-text">¡Bienvenido, {{name}}!</span>
+      <button mat-raised-button color="warn">Cerrar sesion</button>
+    </div>
+  </mat-toolbar>
 </p>
 
 <div class="home-main">
 
   <!-- Ayuda y nombre carrera -->
-  <div class="seccion-ayuda">
-    <button mat-mini-fab matTooltip="Ayuda" color="primary" class="boton-ayuda">
+  <div class="help-section">
+    <button mat-mini-fab matTooltip="Ayuda" color="primary" class="help-button">
         <mat-icon>help</mat-icon>
     </button>
-    <span class="label-carrera">{{carrera}}</span>
+    <span>{{career}}</span>
   </div>
   
   <br>
 
   <!-- Tab Menu & Cards -->
-  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="menu-mesas">
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="exam-menu">
       <mat-tab label="Mesas Disponibles">
-        <div class="contenedor-mesas">
+        <div class="exam-container">
 
           <!-- Materias -->
           <mat-card class="exam-card">
             <mat-card-header>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Analisis Matematico I</mat-card-title>
+              <mat-card-subtitle>Primer Año</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p>This card indeterminates progress bar.</p>
+              <div>
+                Primer llamado: 20/08
+                <button mat-icon-button color="primary">
+                  <mat-icon fontIcon="app_registration"></mat-icon>
+                </button>
+              </div>
             </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-            </mat-card-actions>
           </mat-card>
 
           <mat-card class="exam-card">
             <mat-card-header>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Algoritmos y Estructuras de Datos II</mat-card-title>
+              <mat-card-subtitle>Segundo Año</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p>This card indeterminates progress bar.</p>
+              <div>
+                Primer llamado: 30/08
+                <button mat-icon-button color="primary">
+                  <mat-icon fontIcon="app_registration"></mat-icon>
+                </button>
+              </div>
             </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-            </mat-card-actions>
           </mat-card>
 
           <mat-card class="exam-card">
             <mat-card-header>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+              <mat-card-title>Inglés II</mat-card-title>
+              <mat-card-subtitle>Segundo Año</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
-              <p>This card indeterminates progress bar.</p>
+              <div>
+                Primer llamado: 13/08
+                <button mat-icon-button color="primary">
+                  <mat-icon fontIcon="app_registration"></mat-icon>
+                </button>
+              </div>
             </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-            </mat-card-actions>
           </mat-card>
+
         </div>
       </mat-tab>
       
-      <mat-tab label="Mesas inscriptas">        
-        <mat-card class="exam-card">
-          <mat-card-header>
-            <mat-card-title>Shiba Inu</mat-card-title>
-            <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-          </mat-card-header>
-          <mat-card-content>
-            <p>This card indeterminates progress bar.</p>
-          </mat-card-content>
-          <mat-card-actions>
-            <button mat-button>LIKE</button>
-          </mat-card-actions>
-        </mat-card>
+      <mat-tab label="Mesas inscriptas">   
+        <div class="exam-container">
+
+          <mat-card class="exam-card">
+            <mat-card-header>
+              <mat-card-title>Álgebra</mat-card-title>
+              <mat-card-subtitle>Primer Año</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <div>
+                Primer llamado: 15/08
+                <button mat-icon-button color="warn">
+                  <mat-icon fontIcon="delete_forever"></mat-icon>
+                </button>
+              </div>
+            </mat-card-content>
+          </mat-card>
+
+        </div>
       </mat-tab>
   </mat-tab-group>
 

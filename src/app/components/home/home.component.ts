@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Usuario } from 'src/app/models/Usuario';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,8 @@ export class HomeComponent {
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
   
-  usuario: Usuario = new Usuario;
-  carrera: string = 'Analista de Sistemas';
+  loggedUser: User = new User;
+  career: string = 'Analista de Sistemas'; //para test
+  name: string = 'Juan Perez'; //para test
 
 }

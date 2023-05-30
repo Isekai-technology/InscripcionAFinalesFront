@@ -2,25 +2,29 @@
     background-color: white;
 }
 
-.boton-ayuda{
+.help-button{
     margin-left: 10px;
     margin-right: 10px;
 }
 
-.menu-mesas{
+.exam-menu{
     margin: 16px;
 }
 
-.seccion-ayuda{
+.help-section{
    padding-top: 10px;
 }
 
-.contenedor-mesas{
+.exam-container {
+    align-items: center;
     display: flex;
+    @media screen and (max-width:750px) {
+        display: block;
+    }
 }
 
 .exam-card{
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     margin: 16px;
@@ -29,4 +33,15 @@
     min-height: 100px;
     min-width: 100px;
     max-width: 400px;
+}
+
+.toolbar{
+    background-color: #213F60;
+    color: #fff;
+    justify-content: space-between;
+}
+
+.toolbar-text{
+    font-size: 14px;
+    margin-right: 10px;
 }
