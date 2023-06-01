@@ -1,16 +1,14 @@
 <!-- NAVBAR(?) -->
-<p>
-  <mat-toolbar class="toolbar">
-    <div class="left-section">
-      <span class="logo">HILET</span>
-      <span class="toolbar-text">Inscripcion a Finales</span>
-    </div>
-    <div class="right-section">  
-      <span class="toolbar-text">¡Bienvenido, {{name}}!</span>
-      <button mat-raised-button color="warn">Cerrar sesion</button>
-    </div>
-  </mat-toolbar>
-</p>
+<mat-toolbar class="toolbar">
+  <div class="left-section">
+    <span class="logo">HILET</span>
+    <span class="toolbar-text">Inscripcion a Finales</span>
+  </div>
+  <div class="right-section">  
+    <span class="toolbar-text">¡Bienvenido, {{name}}!</span>
+    <button mat-raised-button color="warn">Cerrar sesion</button>
+  </div>
+</mat-toolbar>
 
 <div class="home-main">
 
@@ -19,14 +17,14 @@
     <button mat-mini-fab matTooltip="Ayuda" color="primary" class="help-button">
         <mat-icon>help</mat-icon>
     </button>
-    <span>{{career}}</span>
+    <span id="carrera">{{career}}</span>
   </div>
   
   <br>
 
   <!-- Tab Menu & Cards -->
-  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="exam-menu">
-      <mat-tab label="Mesas Disponibles">
+  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="exam-menu" animationDuration="0ms">
+      <mat-tab class="tabs" label="Mesas Disponibles" >
         <div class="exam-container">
 
           <!-- Materias -->
@@ -78,7 +76,7 @@
         </div>
       </mat-tab>
       
-      <mat-tab label="Mesas inscriptas">   
+      <mat-tab label="Mesas inscriptas" class="tabs">   
         <div class="exam-container">
 
           <mat-card class="exam-card">

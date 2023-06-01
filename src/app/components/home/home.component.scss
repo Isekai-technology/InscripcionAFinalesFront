@@ -1,6 +1,12 @@
-.home-main{
+.home-main {
+    margin-top:10px ;
+    padding-top: 20px;
+    position: fixed;
+    width: 100%;
+    height: 100%;
     background-color: white;
-}
+    border-radius: 20px;
+}   
 
 .help-button{
     margin-left: 10px;
@@ -8,7 +14,9 @@
 }
 
 .exam-menu{
-    margin: 16px;
+    margin-top: 16px;
+    margin-left: 16px;
+    align-items: center;
 }
 
 .help-section{
@@ -16,11 +24,11 @@
 }
 
 .exam-container {
-    align-items: center;
     display: flex;
     @media screen and (max-width:750px) {
         display: block;
     }
+    margin-top: 2%;
 }
 
 .exam-card{
@@ -39,9 +47,13 @@
     background-color: #213F60;
     color: #fff;
     justify-content: space-between;
+    margin-top: 1%;
 }
 
 .toolbar-text{
-    font-size: 14px;
     margin-right: 10px;
+}
+
+#carrera{
+    font-size: x-large;
 }
