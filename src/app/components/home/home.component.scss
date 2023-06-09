@@ -4,7 +4,6 @@
     border-top-right-radius: 20px;
     border-top-left-radius: 20px;
 }   
-
 .help-button{
     margin-left: 10px;
     margin-right: 10px;
@@ -38,7 +37,19 @@
     min-height: 100px;
     min-width: 100px;
     max-width: 400px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
+
+.exam-card:hover{
+    cursor: pointer;
+}
+
+.exam-card:active {
+    transform: scale(0.95);
+  }
 
 .toolbar{
     background-color: #5CA47A;
@@ -73,10 +84,6 @@ img{
     font-size: 20px;
 }
 
-.footer-container{
-    background-color: #5CA47A;
-}
-
 .calendary {
     -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
@@ -100,6 +107,14 @@ img{
     background-color: #fff;
     padding-bottom: 2%;
 }
+
+.footer-container{
+    background-color: #00A859;
+}
+
 .contacto{
+    padding-top: 10px;
+    margin-left: 5%;
     font-size: medium;
+    padding-bottom: 10px;
 }
