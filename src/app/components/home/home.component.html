@@ -1,12 +1,12 @@
 <!-- NAVBAR(?) -->
 <mat-toolbar class="toolbar">
   <div class="left-section">
-    <span class="logo">HILET</span>
+    <img src="../../../assets/imgs/LOGO_PUBLI.png" alt="">
     <span class="toolbar-text">Inscripcion a Finales</span>
   </div>
   <div class="right-section">  
     <span class="toolbar-text">¡Bienvenido, {{name}}!</span>
-    <button mat-raised-button color="warn">Cerrar sesion</button>
+    <button mat-raised-button color="warn" class="close-session">Cerrar sesion</button>
   </div>
 </mat-toolbar>
 
@@ -95,7 +95,28 @@
           </mat-card>
 
         </div>
-      </mat-tab>
+      </mat-tab> 
   </mat-tab-group>
-
 </div>
+<div class="section2">
+  <span class="image">
+<img src="../../../assets/imgs/pngwing.com.png" alt="">
+  </span>
+  <div>
+    <mat-card class="calendary">
+      <mat-calendar></mat-calendar>
+    </mat-card>
+  </div>
+</div>
+
+<footer class="footer-container">
+<div class="contacto"> 
+  Mantente en contacto
+  <ul>
+    <li> <mat-icon>public</mat-icon>&nbsp; <a href="">https://hilet.com</a> </li>
+    <li> <mat-icon>call</mat-icon>&nbsp; Tel: +54 (223) 4932525</li>
+    <li> <mat-icon>mail</mat-icon>&nbsp; informes@hilet.com</li>
+  </ul>
+</div>
+
+</footer>
