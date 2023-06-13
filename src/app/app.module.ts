@@ -17,13 +17,17 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+import { RegisterCardsComponent } from './components/register-cards/register-cards.component';
+import { HomeToolbarComponent } from './components/home-toolbar/home-toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    RegisterCardsComponent,
+    HomeToolbarComponent
   ],
   imports: [
     BrowserModule,

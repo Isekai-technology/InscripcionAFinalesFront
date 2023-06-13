@@ -1,123 +1,41 @@
-<!-- NAVBAR(?) -->
-<mat-toolbar class="toolbar">
-  <div class="left-section">
-    <img src="../../../assets/imgs/LOGO_PUBLI.png" alt="">
-    <span class="toolbar-text">Inscripcion a Finales</span>
-  </div>
-  <div class="right-section">  
-    <span class="toolbar-text">¡Bienvenido, {{name}}!</span>
-    <button mat-raised-button color="warn" class="close-session">Cerrar sesion</button>
-  </div>
-</mat-toolbar>
-
-<div class="home-main">
-
+<div class="home-container">
+  <app-home-toolbar></app-home-toolbar>
   <!-- Ayuda y nombre carrera -->
-  <div class="help-section">
-    <button mat-mini-fab matTooltip="Ayuda" color="primary" class="help-button">
-        <mat-icon>help</mat-icon>
-    </button>
-    <span id="carrera">{{career}}</span>
+  <div class="home-menu">
+    <div class="home-center">
+      <div class="left-panel">
+        <div class="help-section">
+          <button mat-mini-fab matTooltip="Ayuda" class="help-button">
+              <mat-icon>help</mat-icon>
+          </button>
+          <span id="carrera">{{career}}</span>
+        </div>
+        <br>
+        <mat-tab-group animationDuration="0ms" fitInkBarToContent>
+            <mat-tab label="Mesas Disponibles" >
+              <div class="cards">
+                <app-register-cards></app-register-cards>
+              </div>
+            </mat-tab>
+            
+            <mat-tab label="Mesas inscriptas" >   
+              
+            </mat-tab> 
+        </mat-tab-group>
+      </div>  
+      <div class="right-panel">
+        <mat-card class="calendary">
+          <mat-calendar></mat-calendar>
+        </mat-card>
+      </div>
+    </div>
   </div>
-  
-  <br>
-
-  <!-- Tab Menu & Cards -->
-  <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" class="exam-menu" animationDuration="0ms">
-      <mat-tab class="tabs" label="Mesas Disponibles" >
-        <div class="exam-container">
-
-          <!-- Materias -->
-          <mat-card class="exam-card" (click)="onCardClick()">
-            <mat-card-header>
-              <mat-card-title>Analisis Matematico I</mat-card-title>
-              <mat-card-subtitle>Primer Año</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div>
-                Primer llamado: 20/08
-                <button mat-icon-button color="primary">
-                  <mat-icon fontIcon="app_registration"></mat-icon>
-                </button>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="exam-card">
-            <mat-card-header>
-              <mat-card-title>Algoritmos y Estructuras de Datos II</mat-card-title>
-              <mat-card-subtitle>Segundo Año</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div>
-                Primer llamado: 30/08
-                <button mat-icon-button color="primary">
-                  <mat-icon fontIcon="app_registration"></mat-icon>
-                </button>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-          <mat-card class="exam-card">
-            <mat-card-header>
-              <mat-card-title>Inglés II</mat-card-title>
-              <mat-card-subtitle>Segundo Año</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div>
-                Primer llamado: 13/08
-                <button mat-icon-button color="primary">
-                  <mat-icon fontIcon="app_registration"></mat-icon>
-                </button>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-      </mat-tab>
-      
-      <mat-tab label="Mesas inscriptas" class="tabs">   
-        <div class="exam-container">
-
-          <mat-card class="exam-card">
-            <mat-card-header>
-              <mat-card-title>Álgebra</mat-card-title>
-              <mat-card-subtitle>Primer Año</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <div>
-                Primer llamado: 15/08
-                <button mat-icon-button color="warn">
-                  <mat-icon fontIcon="delete_forever"></mat-icon>
-                </button>
-              </div>
-            </mat-card-content>
-          </mat-card>
-
-        </div>
-      </mat-tab> 
-  </mat-tab-group>
-</div>
-<div class="section2">
-  <span class="image">
-<img src="../../../assets/imgs/pngwing.com.png" alt="">
-  </span>
-  <div>
-    <mat-card class="calendary">
-      <mat-calendar></mat-calendar>
-    </mat-card>
+  <div class="contacto"> 
+   Mantente en contacto
+    <ul>
+      <li> <mat-icon>public</mat-icon>&nbsp; <a href="https://hilet.com">https://hilet.com</a> </li>
+      <li> <mat-icon>call</mat-icon>&nbsp; Tel: +54 (223) 4932525</li>
+      <li> <mat-icon>mail</mat-icon>&nbsp; informes@hilet.com</li>
+    </ul>
   </div>
 </div>
-
-<footer class="footer-container">
-<div class="contacto"> 
-  Mantente en contacto
-  <ul>
-    <li> <mat-icon>public</mat-icon>&nbsp; <a href="https://hilet.com">https://hilet.com</a> </li>
-    <li> <mat-icon>call</mat-icon>&nbsp; Tel: +54 (223) 4932525</li>
-    <li> <mat-icon>mail</mat-icon>&nbsp; informes@hilet.com</li>
-  </ul>
-</div>
-
-
-</footer>
