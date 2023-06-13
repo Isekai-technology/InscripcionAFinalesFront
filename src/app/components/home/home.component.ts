@@ -10,9 +10,9 @@ export class HomeComponent {
 
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
-  
   loggedUser: User = new User;
-  career: string = 'Analista de Sistemas'; //para test
-  name: string = 'Juan Perez'; //para test
+  career: string = 'Publicidad'; //para test
+ 
+
 
 }
