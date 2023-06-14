@@ -42,7 +42,7 @@ import { MatOptionModule } from '@angular/material/core';
     HomeComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
-    HomeToolbarComponent
+    HomeToolbarComponent,
     AdminMesasComponent,
     NavigationComponent,
     DashboardComponent,
@@ -62,7 +62,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatTabsModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
     MatSidenavModule,
     LayoutModule,
     MatListModule,
