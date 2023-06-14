@@ -1,27 +1,25 @@
-<ng-container *ngIf="!notRegistered" >
-    <div class="login-container mat-elevation-z8" >
-        <div class="image-container">
-            <img src="../../../assets/imgs/loginImg.jpg" alt="">
-        </div>
-        <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
-            <h1>HILET</h1>
-            <h2>Inscripción a finales</h2>
-            <div class="inputContainer">
-                <mat-form-field>
-                    <mat-icon matPrefix>account_circle</mat-icon>
-                    <mat-label>Nombre de usuario</mat-label>
-                    <input matInput type="text" formControlName="username" >
-                </mat-form-field>
-            </div>
-            <div class="inputContainer">
-                <mat-form-field >
-                    <mat-icon matPrefix>lock</mat-icon>
-                    <mat-label>Contraseña</mat-label>
-                    <input matInput type="password" formControlName="password" >
-                  </mat-form-field>
-            </div>
-            <p class="inputContainer"><a href="">Olvidó su contraseña?</a></p>
-            <button mat-fab extended color="accent" id="loginBtn" [disabled]="!loginForm.valid" routerLink="home">Ingresar</button>
-        </form> 
+<div class="login-container mat-elevation-z8" >
+    <div class="image-container">
+        <img src="../../../assets/imgs/loginImg.jpg" alt="">
     </div>
-</ng-container>
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+        <h1>HILET</h1>
+        <h2>Inscripción a finales</h2>
+        <div class="inputContainer">
+            <mat-form-field>
+                <mat-icon matPrefix>account_circle</mat-icon>
+                <mat-label>Nombre de usuario</mat-label>
+                <input matInput type="text" formControlName="username" >
+            </mat-form-field>
+        </div>
+        <div class="inputContainer">
+            <mat-form-field >
+                <mat-icon matPrefix>lock</mat-icon>
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" formControlName="password" >
+                </mat-form-field>
+        </div>
+        <p class="inputContainer"><a href="">Olvidó su contraseña?</a></p>
+        <button mat-fab extended color="accent" id="loginBtn" [disabled]="!loginForm.valid" routerLink="/home">Ingresar</button>
+    </form> 
+</div>

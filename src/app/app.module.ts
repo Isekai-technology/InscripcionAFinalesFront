@@ -27,7 +27,7 @@ import { HomeToolbarComponent } from './components/home-toolbar/home-toolbar.com
     HomeComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
-    HomeToolbarComponent
+    HomeToolbarComponent,
   ],
   imports: [
     BrowserModule,

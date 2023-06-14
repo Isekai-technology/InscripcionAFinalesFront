@@ -1,17 +1,41 @@
-.home-container{
-    background-color: #5CA47A;  
-}
-
 .home-menu{
     background-color: #ECECEC;
     border-radius: 30px;
     border-radius: 30px;
     margin-left: 2%;
     margin-right: 2%;
-    -webkit-box-shadow: 5px 5px 30px -5px rgba(0,0,0,0.48);
-    -moz-box-shadow: 5px 5px 30px -5px rgba(0,0,0,0.48);
-    box-shadow: 5px 5px 30px -5px rgba(0,0,0,0.48);
+    display: flex;
+    flex-direction: column;
 }
+
+
+@media (max-width: 767px) {
+    .home-menu {
+      flex-direction: column;
+    }
+  
+    .left-panel,
+    .right-panel {
+      width: 100%;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .home-menu {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .left-panel {
+      flex: 1;
+      margin-right: 10px;
+    }
+  
+    .right-panel {
+      flex: 1;
+      margin-left: 10px;
+    }
+  }
 
 .help-button{
     background-color: #5CA47A;
@@ -24,13 +48,10 @@
     margin-top: 10px;
 }
 
-.home-center{
-    display:flex;
-    
-}
 
 .left-panel {
-    flex: 1;
+    order: 1;
+    flex:1;
 }
 
 .cards{
@@ -42,7 +63,8 @@
     border-radius: 30px;
     border-width: 0.5px;
     border-color: #006600;
-    flex: 1;
+    order: 2;
+    flex:1;
     
  }
 
@@ -64,70 +86,49 @@ ul {
     list-style-type: none;
   }
 
-
-/*
-
-.exam-container {
+  .logo-container {
+    position: absolute;
+    margin-right: 20px; /* Ajusta el margen derecho según tu preferencia */
     display: flex;
-    @media screen and (max-width:750px) {
-        display: block;
-    }
-    margin-top: 2%;
-}
-
-.exam-card{
-    display: block;
     align-items: center;
-
-}
-
-
-.close-session{
-    height: 70px;
-    font-size: 20px;
-}
-
-.calendary {
-    -webkit-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.75);
-    width: 500px;
-    flex-basis: 50%;
+  }
+  
+  .logo {
+    margin-top: 70%;
     margin-left: 10%;
-}
-.image{
+    width: 150px;
+  }
+  
+  .titulo {
     margin-left: 10%;
-    border-radius: 1px;
-    flex-basis: 50%;
-}
-.image img{
-    height: 600px;
-    width: 900px;
-}
+    font-size: x-large;
+    flex: 1; /* Permite que el título ocupe el espacio restante en el navbar */
+  }
 
-@media screen and (max-width: 600px) {
-    .image, .calendary {
-      flex-basis: 100%;
+  .logo-container {
+    position: absolute;
+    top: 50%;
+    left: 2%;
+    transform: translateY(-50%);
+  }
+  
+  
+  
+  /* Media queries para estilos responsive */
+  @media (max-width: 768px) {
+    .logo-container {
+      position: relative;
+      top: auto;
+      left: auto;
+      transform: none;
     }
-}
-
-.section2{
-    padding-top: 5%;
-    background-color: #fff;
-    padding-bottom: 2%;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.footer-container{
-    background-color: #00A859;
-    height: 100%;
-}
-
-.contacto{
-    padding-top: 10px;
-    margin-left: 5%;
-    font-size: medium;
-    padding-bottom: 10px;
-}
-*/
+  
+    .logo {
+      width: 70px; /* Ajusta el tamaño del logo para pantallas más pequeñas */
+    }
+  
+    .titulo {
+      margin-left: 10px; /* Ajusta el margen izquierdo para pantallas más pequeñas */
+      font-size: medium;
+    }
+  }
