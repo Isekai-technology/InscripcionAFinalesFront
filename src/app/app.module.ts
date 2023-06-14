@@ -34,7 +34,15 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-
+import { AdminProfesoresComponent } from './components/admin-profesores/admin-profesores.component';
+import { AdminMateriasComponent } from './components/admin-materias/admin-materias.component';
+import { AlumnosNavigationComponent } from './components/admin-alumnos/alumnos-navigation/alumnos-navigation.component';
+import { AlumnosDashboardComponent } from './components/admin-alumnos/alumnos-dashboard/alumnos-dashboard.component';
+import { AdminAlumnosComponent } from './components/admin-alumnos/admin-alumnos.component';
+import { ProfesoresDashboardComponent } from './components/admin-profesores/profesores-dashboard/profesores-dashboard.component';
+import { ProfesoresNavigationComponent } from './components/admin-profesores/profesores-navigation/profesores-navigation.component';
+import { MateriasNavigationComponent } from './components/admin-materias/materias-navigation/materias-navigation.component';
+import { MateriasDashboardComponent } from './components/admin-materias/materias-dashboard/materias-dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,12 +50,21 @@ import { MatOptionModule } from '@angular/material/core';
     HomeComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
-    HomeToolbarComponent
+    HomeToolbarComponent,
     AdminMesasComponent,
     NavigationComponent,
     DashboardComponent,
     TableComponent,
     SelectorComponent,
+    AdminProfesoresComponent,
+    AdminMateriasComponent,
+    AlumnosNavigationComponent,
+    AlumnosDashboardComponent,
+    AdminAlumnosComponent,
+    ProfesoresDashboardComponent,
+    ProfesoresNavigationComponent,
+    MateriasNavigationComponent,
+    MateriasDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +79,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatTabsModule,
     MatToolbarModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
     MatSidenavModule,
     LayoutModule,
     MatListModule,
