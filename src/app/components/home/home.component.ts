@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 
 @Component({
@@ -6,13 +6,16 @@ import { User } from 'src/app/models/User';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
   loggedUser: User = new User;
   career: string = 'Publicidad'; //para test
- 
+  ngOnInit(): void {
+     document.documentElement.style.setProperty('--main-bg-color', '#5CA47A');
+  }
+
 
 
 }
