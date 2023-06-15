@@ -43,6 +43,10 @@ import { ProfesoresDashboardComponent } from './components/admin-profesores/prof
 import { ProfesoresNavigationComponent } from './components/admin-profesores/profesores-navigation/profesores-navigation.component';
 import { MateriasNavigationComponent } from './components/admin-materias/materias-navigation/materias-navigation.component';
 import { MateriasDashboardComponent } from './components/admin-materias/materias-dashboard/materias-dashboard.component';
+import { AlumnosTableComponent } from './components/admin-alumnos/alumnos-table/alumnos-table.component';
+import { ProfesoresTableComponent } from './components/admin-profesores/profesores-table/profesores-table.component';
+import { MateriasTreeComponent } from './components/admin-materias/materias-tree/materias-tree.component';
+import { MatTreeModule } from '@angular/material/tree';
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,6 +69,9 @@ import { MateriasDashboardComponent } from './components/admin-materias/materias
     ProfesoresNavigationComponent,
     MateriasNavigationComponent,
     MateriasDashboardComponent,
+    AlumnosTableComponent,
+    ProfesoresTableComponent,
+    MateriasTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -90,6 +97,7 @@ import { MateriasDashboardComponent } from './components/admin-materias/materias
     MatSortModule,
     MatSelectModule,
     MatOptionModule,
+    MatTreeModule,
 
   ],
   providers: [],

@@ -14,6 +14,7 @@ export class ProfesoresDashboardComponent {
       if (matches) {
         return [
           { title: 'Carga de Profesores', cols: 1, rows: 1 },
+          
          
         ];
       }
