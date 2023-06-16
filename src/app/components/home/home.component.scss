@@ -6,20 +6,50 @@
     margin-right: 2%;
     display: flex;
     flex-direction: column;
+    @media (max-width: 768px) {
+      margin-right: 0; /* Ajusta el tamaño de fuente para pantallas de celular promedio */
+    }
 }
 
+.navbar {
+  display: flex;
+  align-items: center;
+}
 
-@media (max-width: 767px) {
-    .home-menu {
-      flex-direction: column;
-    }
-  
-    .left-panel,
-    .right-panel {
-      width: 100%;
-    }
+.navbar-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.cerrar-sesion {
+  margin-left: 20px;
+  background-color: #a6a6a6;
+  color: black;
+  font-size: 0.8vw;
+
+  @media (max-width: 768px) {
+    font-size: 3vw; 
   }
-  
+} 
+
+.nombre-usuario {
+  margin-right: 0.5vw;
+  font-size: x-large;
+
+  @media (max-width: 768px) {
+    //SE OCULTA PARA ASEGURAR QUE NO SE ROMPA LA PAGINA 
+    display: none; 
+  }
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+
   @media (min-width: 768px) {
     .home-menu {
       flex-direction: row;
@@ -34,6 +64,10 @@
     .right-panel {
       flex: 1;
       margin-left: 10px;
+    }
+  
+    .logo {
+      width: 2%; 
     }
   }
 
@@ -59,19 +93,17 @@
 }
 
 .right-panel {
-    border-style: solid;
-    border-radius: 30px;
-    border-width: 0.5px;
-    border-color: #006600;
     order: 2;
     flex:1;
-    
  }
 
 .calendary{
     border-radius: 30px;
-    background-color: #ECECEC;
-    color: #5CA47A;
+    background-color: #ECECEC; 
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 0.5px;
+    border-color: #006600;
 }
 
 .contacto{
@@ -85,50 +117,34 @@ ul {
     padding: 0;
     list-style-type: none;
   }
-
-  .logo-container {
-    position: absolute;
-    margin-right: 20px; /* Ajusta el margen derecho según tu preferencia */
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    margin-top: 70%;
-    margin-left: 10%;
-    width: 150px;
-  }
   
   .titulo {
-    margin-left: 10%;
-    font-size: x-large;
-    flex: 1; /* Permite que el título ocupe el espacio restante en el navbar */
+    margin-left: 10vw;
+    padding-top: 1%;
+    font-size: 2vw; /* Utiliza una unidad relativa (vw) para el tamaño de fuente */
+    flex-grow: 1; 
+
+    @media (max-width: 768px) {
+      margin-top: 5vw;
+      text-align: center;
+      font-size: 3vw;
+    }
   }
 
   .logo-container {
+    width: 7vw;
+    height: auto;
+    max-width: 100%;
     position: absolute;
-    top: 50%;
+    margin-top: 11vw;
     left: 2%;
     transform: translateY(-50%);
-  }
-  
-  
-  
-  /* Media queries para estilos responsive */
-  @media (max-width: 768px) {
-    .logo-container {
-      position: relative;
-      top: auto;
-      left: auto;
-      transform: none;
-    }
-  
-    .logo {
-      width: 70px; /* Ajusta el tamaño del logo para pantallas más pequeñas */
-    }
-  
-    .titulo {
-      margin-left: 10px; /* Ajusta el margen izquierdo para pantallas más pequeñas */
-      font-size: medium;
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+      width: 16vw;
+      margin-top: 20vw;
     }
   }
+  
+  
