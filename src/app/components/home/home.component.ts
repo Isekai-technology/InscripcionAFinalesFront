@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2  } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Renderer2  } from '@angular/core';
 import { MatDialog,MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
@@ -9,20 +9,54 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor(public dialog: MatDialog, private renderer: Renderer2) {
+  constructor(public dialog: MatDialog, private renderer: Renderer2) {}
+
+  ngAfterViewInit(): void {
     this.loggedUser = localStorage.getItem('user') || "" ;
     if (this.loggedUser=="publicidad")
     {
-      const newColor = '#5CA47A'; // Define el nuevo color que deseas asignar
-      this.renderer.setStyle(document.body, 'background-color', newColor);// Utiliza el Renderer2 para modificar el estilo del body
+      const imageUrl = '../../../assets/imgs/LOGO_PUBLI.png';
+      const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
+      logoElement.src = imageUrl;
+      this.renderer.setStyle(document.body, 'background-color', '#5CA47A');
+    }
+    else
+    {
+      const imageUrl = '../../../assets/imgs/LOGO_AS.png';
+      const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
+      logoElement.src = imageUrl;
+      const newColor = 'white';
+      const elements = [
+        '.contact-data',
+        '.copyright',
+        '.nombre-usuario',
+        '.titulo',
+        '.help-button',
+        'a',
+        '.calendary',
+      ];
+      elements.forEach(className => {
+        const element = document.querySelector(className);
+        if (element) {
+          if (className === '.help-button') {
+            this.renderer.setStyle(element, 'background-color', '#213F60');
+          } else if (className == '.calendary')
+          {
+            this.renderer.setStyle(element, 'border-color', '#213F60');
+          }else
+          {
+            this.renderer.setStyle(element, 'color', newColor);
+          }
+
+        }
+      });
     }
   }
 
   ngOnInit() {
     window.addEventListener('popstate', () => {
-      // Llama a tu función aquí
       this.changeColor();
     });
   }
