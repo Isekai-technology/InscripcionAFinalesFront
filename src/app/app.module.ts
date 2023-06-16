@@ -10,7 +10,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterCardsComponent } from './components/register-cards/register-cards.component';
-import { HomeToolbarComponent } from './components/home-toolbar/home-toolbar.component';
 import { AdminMesasComponent } from './components/admin-mesas/admin-mesas.component';
 import { NavigationComponent } from './components/admin-mesas/navigation/navigation.component';
 import { DashboardComponent } from './components/admin-mesas/dashboard/dashboard.component';
@@ -34,20 +33,22 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
-    HomeToolbarComponent,
     AdminMesasComponent,
     NavigationComponent,
     DashboardComponent,
     TableComponent,
     SelectorComponent,
+    HomeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -62,6 +63,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatTabsModule,
     MatToolbarModule,
     MatDatepickerModule,
+    MatDialogModule,
     MatNativeDateModule,
     MatSidenavModule,
     LayoutModule,
@@ -73,7 +75,6 @@ import { MatOptionModule } from '@angular/material/core';
     MatSortModule,
     MatSelectModule,
     MatOptionModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

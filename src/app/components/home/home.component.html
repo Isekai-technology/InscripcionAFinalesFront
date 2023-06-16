@@ -1,41 +1,76 @@
-<div class="home-container">
-  <app-home-toolbar></app-home-toolbar>
-  <!-- Ayuda y nombre carrera -->
-  <div class="home-menu">
-    <div class="home-center">
-      <div class="left-panel">
-        <div class="help-section">
-          <button mat-mini-fab matTooltip="Ayuda" class="help-button">
-              <mat-icon>help</mat-icon>
-          </button>
-          <span id="carrera">{{career}}</span>
-        </div>
-        <br>
-        <mat-tab-group animationDuration="0ms" fitInkBarToContent>
-            <mat-tab label="Mesas Disponibles" >
-              <div class="cards">
-                <app-register-cards></app-register-cards>
-              </div>
-            </mat-tab>
-            
-            <mat-tab label="Mesas inscriptas" >   
-              
-            </mat-tab> 
-        </mat-tab-group>
-      </div>  
-      <div class="right-panel">
-        <mat-card class="calendary">
-          <mat-calendar></mat-calendar>
-        </mat-card>
-      </div>
+<nav class="navbar navbar-expand-lg">
+
+  <img src="../../../assets/imgs/LOGO_PUBLI.png" alt="" class="logo-container">
+  <div class="navbar-content">
+    <p class="navbar-nav me-auto mb-2 mb-lg-0 titulo">INSCRIPCION A FINALES</p>
+    <div class="right-section">
+      <span class="nombre-usuario">{{loggedUser}}</span>
+      <button mat-fab extended class="cerrar-sesion" (click)="closeSesionDialog()">Cerrar Sesión</button>
     </div>
   </div>
-  <div class="contacto"> 
-   Mantente en contacto
+</nav>
+
+<br>
+
+<div class="home-menu mat-elevation-z8">
+  <div class="left-panel">
+    <div class="help-section">
+      <button mat-mini-fab matTooltip="Ayuda" class="help-button" (click)="openHelpDialog()">
+        <mat-icon>help</mat-icon>
+      </button>
+      <span id="carrera">{{career}}</span>
+    </div>
+    <br>
+    <mat-tab-group animationDuration="0ms" fitInkBarToContent>
+      <mat-tab label="Mesas Disponibles">
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+      </mat-tab>
+      <mat-tab label="Mesas inscriptas">
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+        <div class="cards">
+          <app-register-cards (click)="openDialog()"></app-register-cards>
+        </div>
+      </mat-tab> 
+    </mat-tab-group>
+  </div>
+  <div class="right-panel">
+    <mat-card class="calendary">
+      <mat-calendar></mat-calendar>
+    </mat-card>
+  </div>
+</div>
+<nav class="navbar navbar-expand-lg contact-data"> 
+  <div class="contact-info">
+    Mantente en contacto
     <ul>
-      <li> <mat-icon>public</mat-icon>&nbsp; <a href="https://hilet.com">https://hilet.com</a> </li>
+      <li> <mat-icon>public</mat-icon>&nbsp; <a href="https://hilet.com" target="_blank">https://hilet.com</a> </li>
       <li> <mat-icon>call</mat-icon>&nbsp; Tel: +54 (223) 4932525</li>
       <li> <mat-icon>mail</mat-icon>&nbsp; informes@hilet.com</li>
     </ul>
   </div>
-</div>
+  <div class="navbar-content">
+    <div class="element1"></div>
+    <div class="element2"></div>
+    <div class="centered-content">
+      <div class="copyright">
+        &copy; 2023 Hilet. Todos los derechos reservados.
+      </div>
+    </div>
+  </div>
+  <div class="right-section">
+    <p>En caso de necesitar ayuda extra contacte con la administración de HILET</p>
+  </div>
+</nav>
