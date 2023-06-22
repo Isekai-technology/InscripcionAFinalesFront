@@ -15,6 +15,19 @@ import { NavigationComponent } from './components/admin-mesas/navigation/navigat
 import { DashboardComponent } from './components/admin-mesas/dashboard/dashboard.component';
 import { TableComponent } from './components/admin-mesas/table/table.component';
 import { SelectorComponent } from './components/admin-mesas/selector/selector.component';
+import { AdminProfesoresComponent } from './components/admin-profesores/admin-profesores.component';
+import { AdminMateriasComponent } from './components/admin-materias/admin-materias.component';
+import { AlumnosNavigationComponent } from './components/admin-alumnos/alumnos-navigation/alumnos-navigation.component';
+import { AlumnosDashboardComponent } from './components/admin-alumnos/alumnos-dashboard/alumnos-dashboard.component';
+import { AdminAlumnosComponent } from './components/admin-alumnos/admin-alumnos.component';
+import { ProfesoresDashboardComponent } from './components/admin-profesores/profesores-dashboard/profesores-dashboard.component';
+import { ProfesoresNavigationComponent } from './components/admin-profesores/profesores-navigation/profesores-navigation.component';
+import { MateriasNavigationComponent } from './components/admin-materias/materias-navigation/materias-navigation.component';
+import { MateriasDashboardComponent } from './components/admin-materias/materias-dashboard/materias-dashboard.component';
+import { AlumnosTableComponent } from './components/admin-alumnos/alumnos-table/alumnos-table.component';
+import { ProfesoresTableComponent } from './components/admin-profesores/profesores-table/profesores-table.component';
+import { MateriasTreeComponent } from './components/admin-materias/materias-tree/materias-tree.component';
+import { MatTreeModule } from '@angular/material/tree';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
@@ -42,13 +55,25 @@ import {MatDialogModule} from '@angular/material/dialog';
     LoginComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
+    HomeToolbarComponent,
     AdminMesasComponent,
     NavigationComponent,
     DashboardComponent,
     TableComponent,
     SelectorComponent,
     HomeComponent,
-    
+    AdminProfesoresComponent,
+    AdminMateriasComponent,
+    AlumnosNavigationComponent,
+    AlumnosDashboardComponent,
+    AdminAlumnosComponent,
+    ProfesoresDashboardComponent,
+    ProfesoresNavigationComponent,
+    MateriasNavigationComponent,
+    MateriasDashboardComponent,
+    AlumnosTableComponent,
+    ProfesoresTableComponent,
+    MateriasTreeComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,6 +100,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatSortModule,
     MatSelectModule,
     MatOptionModule,
+    MatTreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
