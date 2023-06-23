@@ -29,6 +29,12 @@ export class LoginComponent {
     login() {
       const credentials:string =  this.loginForm.get('username')!.value;
       localStorage.setItem('user',credentials);
-      this.router.navigateByUrl("/home");
+      if (localStorage.getItem('user')=='admin')
+      {
+        this.router.navigateByUrl('/admin-mesas');
+      }
+      else{
+        this.router.navigateByUrl("/home");
+      }
     }
 }
