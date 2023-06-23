@@ -55,7 +55,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     LoginComponent,
     ForgotPasswordComponent,
     RegisterCardsComponent,
-    HomeToolbarComponent,
     AdminMesasComponent,
     NavigationComponent,
     DashboardComponent,
