@@ -1,0 +1,189 @@
+.home-menu{
+    background-color: #ECECEC;
+    border-radius: 30px;
+    border-radius: 30px;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 768px) {
+      margin-right: 0;
+    }
+}
+
+a:link, a:visited, a:hover, a:active{
+  color: white;
+  text-decoration: none;
+}
+
+
+.navbar {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.cerrar-sesion {
+  margin-left: 20px;
+  background-color: #a6a6a6;
+  color: black;
+  font-size: 0.8vw;
+
+  @media (max-width: 1365px) {
+    font-size: 1.5vw; 
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3vw; 
+  }
+} 
+
+.nombre-usuario {
+  margin-right: 0.5vw;
+  font-size: x-large;
+
+  @media (max-width: 768px) {
+    //SE OCULTA PARA ASEGURAR QUE NO SE ROMPA LA PAGINA 
+    display: none; 
+  }
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  margin-right: 2%;
+  margin-top: 1%;
+}
+
+  @media (min-width: 768px) {
+    .home-menu {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .left-panel {
+      flex: 1;
+      margin-right: 10px;
+    }
+  
+    .right-panel {
+      flex: 1;
+      margin-left: 10px;
+    }
+  
+    .logo {
+      width: 2%; 
+    }
+  }
+
+.help-button{
+    background-color: #5CA47A;
+    margin-right: 20px;
+}
+
+.help-section{
+    margin-left: 15%;
+    font-size: x-large;
+    margin-top: 10px;
+}
+
+
+.left-panel {
+    order: 1;
+    flex:1;
+}
+
+.cards{
+    margin: 2%;
+}
+
+.right-panel {
+    order: 2;
+    flex:1;
+ }
+
+.calendary{
+    border-radius: 30px;
+    background-color: #ECECEC; 
+    border-style: solid;
+    border-radius: 30px;
+    border-width: 0.5px;
+    border-color: #006600;
+}
+
+.contact-data{
+    padding-left: 2.5%;
+    margin-top: 1%;
+    padding-bottom: 10px;
+}
+
+.contact-info{
+  flex-grow: 1;
+}
+
+.right-section{
+  text-align: center;
+  margin-right: 3vw;
+  margin-left: auto;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered-content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centered-content .copyright {
+  font-size: 14px;
+  color: black;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  .titulo {
+    margin-left: 10vw;
+    padding-top: 1%;
+    font-size: 2vw; /* Utiliza una unidad relativa (vw) para el tamaño de fuente */
+    flex-grow: 1; 
+
+    @media (max-width: 768px) {
+      margin-top: 5vw;
+      text-align: center;
+      font-size: 3vw;
+    }
+  }
+
+  .logo-container {
+    width: 7vw;
+    height: auto;
+    max-width: 100%;
+    position: absolute;
+    margin-top: 11vw;
+    left: 2%;
+    transform: translateY(-50%);
+    max-width: 100%;
+
+    @media (max-width: 768px) {
+      width: 16vw;
+      margin-top: 20vw;
+    }
+  }
+  
+  

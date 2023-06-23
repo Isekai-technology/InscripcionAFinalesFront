@@ -1,0 +1,45 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Administracion</mat-toolbar>
+    <mat-nav-list>
+      
+      <a mat-list-item href="admin-mesas" class="icon-link">
+        <mat-icon class="icon">calendar_today</mat-icon>
+        Mesas
+      </a>
+     
+      <a mat-list-item href="admin-materias" class="icon-link">
+        <mat-icon class="icon">library_books</mat-icon>
+        Materias
+      </a>
+      <a mat-list-item href="/admin-alumnos" class="icon-link">
+        <mat-icon class="icon">accessibility</mat-icon>
+        Alumnos
+      </a>
+      <a mat-list-item href="admin-profesores" class="icon-link">
+        <mat-icon class="icon">record_voice_over</mat-icon>
+        Profesores
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>HILET</span>
+    </mat-toolbar>
+    
+    <app-alumnos-dashboard></app-alumnos-dashboard>
+    <app-alumnos-table></app-alumnos-table>
+  
+  </mat-sidenav-content>
+</mat-sidenav-container>
