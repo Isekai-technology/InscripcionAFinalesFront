@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeToolbarComponent } from './home-toolbar.component';
+import { AdminMateriasComponent } from './admin-materias.component';
 
-describe('HomeToolbarComponent', () => {
-  let component: HomeToolbarComponent;
-  let fixture: ComponentFixture<HomeToolbarComponent>;
+describe('AdminMateriasComponent', () => {
+  let component: AdminMateriasComponent;
+  let fixture: ComponentFixture<AdminMateriasComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeToolbarComponent ]
+      declarations: [ AdminMateriasComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeToolbarComponent);
+    fixture = TestBed.createComponent(AdminMateriasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
