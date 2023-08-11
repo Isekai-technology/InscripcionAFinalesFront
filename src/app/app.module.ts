@@ -5,8 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+
+
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
+
+
+
 import { MesasAdminComponent } from './components/admin/mesas-admin/mesas-admin.component';
 import { TablaMesasComponent } from './components/admin/mesas-admin/tabla-mesas/tabla-mesas.component';
 import { CargarMesasComponent } from './components/admin/mesas-admin/cargar-mesas/cargar-mesas.component';
@@ -33,6 +40,7 @@ import { CargarProfesoresComponent } from './components/admin/profresores-admin/
     ReactiveFormsModule,
     BrowserAnimationsModule,
     LayoutModule,
+    NoopAnimationsModule,
     MATERIAL_MODULES,
   ],
   providers: [],
