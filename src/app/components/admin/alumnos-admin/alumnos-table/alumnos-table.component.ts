@@ -9,13 +9,12 @@ import { AlumnosTableDataSource, AlumnosTableItem } from './alumnos-table-dataso
   templateUrl: './alumnos-table.component.html',
   styleUrls: ['./alumnos-table.component.scss']
 })
-export class AlumnosTableComponent implements AfterViewInit {
+export class AlumnosTableComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<AlumnosTableItem>;
   dataSource: AlumnosTableDataSource;
-
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
+  
   displayedColumns = ['id', 'name'];
 
   constructor() {
