@@ -31,7 +31,7 @@ export class LoginComponent {
       localStorage.setItem('user',credentials);
       if (localStorage.getItem('user')=='admin')
       {
-        this.router.navigateByUrl('/admin-mesas');
+        this.router.navigateByUrl('/admin');
       }
       else{
         this.router.navigateByUrl("/home");

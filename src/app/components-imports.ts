@@ -8,8 +8,6 @@ import { TableComponent } from './components/admin-mesas/table/table.component';
 import { SelectorComponent } from './components/admin-mesas/selector/selector.component';
 import { AdminProfesoresComponent } from './components/admin-profesores/admin-profesores.component';
 import { AdminMateriasComponent } from './components/admin-materias/admin-materias.component';
-import { AlumnosDashboardComponent } from './components/admin-alumnos/alumnos-dashboard/alumnos-dashboard.component';
-import { AdminAlumnosComponent } from './components/admin-alumnos/admin-alumnos.component';
 import { ProfesoresDashboardComponent } from './components/admin-profesores/profesores-dashboard/profesores-dashboard.component';
 import { MateriasDashboardComponent } from './components/admin-materias/materias-dashboard/materias-dashboard.component';
 import { ProfesoresTableComponent } from './components/admin-profesores/profesores-table/profesores-table.component';
@@ -31,8 +29,6 @@ export const COMPONENTS = [
   HomeComponent,
   AdminProfesoresComponent,
   AdminMateriasComponent,
-  AlumnosDashboardComponent,
-  AdminAlumnosComponent,
   ProfesoresDashboardComponent,
   MateriasDashboardComponent,
   ProfesoresTableComponent,
