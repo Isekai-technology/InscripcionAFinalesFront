@@ -6,16 +6,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { CargarMesasComponent } from './cargar-mesas.component';
 
-import { MateriasDashboardComponent } from './materias-dashboard.component';
-
-describe('MateriasDashboardComponent', () => {
-  let component: MateriasDashboardComponent;
-  let fixture: ComponentFixture<MateriasDashboardComponent>;
+describe('CargarMesasComponent', () => {
+  let component: CargarMesasComponent;
+  let fixture: ComponentFixture<CargarMesasComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [MateriasDashboardComponent],
+      declarations: [CargarMesasComponent],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -29,7 +28,7 @@ describe('MateriasDashboardComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MateriasDashboardComponent);
+    fixture = TestBed.createComponent(CargarMesasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

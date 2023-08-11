@@ -2,14 +2,14 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
-import { TableDataSource, TableItem } from './table-datasource';
+import { TableDataSource,TableItem } from '../table/table-datasource';
 
 @Component({
-  selector: 'app-table',
-  templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss']
+  selector: 'app-tabla-mesas',
+  templateUrl: './tabla-mesas.component.html',
+  styleUrls: ['./tabla-mesas.component.scss']
 })
-export class TableComponent implements AfterViewInit {
+export class TablaMesasComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<TableItem>;

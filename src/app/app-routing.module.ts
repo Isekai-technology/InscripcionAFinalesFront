@@ -4,11 +4,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { AdminProfesoresComponent } from './components/admin-profesores/admin-profesores.component';
-import { AdminMateriasComponent } from './components/admin-materias/admin-materias.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { AlumnosTableComponent } from './components/admin/alumnos-admin/alumnos-table/alumnos-table.component';
 import { AlumnosAdminComponent } from './components/admin/alumnos-admin/alumnos-admin.component';
+import { MateriasAdminComponent } from './components/admin/materias-admin/materias-admin.component';
+import { MesasAdminComponent } from './components/admin/mesas-admin/mesas-admin.component';
+import { ProfresoresAdminComponent } from './components/admin/profresores-admin/profresores-admin.component';
 
 
 const routes: Routes = [
@@ -32,27 +32,13 @@ const routes: Routes = [
     path: "admin",
     component: AdminComponent,
     children: [
-      { path: '', redirectTo: 'alumnos', pathMatch: 'full'},
+      { path: '', pathMatch: 'full', redirectTo: 'alumnos' },
       { path: 'alumnos', component: AlumnosAdminComponent },
+      { path: 'materias', component: MateriasAdminComponent },
+      { path: 'profesores', component: ProfresoresAdminComponent },
+      { path: 'mesas', component: MesasAdminComponent },
     ]
   },
-
-  {
-    path: "alumnos",
-    component: AlumnosTableComponent
-  },
-
-  {
-    path: "admin-profesores",
-    component: AdminProfesoresComponent 
-  },
-
-  {
-    path: "admin-materias",
-    component: AdminMateriasComponent 
-  }
-
-
 ];
 
 @NgModule({

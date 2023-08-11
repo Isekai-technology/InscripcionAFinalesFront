@@ -7,15 +7,15 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 
-import { DashboardComponent } from './dashboard.component';
+import { CargarMateriasComponent } from './cargar-materias.component';
 
-describe('DashboardComponent', () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe('MateriasDashboardComponent', () => {
+  let component: CargarMateriasComponent;
+  let fixture: ComponentFixture<CargarMateriasComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
+      declarations: [CargarMateriasComponent],
       imports: [
         NoopAnimationsModule,
         LayoutModule,
@@ -29,7 +29,7 @@ describe('DashboardComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(CargarMateriasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
