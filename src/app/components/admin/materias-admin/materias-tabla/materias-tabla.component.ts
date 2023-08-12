@@ -59,12 +59,17 @@ let alumnos: materias[] = [
   templateUrl: './materias-tabla.component.html',
   styleUrls: ['./materias-tabla.component.scss']
 })
+
+
 export class MateriasTablaComponent {
   displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'titular', 'correlativas'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<materias>;
   array:any=[];
+  correlativaslistaux: string[] = [];
+  nombreMateriaSeleccionada: string = '';
+  mostrarCorrelativas: boolean = false;
 
   constructor(private dialog : MatDialog) {
     this.array=alumnos;
@@ -138,10 +143,16 @@ export class MateriasTablaComponent {
       width: '400px',
     });
 
+
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
   }
 
+  correlativas(correlativaslist:string[], nombreMateria:string){
+    this.correlativaslistaux=correlativaslist;
+    this.nombreMateriaSeleccionada = nombreMateria;
+    this.mostrarCorrelativas=true;
+  }
 
 }
