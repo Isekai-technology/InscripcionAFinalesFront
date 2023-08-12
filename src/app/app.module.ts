@@ -8,30 +8,14 @@ import { AppComponent } from './app.component';
 
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
-
-
-
-import { MesasAdminComponent } from './components/admin/mesas-admin/mesas-admin.component';
-import { TablaMesasComponent } from './components/admin/mesas-admin/tabla-mesas/tabla-mesas.component';
-import { CargarMesasComponent } from './components/admin/mesas-admin/cargar-mesas/cargar-mesas.component';
-import { ProfresoresAdminComponent } from './components/admin/profresores-admin/profresores-admin.component';
-import { TablaProfesoresComponent } from './components/admin/profresores-admin/tabla-profesores/tabla-profesores.component';
-import { CargarProfesoresComponent } from './components/admin/profresores-admin/cargar-profesores/cargar-profesores.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-    MesasAdminComponent,
-    TablaMesasComponent,
-    CargarMesasComponent,
-    ProfresoresAdminComponent,
-    TablaProfesoresComponent,
-    CargarProfesoresComponent,
+
   ],
   imports: [
     BrowserModule,

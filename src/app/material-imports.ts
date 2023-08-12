@@ -17,6 +17,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
 
 
 export const MATERIAL_MODULES = [
@@ -39,4 +41,5 @@ export const MATERIAL_MODULES = [
   MatSelectModule,
   MatOptionModule,
   MatTreeModule,
+  MatCheckboxModule
 ]
