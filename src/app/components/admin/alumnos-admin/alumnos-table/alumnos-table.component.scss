@@ -1,3 +1,29 @@
-.full-width-table {
-  width: 100%;
+.filtros {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.agregar-btn {
+  margin-top: 10  px;
+  text-align: right;
+  margin-left: auto;
+}
+
+.filtro-carrera {
+  margin-right: 20px; 
+}
+
+.filtro-curso {
+  margin-top: 20px;
+}
+
+.curso-list {
+  display: flex; 
+  list-style: none; 
+  padding: 0;
+}
+
+.curso-list li {
+  margin-right: 10px; 
 }

@@ -10,11 +10,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
+import { AlumnoCardComponent } from './components/admin/alumnos-admin/alumno-card/alumno-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
+    AlumnoCardComponent,
 
   ],
   imports: [
