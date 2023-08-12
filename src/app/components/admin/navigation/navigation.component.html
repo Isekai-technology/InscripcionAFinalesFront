@@ -1,24 +1,24 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+<mat-sidenav-container autosize>
+  <mat-sidenav #drawer  fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Administracion</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="mesas" class="icon-link">
+      <a mat-list-item routerLink="mesas">
         <mat-icon class="icon">calendar_today</mat-icon>
         Mesas
       </a>
      
-      <a mat-list-item routerLink="materias" class="icon-link">
+      <a mat-list-item routerLink="materias">
         <mat-icon class="icon">library_books</mat-icon>
         Materias
       </a>
-      <a mat-list-item routerLink="alumnos" class="icon-link">
+      <a mat-list-item routerLink="alumnos">
         <mat-icon class="icon">accessibility</mat-icon>
         Alumnos
       </a>
-      <a mat-list-item routerLink="profesores" class="icon-link">
+      <a mat-list-item routerLink="profesores">
         <mat-icon class="icon">record_voice_over</mat-icon>
         Profesores
       </a>
@@ -36,10 +36,8 @@
       </button>
       <span>HILET</span>
     </mat-toolbar>
-    
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  
+    <div class="router">
+      <router-outlet ></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
