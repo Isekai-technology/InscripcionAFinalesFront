@@ -9,3 +9,23 @@
   padding-bottom: 20px;
   
 }
+
+.mat-toolbar {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+}
+.cerrar-sesion {
+  margin-left: 20px;
+  background-color: #a6a6a6;
+  color: black;
+  font-size: 0.8vw;
+
+  @media (max-width: 1365px) {
+    font-size: 1.5vw; 
+  }
+
+  @media (max-width: 768px) {
+    font-size: 3vw; 
+  }
+} 
