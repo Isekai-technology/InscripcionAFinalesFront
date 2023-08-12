@@ -1,6 +1,13 @@
 <h2 mat-dialog-title>Cargar Mesas</h2>
 <div mat-dialog-content>
   <mat-form-field>
+    <mat-label>Carrera</mat-label>
+    <mat-select>
+      <mat-option value="one">Analista</mat-option>
+      <mat-option value="two">Publicidad</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
     <mat-label>Name</mat-label>
     <input matInput placeholder="Nombre de la materia">
   </mat-form-field>
@@ -28,11 +35,11 @@
   <!--https://www.npmjs.com/package/@angular-material-components/datetime-picker  ARREGLAR PARA USAR ESTA-->
    <!--CON LA BARRA ESPACIADORA SE DESPLIEGA-->
   <mat-form-field>
-    <mat-label>FECHA 1</mat-label>
+    <mat-label>Primer llamado</mat-label>
     <input matInput type="datetime-local" placeholder="start date">
   </mat-form-field>
   <mat-form-field>
-    <mat-label>FECHA 2</mat-label>
+    <mat-label>Segundo llamado</mat-label>
     <input matInput type="datetime-local" placeholder="start date">
   </mat-form-field>
 </div>

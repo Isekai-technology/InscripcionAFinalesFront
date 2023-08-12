@@ -12,7 +12,7 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Curso</mat-label>
+    <mat-label>Año</mat-label>
     <mat-select>
       <mat-option value="one">Primero</mat-option>
       <mat-option value="two">Segundo</mat-option>
@@ -39,15 +39,15 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Correlativas cursadas</mat-label>
-    <mat-select [formControl]="cursadas" multiple>
+    <mat-label>Correlativas regularizadas</mat-label>
+    <mat-select [formControl]="regularizadas" multiple>
       <mat-select-trigger>
-        {{cursadas.value?.[0] || ''}}
-        <span *ngIf="(cursadas.value?.length || 0) > 1" class="example-additional-selection">
-          (+{{(cursadas.value?.length || 0) - 1}} {{cursadas.value?.length === 2 ? 'other' : 'others'}})
+        {{regularizadas.value?.[0] || ''}}
+        <span *ngIf="(regularizadas.value?.length || 0) > 1" class="example-additional-selection">
+          (+{{(regularizadas.value?.length || 0) - 1}} {{regularizadas.value?.length === 2 ? 'other' : 'others'}})
         </span>
       </mat-select-trigger>
-      <mat-option *ngFor="let topping of cursadaslist" [value]="topping">{{topping}}</mat-option>
+      <mat-option *ngFor="let topping of regularizadaslist" [value]="topping">{{topping}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>

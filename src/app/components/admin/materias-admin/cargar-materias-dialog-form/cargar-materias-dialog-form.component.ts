@@ -7,8 +7,8 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./cargar-materias-dialog-form.component.scss']
 })
 export class CargarMateriasDialogFormComponent {
-  cursadas = new FormControl('');
+  regularizadas = new FormControl('');
   aprobadas = new FormControl('');
-  cursadaslist: string[] = ['Mate', 'ingles', 'program'];
-  aprobadaslist = this.cursadaslist;
+  regularizadaslist: string[] = ['Mate', 'ingles', 'program'];
+  aprobadaslist = this.regularizadaslist;
 }
