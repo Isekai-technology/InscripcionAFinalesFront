@@ -2,6 +2,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 export interface UserData {
   DNI : number;
@@ -34,7 +35,7 @@ export class TablaAlumnosComponent implements AfterViewInit{
   dataSource: MatTableDataSource<UserData>;
 
   array:any=[];
-  constructor() {
+  constructor(private router:Router) {
     this.array=data;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -44,5 +45,9 @@ export class TablaAlumnosComponent implements AfterViewInit{
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
 
+  }
+
+  volver(){
+    this.router.navigate(['/admin/mesas']);
   }
 }

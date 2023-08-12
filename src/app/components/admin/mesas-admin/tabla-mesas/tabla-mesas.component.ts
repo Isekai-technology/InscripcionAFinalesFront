@@ -3,6 +3,9 @@ import { ThemePalette } from '@angular/material/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort } from '@angular/material/sort';
 import {MatTableDataSource } from '@angular/material/table';
+import { CargarMesasDialogFormComponent } from '../cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 export interface UserData {
   carrera: string,
@@ -102,7 +105,7 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   arrayAux:any = [];
-  constructor() {
+  constructor(public dialog: MatDialog, private router:Router) {
     this.arrayAux = mesas;
     this.dataSource = new MatTableDataSource(this.arrayAux);
   }
@@ -175,7 +178,17 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  agregarMesa(){
-    
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CargarMesasDialogFormComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  clickedRows(row:any){
+    this.router.navigate(['/admin/alumnoXmesas']);
   }
 }

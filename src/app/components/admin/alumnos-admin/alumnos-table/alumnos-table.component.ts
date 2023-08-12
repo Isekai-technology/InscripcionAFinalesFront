@@ -3,6 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface AlumnoData{
   id:number,
@@ -28,7 +29,7 @@ let alumnos: AlumnoData[] = [
     apellido:"BD",
     DNI: 543223151,
     carrera: "Analista",
-    curso:'primero',
+    curso:'Primero',
     materias: [
       'gfdsfafas','fgdsagdsa','gfasdgafs'
     ],
@@ -39,7 +40,7 @@ let alumnos: AlumnoData[] = [
     apellido:"NMUYF",
     DNI: 215312632,
     carrera: "Publicidad",
-    curso:'primero',
+    curso:'Primero',
     materias: [
       'unte','awqa','bnnut'
     ],
@@ -50,7 +51,7 @@ let alumnos: AlumnoData[] = [
     apellido:"TYMT",
     DNI: 654354254,
     carrera: "Analista",
-    curso:'tercero',
+    curso:'Tercero',
     materias: [
       'ceett','fgdsagdsa','gfasdgafs'
     ],
@@ -61,7 +62,7 @@ let alumnos: AlumnoData[] = [
     apellido:"CQWQ",
     DNI: 87654312,
     carrera: "Publicidad",
-    curso:'segundo',
+    curso:'Segundo',
     materias: [
       'unte','biu7y','bnnut'
     ],
@@ -79,7 +80,7 @@ export class AlumnosTableComponent {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<AlumnoData>;
   array:any=[];
-  constructor() {
+  constructor(private router: Router) {
     this.array=alumnos;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -149,8 +150,8 @@ export class AlumnosTableComponent {
 
   }
 
-  onRowClick(event:any){
-    
+  clickedRows(row:any){
+    this.router.navigate(['/admin/alumno']);
   }
 
 }

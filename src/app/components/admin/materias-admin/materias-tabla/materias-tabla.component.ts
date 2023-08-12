@@ -3,6 +3,8 @@ import { ThemePalette } from '@angular/material/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { CargarMateriasDialogFormComponent } from '../cargar-materias-dialog-form/cargar-materias-dialog-form.component';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface materias{
   id:number,
@@ -25,7 +27,7 @@ let alumnos: materias[] = [
     id:1,
     nombre:"MATEMATICA",
     carrera:"Analista",
-    curso:"primero",
+    curso:"Primero",
     titular: "HYRGWVR4E",
     correlativas: [
       'gfdsfafas','fgdsagdsa','gfasdgafs'
@@ -34,8 +36,8 @@ let alumnos: materias[] = [
   {
     id:2,
     nombre:"CALCULO",
-    carrera:"publicidad",
-    curso:"segundo",
+    carrera:"Publicidad",
+    curso:"Segundo",
     titular: "JUTNBTRFY",
     correlativas: [
       'cxvtyry5es','btyedrsxfgc','aw4tgd'
@@ -45,7 +47,7 @@ let alumnos: materias[] = [
     id:3,
     nombre:"PROGRAMACION",
     carrera:"Analista",
-    curso:"tercero",
+    curso:"Tercero",
     titular: "MUNYHTBGR",
     correlativas: [
       'vtrwsdfg','awthfx','gfasdgafs'
@@ -64,7 +66,7 @@ export class MateriasTablaComponent {
   dataSource: MatTableDataSource<materias>;
   array:any=[];
 
-  constructor() {
+  constructor(private dialog : MatDialog) {
     this.array=alumnos;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -131,7 +133,15 @@ export class MateriasTablaComponent {
     this.dataSource.sort = this.sort;
   }
 
-  agregarMesa(){
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CargarMateriasDialogFormComponent, {
+      width: '400px',
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
+
+
 }
