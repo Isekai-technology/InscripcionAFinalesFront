@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-cargar-materias-dialog-form',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./cargar-materias-dialog-form.component.scss']
 })
 export class CargarMateriasDialogFormComponent {
-
+  cursadas = new FormControl('');
+  aprobadas = new FormControl('');
+  cursadaslist: string[] = ['Mate', 'ingles', 'program'];
+  aprobadaslist = this.cursadaslist;
 }
