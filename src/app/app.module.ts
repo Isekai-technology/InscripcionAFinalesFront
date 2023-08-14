@@ -16,6 +16,7 @@ import { COMPONENTS } from './components-imports';
     AppComponent,
     COMPONENTS,
 
+
   ],
   imports: [
     BrowserModule,
