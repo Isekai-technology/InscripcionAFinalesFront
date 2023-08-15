@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SelectorComponent } from './selector.component';
+import { MateriasTablaComponent } from './materias-tabla.component';
 
-describe('SelectorComponent', () => {
-  let component: SelectorComponent;
-  let fixture: ComponentFixture<SelectorComponent>;
+describe('MateriasTablaComponent', () => {
+  let component: MateriasTablaComponent;
+  let fixture: ComponentFixture<MateriasTablaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SelectorComponent ]
+      declarations: [ MateriasTablaComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SelectorComponent);
+    fixture = TestBed.createComponent(MateriasTablaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
