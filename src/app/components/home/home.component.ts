@@ -9,7 +9,17 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements OnInit, AfterViewInit {
+  
+  //Estados
+  validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
+  loggedUser: string = "";
+  career: string = 'Publicidad'; //para test
+
+  //Filtro de fechas, mas adelante implementar en base a las fechas en las tarjetas
+  minDate= new Date();
+  maxDate= new Date(2023, 7, 21);
 
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
@@ -64,11 +74,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   changeColor(){
     this.renderer.setStyle(document.body, 'background-color', "#213F60");
   }
-
-  //Estados
-  validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
-  loggedUser: string = "";
-  career: string = 'Publicidad'; //para test
 
   openDialog() {
     const dialogRef = this.dialog.open(DialogContent);

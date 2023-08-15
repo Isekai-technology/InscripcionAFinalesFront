@@ -48,7 +48,7 @@
   </div>
   <div class="right-panel">
     <mat-card class="calendary">
-      <mat-calendar></mat-calendar>
+      <mat-calendar #examDatePicker [minDate]="minDate" [maxDate]="maxDate" ></mat-calendar>
     </mat-card>
   </div>
 </div>
