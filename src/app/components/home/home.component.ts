@@ -21,11 +21,17 @@ export class HomeComponent implements OnInit, AfterViewInit {
   minDate= new Date();
   maxDate= new Date(2023, 7, 21);
 
-  examDates: Array<ExamDate> = new Array<ExamDate>(
+  availableExamDates: Array<ExamDate> = new Array<ExamDate>(
     new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
     new ExamDate("Algebra", new Date(2023, 7, 22), new Date(2023, 7, 18)),
-    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
-    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Ingenieria Informatica I", new Date(2023, 7, 24), new Date(2023, 7, 22)),
+    new ExamDate("Ingles I", new Date(2023, 7, 25), new Date(2023, 7, 23)),
+  );
+  
+  registeredExamDates: Array<ExamDate> = new Array<ExamDate>(
+    new ExamDate("Practicas Profesionalizantes I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Sistemas y Organizaciones", new Date(2023, 7, 22), new Date(2023, 7, 18)),
+    new ExamDate("Algoritmos I", new Date(2023, 7, 24), new Date(2023, 7, 22))
   );
 
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}

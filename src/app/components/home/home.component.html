@@ -23,24 +23,12 @@
     <br>
     <mat-tab-group animationDuration="0ms" fitInkBarToContent>
       <mat-tab label="Mesas Disponibles">
-        <div class="cards">
-          <app-register-cards (click)="openDialog()"></app-register-cards>
-        </div>
-        <div class="cards">
-          <app-register-cards (click)="openDialog()"></app-register-cards>
-        </div>
-        <div class="cards">
-          <app-register-cards (click)="openDialog()"></app-register-cards>
-        </div>
-        <div class="cards">
+        <div *ngFor="let available of availableExamDates " class="cards">
           <app-register-cards (click)="openDialog()"></app-register-cards>
         </div>
       </mat-tab>
       <mat-tab label="Mesas inscriptas">
-        <div class="cards">
-          <app-register-cards (click)="openDialog()"></app-register-cards>
-        </div>
-        <div class="cards">
+        <div *ngFor="let registered of registeredExamDates" class="cards">
           <app-register-cards (click)="openDialog()"></app-register-cards>
         </div>
       </mat-tab> 
