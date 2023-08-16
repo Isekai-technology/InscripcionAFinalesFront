@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     else
     {
+      this.career = "Analista de Sistemas";
       const imageUrl = '../../../assets/imgs/LOGO_AS.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
       logoElement.src = imageUrl;
