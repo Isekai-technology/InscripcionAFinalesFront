@@ -1,10 +1,10 @@
 <mat-card class="exam-card" (click)="onCardClick()">
   <mat-card-header>
-    <mat-card-title>Analisis Matematico I</mat-card-title>
+    <mat-card-title>{{subject}}</mat-card-title>
     <mat-card-subtitle>Primer Año</mat-card-subtitle>
     <mat-icon class="right-icon">app_registration</mat-icon>
   </mat-card-header>
   <mat-card-content class="content">
-    <p>Primer llamado: 20/08</p>
+    <p>Primer llamado: {{date.toLocaleDateString()}}</p>
   </mat-card-content>
 </mat-card>

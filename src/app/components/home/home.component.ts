@@ -143,7 +143,7 @@ export class DialogHelpContent {}
   })
   export class DialogContent {}
 
-  //Placeholder para las mesas
+  //Placeholder para las mesas, DEBERIA SER UNA CLASE EXTERNA
 export class ExamDate {
   subject: string;
   date: Date;
