@@ -21,6 +21,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
   minDate= new Date();
   maxDate= new Date(2023, 7, 21);
 
+  examDates: Array<ExamDate> = new Array<ExamDate>(
+    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Algebra", new Date(2023, 7, 22), new Date(2023, 7, 18)),
+    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+  );
+
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
@@ -129,3 +136,16 @@ export class DialogHelpContent {}
     imports: [MatDialogModule, MatButtonModule],
   })
   export class DialogContent {}
+
+  //Placeholder para las mesas
+export class ExamDate {
+  subject: string;
+  date: Date;
+  limitInscriptionDate: Date; // El ultimo dia que te podes inscribir a la mesa
+
+  constructor (subject: string, date: Date, limitDate: Date){
+    this.subject= subject;
+    this.date= date;
+    this.limitInscriptionDate= limitDate;
+  }
+}
