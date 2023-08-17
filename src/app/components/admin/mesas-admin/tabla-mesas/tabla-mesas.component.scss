@@ -27,14 +27,11 @@
 .curso-list li {
   margin-right: 10px; 
 }
-.demo-row-is-clicked {
-  font-weight: bold;
-}
+
 .mat-mdc-row:hover .mat-mdc-cell {
-  border-color: currentColor;
-}
-.mat-mdc-row .mat-mdc-cell {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
+  background-color: #E8EAF6;
   cursor: pointer;
+}
+.mat-mdc-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
 }

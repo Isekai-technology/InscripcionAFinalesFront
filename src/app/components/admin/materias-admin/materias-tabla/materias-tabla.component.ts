@@ -11,7 +11,7 @@ export interface materias{
   nombre:string,
   carrera:string,
   curso:string,
-  titular:string,
+  profesor:string,
   correlativas: string[],
 }
 
@@ -28,7 +28,7 @@ let alumnos: materias[] = [
     nombre:"MATEMATICA",
     carrera:"Analista",
     curso:"Primero",
-    titular: "HYRGWVR4E",
+    profesor: "HYRGWVR4E",
     correlativas: [
       'gfdsfafas','fgdsagdsa','gfasdgafs'
     ],
@@ -38,7 +38,7 @@ let alumnos: materias[] = [
     nombre:"CALCULO",
     carrera:"Publicidad",
     curso:"Segundo",
-    titular: "JUTNBTRFY",
+    profesor: "JUTNBTRFY",
     correlativas: [
       'cxvtyry5es','btyedrsxfgc','aw4tgd'
     ],
@@ -48,7 +48,7 @@ let alumnos: materias[] = [
     nombre:"PROGRAMACION",
     carrera:"Analista",
     curso:"Tercero",
-    titular: "MUNYHTBGR",
+    profesor: "MUNYHTBGR",
     correlativas: [
       'vtrwsdfg','awthfx','gfasdgafs'
     ],
@@ -62,7 +62,7 @@ let alumnos: materias[] = [
 
 
 export class MateriasTablaComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'titular', 'correlativas'];
+  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<materias>;
