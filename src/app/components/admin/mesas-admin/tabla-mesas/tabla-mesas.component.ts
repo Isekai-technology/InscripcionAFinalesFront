@@ -12,8 +12,8 @@ export interface UserData {
   curso: string,
   nombre: string;
   titular: string;
-  suplente1: string;
-  suplente2: string;
+  vocal1: string;
+  vocal2: string;
   fecha1:string;
   fecha2:string;
 }
@@ -31,18 +31,18 @@ let mesas: UserData[] = [
     curso: 'Primero',
     nombre: 'SDGF',
     titular: 'Maia',
-    suplente1: 'Asher',
-    suplente2: 'Asher',
+    vocal1: 'Asher',
+    vocal2: 'Asher',
     fecha1: '123',
     fecha2: '432',
   },
   {
     carrera: 'Analista',
     curso: 'Segundo',
-    nombre: 'SDGHGTFRNRT',
+    nombre: 'SDGHG',
     titular: 'Olivia',
-    suplente1: 'Maia',
-    suplente2: 'Maia',
+    vocal1: 'Maia',
+    vocal2: 'Maia',
     fecha1: '123',
     fecha2: '432',
   },
@@ -51,8 +51,8 @@ let mesas: UserData[] = [
     curso: 'Tercero',
     nombre: 'DFBN',
     titular: 'Maia',
-    suplente1: 'Asher',
-    suplente2: 'Asher',
+    vocal1: 'Asher',
+    vocal2: 'Asher',
     fecha1: '123',
     fecha2: '432',
   },
@@ -61,8 +61,8 @@ let mesas: UserData[] = [
     curso: 'Primero',
     nombre: 'CVCGR',
     titular: 'Amelia',
-    suplente1: 'Maia',
-    suplente2: 'Asher',
+    vocal1: 'Maia',
+    vocal2: 'Asher',
     fecha1: '123',
     fecha2: '432',
   },
@@ -71,8 +71,8 @@ let mesas: UserData[] = [
     curso: 'Segundo',
     nombre: 'GFCRT',
     titular: 'Atticus',
-    suplente1: 'Asher',
-    suplente2: 'Amelia',
+    vocal1: 'Asher',
+    vocal2: 'Amelia',
     fecha1: '123',
     fecha2: '432',
   },
@@ -81,8 +81,8 @@ let mesas: UserData[] = [
     curso: 'Tercero',
     nombre: 'ASVBNUT',
     titular: 'Atticus',
-    suplente1: 'Asher',
-    suplente2: 'Amelia',
+    vocal1: 'Asher',
+    vocal2: 'Amelia',
     fecha1: '123',
     fecha2: '432',
   }
@@ -97,7 +97,7 @@ let mesas: UserData[] = [
 })
 
 export class TablaMesasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['nombre', 'titular', 'suplente1','suplente2', 'fecha1', 'fecha2'];
+  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha1', 'fecha2'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)

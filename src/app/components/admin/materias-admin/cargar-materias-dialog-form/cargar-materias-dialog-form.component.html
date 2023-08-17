@@ -1,5 +1,5 @@
-<h2 mat-dialog-title>Cargar Materia</h2>
-<div mat-dialog-content>
+<h2 mat-dialog-title>Nueva Materia</h2>
+<div mat-dialog-content class="dialog-content">
   <mat-form-field>
     <mat-label>Nombre</mat-label>
     <input matInput placeholder="Nombre de la materia">
@@ -19,12 +19,14 @@
       <mat-option value="three">Tercero</mat-option>
     </mat-select>
   </mat-form-field>
-  <mat-form-field>
-    <mat-label>Titular</mat-label>
-    <mat-select>
-      <mat-option value="one">First option</mat-option>
-      <mat-option value="two">Second option</mat-option>
-    </mat-select>
+  <mat-form-field class="example-full-width">
+    <mat-label>Profesor</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Correlativas aprobadas</mat-label>
@@ -51,7 +53,7 @@
     </mat-select>
   </mat-form-field>
 </div>
-<div mat-dialog-actions>
+<div mat-dialog-actions class="dialog-actions">
   <button mat-button mat-dialog-close>Cancel</button>
   <button mat-button [mat-dialog-close]="true">Save</button>
 </div>
