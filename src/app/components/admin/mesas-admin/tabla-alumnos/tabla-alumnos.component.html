@@ -1,7 +1,7 @@
-
-<button mat-raised-button color="primary" (click)="volver()">Volver</button>
-<h1>NOMBRE DE LA MESA</h1>
-
+<div class="header">
+  <h1>NOMBRE DE LA MESA</h1>
+  <button mat-raised-button color="primary" (click)="volver()">Volver</button>
+</div>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>
 
@@ -23,5 +23,5 @@
 
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>

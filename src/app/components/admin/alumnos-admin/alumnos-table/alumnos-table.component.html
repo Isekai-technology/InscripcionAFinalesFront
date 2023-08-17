@@ -39,7 +39,7 @@
 
     <!-- id Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> id </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
       <td mat-cell *matCellDef="let row"> {{row.id}} </td>
     </ng-container>
 
@@ -51,7 +51,7 @@
 
     <!-- apellido Column -->
     <ng-container matColumnDef="apellido">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> apellido </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
       <td mat-cell *matCellDef="let row"> {{row.apellido}} </td>
     </ng-container>
 
@@ -63,13 +63,13 @@
 
     <!-- carrera Column -->
     <ng-container matColumnDef="carrera">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> carrera </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Carrera </th>
       <td mat-cell *matCellDef="let row"> {{row.carrera}} </td>
     </ng-container>
 
     <!-- curso Column -->
     <ng-container matColumnDef="curso">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> curso </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Año </th>
       <td mat-cell *matCellDef="let row"> {{row.curso}} </td>
     </ng-container>
 
@@ -81,6 +81,6 @@
     ></tr>
   </table>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
 <br>
