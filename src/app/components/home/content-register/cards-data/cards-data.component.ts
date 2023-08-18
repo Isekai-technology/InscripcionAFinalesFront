@@ -5,6 +5,15 @@ import { Component } from '@angular/core';
   templateUrl: './cards-data.component.html',
   styleUrls: ['./cards-data.component.scss']
 })
-export class CardsDataComponent {
 
+
+export class CardsDataComponent {
+  titulo = "Materia";
+  curso="";
+  profesor="";
+  fecha="";
+  constructor() {
+
+  }
+  
 }

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, Renderer2  } from '@angular/core';
 import { MatDialog,MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
+import { CardsDataComponent } from './content-register/cards-data/cards-data.component';
 
 
 @Component({
@@ -71,7 +72,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   career: string = 'Publicidad'; //para test
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContent);
+    const dialogRef = this.dialog.open(CardsDataComponent);
 
       dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -116,11 +117,3 @@ export class CloseSession {
   imports: [MatDialogModule, MatButtonModule],
 })
 export class DialogHelpContent {}
-
- @Component({
-    selector: 'dialog-content',
-    templateUrl: 'dialog-content.html',
-    standalone: true,
-    imports: [MatDialogModule, MatButtonModule],
-  })
-  export class DialogContent {}
