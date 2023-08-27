@@ -72,16 +72,10 @@
       <td mat-cell *matCellDef="let row"> {{row.vocal2}} </td>
     </ng-container>
 
-    <!-- Fecha1 Column -->
-    <ng-container matColumnDef="fecha1">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Primera Fecha </th>
-      <td mat-cell *matCellDef="let row"> {{row.fecha1}} </td>
-    </ng-container>
-
-    <!-- Fecha2 Column -->
-    <ng-container matColumnDef="fecha2">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Segunda Fecha </th>
-      <td mat-cell *matCellDef="let row"> {{row.fecha2}} </td>
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha </th>
+      <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

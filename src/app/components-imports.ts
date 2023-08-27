@@ -1,7 +1,7 @@
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { RegisterCardsComponent } from './components/register-cards/register-cards.component';
+import { RegisterCardsComponent } from './components/home/content-register/register-cards/register-cards.component';
 import { MateriasTreeComponent } from './components/admin/materias-admin/materias-tree/materias-tree.component';
 import { NavigationComponent } from './components/admin/navigation/navigation.component';
 import { AdminComponent } from './components/admin/admin.component';
@@ -19,7 +19,7 @@ import { AlumnoCardComponent } from './components/admin/alumnos-admin/alumno-car
 import { MateriasTablaComponent } from './components/admin/materias-admin/materias-tabla/materias-tabla.component';
 import { CargarMesasDialogFormComponent } from './components/admin/mesas-admin/cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { CargarMateriasDialogFormComponent } from './components/admin/materias-admin/cargar-materias-dialog-form/cargar-materias-dialog-form.component';
-
+import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
 
 export const COMPONENTS = [
   LoginComponent,
@@ -43,4 +43,5 @@ export const COMPONENTS = [
   MateriasTablaComponent,
   CargarMesasDialogFormComponent,
   CargarMateriasDialogFormComponent,
+  CardsDataComponent,
 ]

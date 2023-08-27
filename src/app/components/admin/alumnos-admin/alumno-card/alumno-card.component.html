@@ -1,18 +1,15 @@
-<button mat-raised-button color="primary" (click)="volver()">Volver</button>
+
 <mat-card>
   <mat-card-header>
     <mat-card-title>NOMBRE ALUMNO</mat-card-title>
-    <mat-card-subtitle>email</mat-card-subtitle>
-    <mat-card-subtitle>edad</mat-card-subtitle>
-    <mat-card-subtitle>telefono</mat-card-subtitle>
-    <mat-card-subtitle>año</mat-card-subtitle>
-    <mat-card-subtitle>carrera</mat-card-subtitle>
+    <mat-card-subtitle>DNI</mat-card-subtitle>
+
   </mat-card-header>
   <mat-card-actions align="end">
     <button mat-button>Modificar</button>
   </mat-card-actions>
 </mat-card>
-
+<br>
 <mat-card class="example-card">
   <mat-card-header>
     <mat-card-title>Mesas inscriptas</mat-card-title>
@@ -26,7 +23,7 @@
         Remove data
       </button>
     </div>
-    <table mat-table [dataSource]="datasource" class="mat-elevation-z8 demo-table">
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
       <!-- id Column -->
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef>No.</th>
@@ -62,3 +59,5 @@
     </table>
   </mat-card-content>
 </mat-card>
+<br>
+<button mat-raised-button color="primary" (click)="volver()">Volver</button>
