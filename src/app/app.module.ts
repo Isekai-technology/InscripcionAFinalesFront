@@ -10,12 +10,13 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
+import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-
+    CardsDataComponent,
 
   ],
   imports: [
