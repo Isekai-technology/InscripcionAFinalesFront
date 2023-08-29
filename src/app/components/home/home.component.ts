@@ -18,9 +18,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
   loggedUser: string = "";
   career: string = 'Publicidad'; //para test
 
+  selectedDate: Date | null = new Date(2023, 7, 28) ;
+
   //Filtro de fechas, mas adelante implementar en base a las fechas en las tarjetas
   minDate= new Date();
-  maxDate= new Date(2023, 7, 21);
+  maxDate= new Date(2023, 7, 28);
 
   availableExamDates: Array<ExamDate> = new Array<ExamDate>(
     new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
