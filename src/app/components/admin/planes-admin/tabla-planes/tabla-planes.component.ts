@@ -2,14 +2,13 @@ import {Component} from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 
 export interface Plan {
-  descripcion: string,
-  anio: string,
+  nombre: string,
   carrera: string
 }
 
 const Planes: Plan[] = [
-  {descripcion: "ASDGF", anio: "2023", carrera: "Analista"},
-  {descripcion: "YDSYH", anio: "2023", carrera: "Publicidad"}
+  {nombre: "ASDGF", carrera: "Analista"},
+  {nombre: "YDSYH", carrera: "Publicidad"}
 ];
 
 @Component({
@@ -18,7 +17,7 @@ const Planes: Plan[] = [
   styleUrls: ['./tabla-planes.component.scss']
 })
 export class TablaPlanesComponent {
-  columnas: string[] = ['Descripcion', 'Año', 'Carrera'];
+  columnas: string[] = ['nombre', 'carrera', 'acciones'];
   datos = Planes;
 
 }
