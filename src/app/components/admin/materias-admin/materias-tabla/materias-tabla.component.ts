@@ -62,7 +62,7 @@ let alumnos: materias[] = [
 
 
 export class MateriasTablaComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas'];
+  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas', 'modificar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<materias>;
@@ -153,6 +153,14 @@ export class MateriasTablaComponent {
     this.correlativaslistaux=correlativaslist;
     this.nombreMateriaSeleccionada = nombreMateria;
     this.mostrarCorrelativas=true;
+  }
+
+  editarAlumno(){
+
+  }
+
+  eliminarAlumno(){
+
   }
 
 }

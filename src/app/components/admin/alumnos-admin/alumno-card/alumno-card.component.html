@@ -14,6 +14,7 @@
   <mat-card-header>
     <mat-card-title>Mesas inscriptas</mat-card-title>
   </mat-card-header>
+  <br>
   <mat-card-content>
     <div class="demo-button-container">
       <button mat-raised-button (click)="addData()" class="demo-button">
@@ -23,6 +24,7 @@
         Remove data
       </button>
     </div>
+    <br>
     <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
       <!-- id Column -->
       <ng-container matColumnDef="id">
@@ -57,7 +59,11 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <br>
   </mat-card-content>
 </mat-card>
 <br>
-<button mat-raised-button color="primary" (click)="volver()">Volver</button>
+<div class="button-container">
+  <button mat-raised-button color="primary" (click)="volver()">Volver</button>
+  <button mat-raised-button color="warn" (click)="eliminar()">Eliminar Alumno</button>
+</div>

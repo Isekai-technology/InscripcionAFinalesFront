@@ -45,4 +45,7 @@ export class AlumnoCardComponent {
   volver(){
     this.router.navigateByUrl('/admin/alumnos');
   }
+  eliminar(){
+    
+  }
 }
