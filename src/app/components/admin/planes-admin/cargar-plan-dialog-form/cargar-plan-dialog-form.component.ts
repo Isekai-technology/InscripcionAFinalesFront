@@ -10,5 +10,15 @@ export class CargarPlanDialogFormComponent {
   materiasPubli: string[] = ["Colores 1", 'Creatividad', "Marketing"];
   materiasAnalista: string[] = ["Analisis 1", "Algebra", "Algoritmos 1"];
 
-  
+  carreraSeleccionada: string = "";
+  materiasSelector: string[] = [];
+  materiasSeleccionadas: string[] = [];
+
+  cambiarCarrera(){
+    this.materiasSeleccionadas.splice(0); //borra los elementos en el array
+    if (this.carreraSeleccionada == "analista")
+      this.materiasSelector= this.materiasAnalista;
+    else
+      this.materiasSelector= this.materiasPubli;
+  }
 }

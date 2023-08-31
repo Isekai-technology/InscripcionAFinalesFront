@@ -6,19 +6,19 @@
     </mat-form-field>
     <mat-form-field>
         <mat-label>Carrera</mat-label>
-        <mat-select>
+        <mat-select [(value)]="carreraSeleccionada" (selectionChange)="cambiarCarrera()">
             <mat-option value="analista">Analista de Sistemas</mat-option>
             <mat-option value="publicidad">Publicidad</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field>
         <mat-label>Materias en el plan</mat-label>
-        <mat-select  multiple>
-            <mat-option *ngFor="let materia of materiasAnalista" [value]="materia">{{materia}}</mat-option>
+        <mat-select [(value)]="materiasSeleccionadas" [disabled]="carreraSeleccionada == ''" multiple>
+            <mat-option *ngFor="let materia of materiasSelector" [value]="materia">{{materia}}</mat-option>
         </mat-select>
     </mat-form-field>
 </div>
 <div mat-dialog-actions class="dialog-actions">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button [mat-dialog-close]="true">Save</button>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button [mat-dialog-close]="true">Guardar</button>
 </div>
