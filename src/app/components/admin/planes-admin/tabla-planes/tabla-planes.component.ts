@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { CargarPlanDialogFormComponent } from '../cargar-plan-dialog-form/cargar-plan-dialog-form.component';
 
 export interface Plan {
   nombre: string,
@@ -20,4 +21,19 @@ export class TablaPlanesComponent {
   columnas: string[] = ['nombre', 'carrera', 'acciones'];
   datos = Planes;
 
+  constructor (private cargarPlanes: MatDialog){
+
+  }
+
+  
+  abrirVentanaCargarPlanes(): void {
+    const dialogRef = this.cargarPlanes.open(CargarPlanDialogFormComponent, {
+      width: '400px',
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
