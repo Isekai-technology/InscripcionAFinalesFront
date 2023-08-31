@@ -15,7 +15,7 @@ export class CargarMateriasDialogFormComponent implements OnInit{
   regularizadaslist: string[] = ['Mate', 'ingles', 'program'];
   aprobadaslist = this.regularizadaslist;
   myControl = new FormControl<string | User>('');
-  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}]; //placeholder a ser reemplazado por profesores
   filteredOptions: Observable<User[]> | undefined;
 
   ngOnInit() {

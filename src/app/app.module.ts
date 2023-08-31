@@ -11,16 +11,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
 import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
-import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
-import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
     CardsDataComponent,
-    PlanesAdminComponent,
-    TablaPlanesComponent,
 
   ],
   imports: [

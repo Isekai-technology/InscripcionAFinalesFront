@@ -21,6 +21,10 @@ import { CargarMesasDialogFormComponent } from './components/admin/mesas-admin/c
 import { CargarMateriasDialogFormComponent } from './components/admin/materias-admin/cargar-materias-dialog-form/cargar-materias-dialog-form.component';
 import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
 
+import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
+import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
+import { CargarPlanDialogFormComponent } from './components/admin/planes-admin/cargar-plan-dialog-form/cargar-plan-dialog-form.component';
+
 export const COMPONENTS = [
   LoginComponent,
   ForgotPasswordComponent,
@@ -44,4 +48,7 @@ export const COMPONENTS = [
   CargarMesasDialogFormComponent,
   CargarMateriasDialogFormComponent,
   CardsDataComponent,
+  PlanesAdminComponent,
+  TablaPlanesComponent,
+  CargarPlanDialogFormComponent,
 ]
