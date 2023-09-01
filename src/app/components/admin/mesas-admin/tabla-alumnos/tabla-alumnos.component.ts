@@ -31,7 +31,7 @@ export class TablaAlumnosComponent implements AfterViewInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns = ['DNI', 'name'];
+  displayedColumns = ['DNI', 'name', 'eliminar'];
   dataSource: MatTableDataSource<UserData>;
 
   array:any=[];
@@ -49,5 +49,12 @@ export class TablaAlumnosComponent implements AfterViewInit{
 
   volver(){
     this.router.navigate(['/admin/mesas']);
+  }
+
+  eliminarAlumno(){
+
+  }
+  darDeBaja(){
+    
   }
 }

@@ -1,9 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CargarAlumnosComponent } from '../cargar-alumnos/cargar-alumnos.component';
 
 export interface AlumnoData{
   id:number,
@@ -80,7 +82,7 @@ export class AlumnosTableComponent {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<AlumnoData>;
   array:any=[];
-  constructor(private router: Router) {
+  constructor(private router: Router,private dialog : MatDialog) {
     this.array=alumnos;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -147,11 +149,17 @@ export class AlumnosTableComponent {
   }
 
   agregarMesa(){
+    const dialogRef = this.dialog.open(CargarAlumnosComponent, {
+      width: '400px',
+    });
 
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   clickedRows(row:any){
     this.router.navigate(['/admin/alumno']);
   }
-
 }

@@ -1,11 +1,21 @@
 .filtros {
   display: flex;
-  justify-content: space-between; 
-  align-items: center; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.button-container {
+  display: flex;
+  gap: 10px;
+}
+.separador {
+  display: flex;
+  gap: 20px;
 }
 
 .agregar-btn {
-  margin-top: 10  px;
+  margin-top: 10px;
   text-align: right;
   margin-left: auto;
 }

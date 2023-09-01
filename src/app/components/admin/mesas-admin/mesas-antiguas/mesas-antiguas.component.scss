@@ -1,0 +1,47 @@
+.filtros {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  .separador {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .agregar-btn {
+    margin-top: 10px;
+    text-align: right;
+    margin-left: auto;
+  }
+  
+  .filtro-carrera {
+    margin-right: 20px; 
+  }
+  
+  .filtro-curso {
+    margin-top: 20px;
+  }
+  
+  .curso-list {
+    display: flex; 
+    list-style: none; 
+    padding: 0;
+  }
+  
+  .curso-list li {
+    margin-right: 10px; 
+  }
+  
+  .mat-mdc-row:hover .mat-mdc-cell {
+    background-color: #E8EAF6;
+    cursor: pointer;
+  }
+  .mat-mdc-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
+  }

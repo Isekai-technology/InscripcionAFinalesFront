@@ -5,19 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
-import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-    CardsDataComponent,
-
   ],
   imports: [
     BrowserModule,

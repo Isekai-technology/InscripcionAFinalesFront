@@ -1,12 +1,10 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort } from '@angular/material/sort';
-import {MatTableDataSource } from '@angular/material/table';
-import { CargarMesasDialogFormComponent } from '../cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-
 export interface UserData {
   carrera: string,
   curso: string,
@@ -84,12 +82,11 @@ let mesas: UserData[] = [
 ]; 
 
 @Component({
-  selector: 'app-tabla-mesas',
-  styleUrls: ['./tabla-mesas.component.scss'],
-  templateUrl: './tabla-mesas.component.html',
+  selector: 'app-mesas-antiguas',
+  templateUrl: './mesas-antiguas.component.html',
+  styleUrls: ['./mesas-antiguas.component.scss']
 })
-
-export class TablaMesasComponent implements AfterViewInit, OnInit {
+export class MesasAntiguasComponent implements AfterViewInit, OnInit {
   displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha'];
   dataSource: MatTableDataSource<UserData>;
 
@@ -103,10 +100,21 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
     this.dataSource = new MatTableDataSource(this.arrayAux);
   }
 
- 
-  ngOnInit(): void {
-    
+
+  items: UserData[] = []; // Tu lista de items
+
+  filteredItems: UserData[] = [];
+  selectedMonth: number | undefined;
+
+  filterByMonth() {
+    this.filteredItems = this.items.filter(item => {
+      const itemDate = new Date(item.fecha);
+      return itemDate.getMonth() === this.selectedMonth;
+    });
   }
+
+  startDate = new Date(2020, 0, 1);
+  
 
   cursos: Curso = {
     name: "cursos",
@@ -134,58 +142,20 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
 
   selectedCursos: string[] = []; 
 
-  updateAllComplete(event: any, subCurso: string) {
-    if (event) {
-      this.selectedCursos.push(subCurso);
-    } else {
-      this.selectedCursos = this.selectedCursos.filter(curso => curso !== subCurso);
-    }
-    if (this.selectedCursos.length === 0) {
-      this.updateTableDataSource(this.arrayAux); 
-    } else {
-      this.updateTableDataSource(
-        this.arrayAux.filter((item: UserData) => this.selectedCursos.includes(item.curso))
-      ); 
-    }
-  }
- 
-  selectOption(event: any) {
-    const selectedCarrera = event.value;
+  ngOnInit(): void {
     
-    if (selectedCarrera === 'Todos') {
-      this.updateTableDataSource(this.arrayAux);
-    } else {
-      const filteredArray = this.arrayAux.filter((item: { carrera: any; }) => item.carrera === selectedCarrera);
-      this.updateTableDataSource(filteredArray);
-    }
   }
 
-   updateTableDataSource(filteredArray: UserData[]) {
-    this.dataSource.data = filteredArray;
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
   
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
-
-  openDialog(): void {
-    const dialogRef = this.dialog.open(CargarMesasDialogFormComponent, {
-      width: '400px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+  openDialog(){
+    
   }
 
-  clickedRows(row:any){
-    this.router.navigate(['/admin/alumnoXmesas']);
-  }
-
-  verAntiguas(){
-    this.router.navigate(['/admin/mesas-antiguas']);
+  volver(){
+    this.router.navigate(['/admin/mesas']);
   }
 }
