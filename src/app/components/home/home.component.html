@@ -21,6 +21,11 @@
       <span id="carrera">{{career}}</span>
     </div>
     <br>
+    <mat-card class="calendary">
+      <mat-calendar #examDatePicker [minDate]="minDate" [maxDate]="maxDate" ></mat-calendar>
+    </mat-card>
+  </div>
+  <div class="right-panel">
     <mat-tab-group animationDuration="0ms" fitInkBarToContent>
       <mat-tab label="Mesas Disponibles">
         <div *ngFor="let available of availableExamDates " class="cards">
@@ -33,11 +38,6 @@
         </div>
       </mat-tab> 
     </mat-tab-group>
-  </div>
-  <div class="right-panel">
-    <mat-card class="calendary">
-      <mat-calendar #examDatePicker [minDate]="minDate" [maxDate]="maxDate" ></mat-calendar>
-    </mat-card>
   </div>
 </div>
 <nav class="navbar navbar-expand-lg contact-data"> 

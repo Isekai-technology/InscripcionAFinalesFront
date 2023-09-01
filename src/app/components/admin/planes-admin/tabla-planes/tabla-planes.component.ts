@@ -1,15 +1,15 @@
 import {Component} from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
+import { MatDialog } from '@angular/material/dialog';
+import { CargarPlanDialogFormComponent } from '../cargar-plan-dialog-form/cargar-plan-dialog-form.component';
 
 export interface Plan {
-  descripcion: string,
-  anio: string,
+  nombre: string,
   carrera: string
 }
 
 const Planes: Plan[] = [
-  {descripcion: "ASDGF", anio: "2023", carrera: "Analista"},
-  {descripcion: "YDSYH", anio: "2023", carrera: "Publicidad"}
+  {nombre: "ASDGF", carrera: "Analista"},
+  {nombre: "YDSYH", carrera: "Publicidad"}
 ];
 
 @Component({
@@ -18,7 +18,22 @@ const Planes: Plan[] = [
   styleUrls: ['./tabla-planes.component.scss']
 })
 export class TablaPlanesComponent {
-  columnas: string[] = ['Descripcion', 'Año', 'Carrera'];
+  columnas: string[] = ['nombre', 'carrera', 'acciones'];
   datos = Planes;
 
+  constructor (private cargarPlanes: MatDialog){
+
+  }
+
+  
+  abrirVentanaCargarPlanes(): void {
+    const dialogRef = this.cargarPlanes.open(CargarPlanDialogFormComponent, {
+      width: '400px',
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
