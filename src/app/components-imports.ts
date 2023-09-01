@@ -20,6 +20,9 @@ import { MateriasTablaComponent } from './components/admin/materias-admin/materi
 import { CargarMesasDialogFormComponent } from './components/admin/mesas-admin/cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { CargarMateriasDialogFormComponent } from './components/admin/materias-admin/cargar-materias-dialog-form/cargar-materias-dialog-form.component';
 import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
+import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
+import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
+import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
 
 export const COMPONENTS = [
   LoginComponent,
@@ -44,4 +47,8 @@ export const COMPONENTS = [
   CargarMesasDialogFormComponent,
   CargarMateriasDialogFormComponent,
   CardsDataComponent,
+  CardsDataComponent,
+  PlanesAdminComponent,
+  TablaPlanesComponent,
+  MesasAntiguasComponent,
 ]

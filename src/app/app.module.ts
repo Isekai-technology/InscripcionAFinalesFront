@@ -5,25 +5,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
-import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
-import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
-import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
-import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-    CardsDataComponent,
-    PlanesAdminComponent,
-    TablaPlanesComponent,
-    MesasAntiguasComponent,
-
   ],
   imports: [
     BrowserModule,
