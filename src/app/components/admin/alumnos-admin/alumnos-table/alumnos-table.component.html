@@ -2,6 +2,19 @@
 <h1>Alumnos</h1>
 
 <div class="filtros">
+
+  <div class="filtro-carrera">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>  
+  </div>
+  
   <div class="filtro-carrera">
     <mat-form-field>
       <mat-label>Carrera</mat-label>

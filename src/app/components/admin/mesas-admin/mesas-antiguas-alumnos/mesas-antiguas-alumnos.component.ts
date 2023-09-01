@@ -1,6 +1,6 @@
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -20,18 +20,16 @@ let data: UserData[] = [
   {DNI: 41111222, name: 'Coll Cristian'},
   
 ];
-
 @Component({
-  selector: 'app-tabla-alumnos',
-  templateUrl: './tabla-alumnos.component.html',
-  styleUrls: ['./tabla-alumnos.component.scss']
+  selector: 'app-mesas-antiguas-alumnos',
+  templateUrl: './mesas-antiguas-alumnos.component.html',
+  styleUrls: ['./mesas-antiguas-alumnos.component.scss']
 })
-
-export class TablaAlumnosComponent implements AfterViewInit{
+export class MesasAntiguasAlumnosComponent implements AfterViewInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   nombreMateria: string;
-  displayedColumns = ['DNI', 'name', 'eliminar'];
+  displayedColumns = ['DNI', 'name'];
   dataSource: MatTableDataSource<UserData>;
 
   array:any=[];

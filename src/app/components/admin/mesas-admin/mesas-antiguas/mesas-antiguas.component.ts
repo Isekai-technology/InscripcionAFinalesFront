@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -155,7 +156,12 @@ export class MesasAntiguasComponent implements AfterViewInit, OnInit {
     
   }
 
+  clickedRows(row:any){
+    localStorage.setItem("materia",row.nombre)
+    this.router.navigate(['/admin/mesas-antiguas-alumnos']);
+  }
   volver(){
     this.router.navigate(['/admin/mesas']);
   }
+
 }

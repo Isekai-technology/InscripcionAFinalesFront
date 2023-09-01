@@ -6,6 +6,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { CargarAlumnosComponent } from '../cargar-alumnos/cargar-alumnos.component';
+import { Observable, map, startWith } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 export interface AlumnoData{
   id:number,
@@ -71,6 +73,11 @@ let alumnos: AlumnoData[] = [
   }
 ]
 
+export interface User {
+  name: string;
+}
+
+
 @Component({
   selector: 'app-alumnos-table',
   templateUrl: './alumnos-table.component.html',
@@ -82,6 +89,10 @@ export class AlumnosTableComponent {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<AlumnoData>;
   array:any=[];
+  myControl = new FormControl<string | User>('');
+  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  filteredOptions: Observable<User[]> | undefined;
+
   constructor(private router: Router,private dialog : MatDialog) {
     this.array=alumnos;
     this.dataSource = new MatTableDataSource(this.array);
@@ -129,6 +140,26 @@ export class AlumnosTableComponent {
         this.array.filter((item: AlumnoData) => this.selectedCursos.includes(item.curso))
       ); 
     }
+  }
+
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const name = typeof value === 'string' ? value : value?.name;
+        return name ? this._filter(name as string) : this.options.slice();
+      }),
+    );
+  }
+
+  displayFn(user: User): string {
+    return user && user.name ? user.name : '';
+  }
+
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
   }
 
   selectOption(event: any) {

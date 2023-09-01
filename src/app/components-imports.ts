@@ -2,7 +2,6 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { RegisterCardsComponent } from './components/home/content-register/register-cards/register-cards.component';
-import { MateriasTreeComponent } from './components/admin/materias-admin/materias-tree/materias-tree.component';
 import { NavigationComponent } from './components/admin/navigation/navigation.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AlumnosTableComponent } from './components/admin/alumnos-admin/alumnos-table/alumnos-table.component';
@@ -30,7 +29,6 @@ export const COMPONENTS = [
   ForgotPasswordComponent,
   RegisterCardsComponent,
   HomeComponent,
-  MateriasTreeComponent,
   AdminComponent,
   NavigationComponent,
   AlumnosTableComponent,

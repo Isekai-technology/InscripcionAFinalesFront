@@ -15,6 +15,7 @@
     <button mat-raised-button color="primary" class="agregar-btn" (click)="volver()">Volver </button>
   </div>
 </div>
+
 <section class="example-container mat-elevation-z8" tabindex="0">
   <table mat-table [dataSource]="dataSource" matSort>
     
@@ -63,6 +64,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
+      (click)="clickedRows(row)"
       *matRowDef="let row; columns: displayedColumns;"
     ></tr>
   </table>
