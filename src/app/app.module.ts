@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
+import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
+    ModificarMateriasDialogFormComponent,
   ],
   imports: [
     BrowserModule,
