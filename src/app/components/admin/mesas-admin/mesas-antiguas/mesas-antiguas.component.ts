@@ -156,6 +156,10 @@ export class MesasAntiguasComponent implements AfterViewInit, OnInit {
     
   }
 
+  clickedRows(row:any){
+    localStorage.setItem("materia",row.nombre)
+    this.router.navigate(['/admin/mesas-antiguas-alumnos']);
+  }
   volver(){
     this.router.navigate(['/admin/mesas']);
   }

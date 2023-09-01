@@ -6,6 +6,7 @@ import {MatTableDataSource } from '@angular/material/table';
 import { CargarMesasDialogFormComponent } from '../cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ModificarMesasDialogFormComponent } from '../modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
 
 export interface UserData {
   carrera: string,
@@ -90,7 +91,7 @@ let mesas: UserData[] = [
 })
 
 export class TablaMesasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha'];
+  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha', 'modificar', 'eliminar'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)
@@ -182,10 +183,25 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
   }
 
   clickedRows(row:any){
+    localStorage.setItem("materia",row.nombre)
     this.router.navigate(['/admin/alumnoXmesas']);
   }
 
   verAntiguas(){
     this.router.navigate(['/admin/mesas-antiguas']);
+  }
+
+  editarMesa(datos:any){
+    const dialogRef = this.dialog.open(ModificarMesasDialogFormComponent, {
+      width: '400px',
+      data: datos,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  eliminarMesa(){
+
   }
 }

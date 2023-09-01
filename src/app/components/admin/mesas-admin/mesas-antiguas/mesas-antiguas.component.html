@@ -64,6 +64,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
+      (click)="clickedRows(row)"
       *matRowDef="let row; columns: displayedColumns;"
     ></tr>
   </table>
