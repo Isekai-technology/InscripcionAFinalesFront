@@ -3,16 +3,18 @@ import { ThemePalette } from '@angular/material/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort } from '@angular/material/sort';
 import {MatTableDataSource } from '@angular/material/table';
+import { CargarMesasDialogFormComponent } from '../cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 export interface UserData {
   carrera: string,
   curso: string,
   nombre: string;
   titular: string;
-  suplente1: string;
-  suplente2: string;
-  fecha1:string;
-  fecha2:string;
+  vocal1: string;
+  vocal2: string;
+  fecha:string;
 }
 
 export interface Curso {
@@ -28,60 +30,54 @@ let mesas: UserData[] = [
     curso: 'Primero',
     nombre: 'SDGF',
     titular: 'Maia',
-    suplente1: 'Asher',
-    suplente2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Asher',
+    vocal2: 'Asher',
+    fecha: '123',
   },
   {
     carrera: 'Analista',
     curso: 'Segundo',
-    nombre: 'SDGHGTFRNRT',
+    nombre: 'SDGHG',
     titular: 'Olivia',
-    suplente1: 'Maia',
-    suplente2: 'Maia',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Maia',
+    vocal2: 'Maia',
+    fecha: '123',
   },
   {
     carrera: 'Analista',
     curso: 'Tercero',
     nombre: 'DFBN',
     titular: 'Maia',
-    suplente1: 'Asher',
-    suplente2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Asher',
+    vocal2: 'Asher',
+    fecha: '123',
   },
   {
     carrera: 'Publicidad',
     curso: 'Primero',
     nombre: 'CVCGR',
     titular: 'Amelia',
-    suplente1: 'Maia',
-    suplente2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Maia',
+    vocal2: 'Asher',
+    fecha: '123',
   },
   {
     carrera: 'Publicidad',
     curso: 'Segundo',
     nombre: 'GFCRT',
     titular: 'Atticus',
-    suplente1: 'Asher',
-    suplente2: 'Amelia',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Asher',
+    vocal2: 'Amelia',
+    fecha: '123',
   },
   {
     carrera: 'Publicidad',
     curso: 'Tercero',
     nombre: 'ASVBNUT',
     titular: 'Atticus',
-    suplente1: 'Asher',
-    suplente2: 'Amelia',
-    fecha1: '123',
-    fecha2: '432',
+    vocal1: 'Asher',
+    vocal2: 'Amelia',
+    fecha: '123',
   }
   
 
@@ -94,7 +90,7 @@ let mesas: UserData[] = [
 })
 
 export class TablaMesasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['nombre', 'titular', 'suplente1','suplente2', 'fecha1', 'fecha2'];
+  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)
@@ -102,7 +98,7 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
   arrayAux:any = [];
-  constructor() {
+  constructor(public dialog: MatDialog, private router:Router) {
     this.arrayAux = mesas;
     this.dataSource = new MatTableDataSource(this.arrayAux);
   }
@@ -175,7 +171,17 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  agregarMesa(){
-    
+  openDialog(): void {
+    const dialogRef = this.dialog.open(CargarMesasDialogFormComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  clickedRows(row:any){
+    this.router.navigate(['/admin/alumnoXmesas']);
   }
 }

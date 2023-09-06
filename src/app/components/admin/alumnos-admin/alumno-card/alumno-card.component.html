@@ -1,0 +1,63 @@
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>NOMBRE ALUMNO</mat-card-title>
+    <mat-card-subtitle>DNI</mat-card-subtitle>
+
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-button>Modificar</button>
+  </mat-card-actions>
+</mat-card>
+<br>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Mesas inscriptas</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="demo-button-container">
+      <button mat-raised-button (click)="addData()" class="demo-button">
+        Add data
+      </button>
+      <button mat-raised-button>
+        Remove data
+      </button>
+    </div>
+    <table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+      <!-- id Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{element.id}}</td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{element.name}}</td>
+      </ng-container>
+
+      <!-- curso Column -->
+      <ng-container matColumnDef="curso">
+        <th mat-header-cell *matHeaderCellDef>Año</th>
+        <td mat-cell *matCellDef="let element">{{element.curso}}</td>
+      </ng-container>
+    
+      <!-- titular Column -->
+      <ng-container matColumnDef="titular">
+        <th mat-header-cell *matHeaderCellDef>titular</th>
+        <td mat-cell *matCellDef="let element">{{element.titular}}</td>
+      </ng-container>
+    
+      <!-- fecha Column -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>fecha</th>
+        <td mat-cell *matCellDef="let element">{{element.fecha}}</td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
+<br>
+<button mat-raised-button color="primary" (click)="volver()">Volver</button>

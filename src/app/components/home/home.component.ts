@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, Renderer2  } from '@angular/core';
 import { MatDialog,MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
+import { CardsDataComponent } from './content-register/cards-data/cards-data.component';
 
 
 @Component({
@@ -9,7 +10,30 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
+
 export class HomeComponent implements OnInit, AfterViewInit {
+  
+  //Estados
+  validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
+  loggedUser: string = "";
+  career: string = 'Publicidad'; //para test
+
+  //Filtro de fechas, mas adelante implementar en base a las fechas en las tarjetas
+  minDate= new Date();
+  maxDate= new Date(2023, 7, 21);
+
+  availableExamDates: Array<ExamDate> = new Array<ExamDate>(
+    new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Algebra", new Date(2023, 7, 22), new Date(2023, 7, 18)),
+    new ExamDate("Ingenieria Informatica I", new Date(2023, 7, 24), new Date(2023, 7, 22)),
+    new ExamDate("Ingles I", new Date(2023, 7, 25), new Date(2023, 7, 23)),
+  );
+  
+  registeredExamDates: Array<ExamDate> = new Array<ExamDate>(
+    new ExamDate("Practicas Profesionalizantes I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
+    new ExamDate("Sistemas y Organizaciones", new Date(2023, 7, 22), new Date(2023, 7, 18)),
+    new ExamDate("Algoritmos I", new Date(2023, 7, 24), new Date(2023, 7, 22))
+  );
 
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
@@ -24,6 +48,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     else
     {
+      this.career = "Analista de Sistemas";
       const imageUrl = '../../../assets/imgs/LOGO_AS.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
       logoElement.src = imageUrl;
@@ -65,13 +90,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     this.renderer.setStyle(document.body, 'background-color', "#213F60");
   }
 
-  //Estados
-  validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
-  loggedUser: string = "";
-  career: string = 'Publicidad'; //para test
-
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContent);
+    const dialogRef = this.dialog.open(CardsDataComponent);
 
       dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -117,10 +137,15 @@ export class CloseSession {
 })
 export class DialogHelpContent {}
 
- @Component({
-    selector: 'dialog-content',
-    templateUrl: 'dialog-content.html',
-    standalone: true,
-    imports: [MatDialogModule, MatButtonModule],
-  })
-  export class DialogContent {}
+  //Placeholder para las mesas, DEBERIA SER UNA CLASE EXTERNA
+export class ExamDate {
+  subject: string;
+  date: Date;
+  limitInscriptionDate: Date; // El ultimo dia que te podes inscribir a la mesa
+
+  constructor (subject: string, date: Date, limitDate: Date){
+    this.subject= subject;
+    this.date= date;
+    this.limitInscriptionDate= limitDate;
+  }
+}

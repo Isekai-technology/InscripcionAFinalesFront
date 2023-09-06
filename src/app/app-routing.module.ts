@@ -9,6 +9,8 @@ import { AlumnosAdminComponent } from './components/admin/alumnos-admin/alumnos-
 import { MateriasAdminComponent } from './components/admin/materias-admin/materias-admin.component';
 import { MesasAdminComponent } from './components/admin/mesas-admin/mesas-admin.component';
 import { ProfresoresAdminComponent } from './components/admin/profresores-admin/profresores-admin.component';
+import { AlumnoCardComponent } from './components/admin/alumnos-admin/alumno-card/alumno-card.component';
+import { TablaAlumnosComponent } from './components/admin/mesas-admin/tabla-alumnos/tabla-alumnos.component';
 
 
 const routes: Routes = [
@@ -37,6 +39,8 @@ const routes: Routes = [
       { path: 'materias', component: MateriasAdminComponent },
       { path: 'profesores', component: ProfresoresAdminComponent },
       { path: 'mesas', component: MesasAdminComponent },
+      { path: 'alumno', component: AlumnoCardComponent },
+      { path: 'alumnoXmesas', component: TablaAlumnosComponent },
     ]
   },
 ];

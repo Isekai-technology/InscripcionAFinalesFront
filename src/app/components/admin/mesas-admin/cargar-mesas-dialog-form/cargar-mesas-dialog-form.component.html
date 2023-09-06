@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Nueva Mesa</h2>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <mat-label>Carrera</mat-label>
+    <mat-select>
+      <mat-option value="one">Analista</mat-option>
+      <mat-option value="two">Publicidad</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Nombre de la materia">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Titular</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Vocal 1</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Vocal 2</mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.name}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <!--https://www.npmjs.com/package/@angular-material-components/datetime-picker  ARREGLAR PARA USAR ESTA-->
+   <!--CON LA BARRA ESPACIADORA SE DESPLIEGA-->
+  <mat-form-field>
+    <mat-label>Primer llamado</mat-label>
+    <input matInput type="datetime-local" placeholder="start date">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true">Guardar</button>
+</div>
