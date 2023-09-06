@@ -25,7 +25,7 @@ let materiasinscr: materias[] = [
   styleUrls: ['./alumno-card.component.scss']
 })
 export class AlumnoCardComponent {
-  displayedColumns: string[] = ['id', 'name', 'curso', 'titular', 'fecha'];
+  displayedColumns: string[] = ['id', 'name', 'curso', 'titular', 'fecha', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   datasource: MatTableDataSource<materias>
@@ -44,5 +44,11 @@ export class AlumnoCardComponent {
   }
   volver(){
     this.router.navigateByUrl('/admin/alumnos');
+  }
+  eliminar(){
+    this.router.navigateByUrl('/admin/alumnos');
+  }
+  eliminarMesa(){
+
   }
 }

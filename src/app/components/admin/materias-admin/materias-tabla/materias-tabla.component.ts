@@ -5,15 +5,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CargarMateriasDialogFormComponent } from '../cargar-materias-dialog-form/cargar-materias-dialog-form.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Materia } from 'src/app/models/Materia';
+import { ModificarMateriasDialogFormComponent } from '../modificar-materias-dialog-form/modificar-materias-dialog-form.component';
 
-export interface materias{
-  id:number,
-  nombre:string,
-  carrera:string,
-  curso:string,
-  profesor:string,
-  correlativas: string[],
-}
 
 export interface Curso {
   name: string;
@@ -22,7 +16,7 @@ export interface Curso {
   subCursos?: any[];
 }
 
-let alumnos: materias[] = [
+let alumnos: Materia[] = [
   {
     id:1,
     nombre:"MATEMATICA",
@@ -62,10 +56,10 @@ let alumnos: materias[] = [
 
 
 export class MateriasTablaComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas'];
+  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas', 'modificar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  dataSource: MatTableDataSource<materias>;
+  dataSource: MatTableDataSource<Materia>;
   array:any=[];
   correlativaslistaux: string[] = [];
   nombreMateriaSeleccionada: string = '';
@@ -116,7 +110,7 @@ export class MateriasTablaComponent {
       this.updateTableDataSource(this.array); 
     } else {
       this.updateTableDataSource(
-        this.array.filter((item: materias) => this.selectedCursos.includes(item.curso))
+        this.array.filter((item: Materia) => this.selectedCursos.includes(item.curso))
       ); 
     }
   }
@@ -132,7 +126,7 @@ export class MateriasTablaComponent {
     }
   }
 
-  updateTableDataSource(filteredArray: materias[]) {
+  updateTableDataSource(filteredArray: Materia[]) {
     this.dataSource.data = filteredArray;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -153,6 +147,22 @@ export class MateriasTablaComponent {
     this.correlativaslistaux=correlativaslist;
     this.nombreMateriaSeleccionada = nombreMateria;
     this.mostrarCorrelativas=true;
+  }
+
+  editarAlumno(datos:Materia){
+    const dialogRef = this.dialog.open(ModificarMateriasDialogFormComponent, {
+      width: '400px',
+      data: datos,
+    });
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
+  eliminarAlumno(){
+
   }
 
 }

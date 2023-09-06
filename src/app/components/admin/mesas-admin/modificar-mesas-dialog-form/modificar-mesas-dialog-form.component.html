@@ -1,15 +1,15 @@
-<h2 mat-dialog-title>Nueva Mesa</h2>
+<h2 mat-dialog-title>Modificar Mesa</h2>
 <div mat-dialog-content class="dialog-content">
+    <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Nombre de la materia" value={{datos.nombre}}>
+    </mat-form-field>
   <mat-form-field>
     <mat-label>Carrera</mat-label>
     <mat-select>
       <mat-option value="one">Analista</mat-option>
       <mat-option value="two">Publicidad</mat-option>
     </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput placeholder="Nombre de la materia">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Titular</mat-label>

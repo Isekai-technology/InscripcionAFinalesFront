@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Nueva Materia</h2>
+<h2 mat-dialog-title>Modificar Materia</h2>
 <div mat-dialog-content class="dialog-content">
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input matInput placeholder="Nombre de la materia">
+    <input matInput placeholder="Nombre de la materia" value={{datos.nombre}}> 
   </mat-form-field>
   <mat-form-field>
     <mat-label>Carrera</mat-label>
@@ -21,7 +21,7 @@
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Profesor</mat-label>
-    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <input type="text" matInput [formControl]="profesorControl" [matAutocomplete]="auto">
     <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
       <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
         {{option.name}}

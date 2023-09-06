@@ -5,19 +5,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
-import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
+import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
+import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admin/modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
+import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-    CardsDataComponent,
-
+    ModificarMateriasDialogFormComponent,
+    ModificarMesasDialogFormComponent,
+    MesasAntiguasAlumnosComponent,
   ],
   imports: [
     BrowserModule,

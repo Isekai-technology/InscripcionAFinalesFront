@@ -1,9 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { CargarAlumnosComponent } from '../cargar-alumnos/cargar-alumnos.component';
+import { Observable, map, startWith } from 'rxjs';
+import { FormControl } from '@angular/forms';
 
 export interface AlumnoData{
   id:number,
@@ -69,6 +73,11 @@ let alumnos: AlumnoData[] = [
   }
 ]
 
+export interface User {
+  name: string;
+}
+
+
 @Component({
   selector: 'app-alumnos-table',
   templateUrl: './alumnos-table.component.html',
@@ -80,7 +89,11 @@ export class AlumnosTableComponent {
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<AlumnoData>;
   array:any=[];
-  constructor(private router: Router) {
+  myControl = new FormControl<string | User>('');
+  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  filteredOptions: Observable<User[]> | undefined;
+
+  constructor(private router: Router,private dialog : MatDialog) {
     this.array=alumnos;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -129,6 +142,26 @@ export class AlumnosTableComponent {
     }
   }
 
+  ngOnInit() {
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const name = typeof value === 'string' ? value : value?.name;
+        return name ? this._filter(name as string) : this.options.slice();
+      }),
+    );
+  }
+
+  displayFn(user: User): string {
+    return user && user.name ? user.name : '';
+  }
+
+  private _filter(name: string): User[] {
+    const filterValue = name.toLowerCase();
+
+    return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
+  }
+
   selectOption(event: any) {
     const selectedCarrera = event.value;
     
@@ -147,11 +180,17 @@ export class AlumnosTableComponent {
   }
 
   agregarMesa(){
+    const dialogRef = this.dialog.open(CargarAlumnosComponent, {
+      width: '400px',
+    });
 
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   clickedRows(row:any){
     this.router.navigate(['/admin/alumno']);
   }
-
 }

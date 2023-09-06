@@ -11,6 +11,9 @@ import { MesasAdminComponent } from './components/admin/mesas-admin/mesas-admin.
 import { ProfresoresAdminComponent } from './components/admin/profresores-admin/profresores-admin.component';
 import { AlumnoCardComponent } from './components/admin/alumnos-admin/alumno-card/alumno-card.component';
 import { TablaAlumnosComponent } from './components/admin/mesas-admin/tabla-alumnos/tabla-alumnos.component';
+import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
+import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
+import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
 
 
 const routes: Routes = [
@@ -41,6 +44,9 @@ const routes: Routes = [
       { path: 'mesas', component: MesasAdminComponent },
       { path: 'alumno', component: AlumnoCardComponent },
       { path: 'alumnoXmesas', component: TablaAlumnosComponent },
+      { path: 'planes', component: PlanesAdminComponent },
+      { path: 'mesas-antiguas', component: MesasAntiguasComponent },
+      { path: 'mesas-antiguas-alumnos', component: MesasAntiguasAlumnosComponent },
     ]
   },
 ];
