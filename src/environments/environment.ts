@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'https://tu-api.com/api'
+  apiUrl: 'http://localhost:80/incripcionAFinalesBack/IncripcionAFianelesBackend/Controladores/'
 };
