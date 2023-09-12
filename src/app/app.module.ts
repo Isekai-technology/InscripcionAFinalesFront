@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http";
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -31,6 +32,7 @@ import { ProfesoresCardComponent } from './components/admin/profresores-admin/pr
     LayoutModule,
     NoopAnimationsModule,
     MATERIAL_MODULES,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
