@@ -26,6 +26,7 @@ let alumnos: Materia[] = [
     correlativas: [
       'gfdsfafas','fgdsagdsa','gfasdgafs'
     ],
+    plan: "asf",
   },
   {
     id:2,
@@ -36,6 +37,7 @@ let alumnos: Materia[] = [
     correlativas: [
       'cxvtyry5es','btyedrsxfgc','aw4tgd'
     ],
+    plan: "asf",
   },
   {
     id:3,
@@ -46,6 +48,7 @@ let alumnos: Materia[] = [
     correlativas: [
       'vtrwsdfg','awthfx','gfasdgafs'
     ],
+    plan: "asf",
   }]
 
 @Component({
@@ -56,7 +59,7 @@ let alumnos: Materia[] = [
 
 
 export class MateriasTablaComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'correlativas', 'modificar', 'eliminar'];
+  displayedColumns: string[] = ['id', 'nombre', 'carrera','curso', 'profesor', 'plan', 'correlativas', 'modificar', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<Materia>;

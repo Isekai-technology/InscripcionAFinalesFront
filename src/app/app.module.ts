@@ -11,6 +11,7 @@ import { COMPONENTS } from './components-imports';
 import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
 import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admin/modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
 import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
+import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/me
     ModificarMateriasDialogFormComponent,
     ModificarMesasDialogFormComponent,
     MesasAntiguasAlumnosComponent,
+    ProfesoresCardComponent,
   ],
   imports: [
     BrowserModule,

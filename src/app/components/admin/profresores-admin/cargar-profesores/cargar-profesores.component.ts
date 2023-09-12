@@ -8,20 +8,16 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./cargar-profesores.component.scss']
 })
 export class CargarProfesoresComponent {
-  /** Based on the screen size, switch from standard to one column per row */
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Carga de Profesores', cols: 1, rows: 1 },
-          
-         
+          { title: 'Carga de Alumnos', cols: 1, rows: 1 },
         ];
       }
 
       return [
-        { title: 'Carga de Profesores', cols: 2, rows: 1 },
-        
+        { title: 'Carga de Alumnos', cols: 2, rows: 1 },
       ];
     })
   );

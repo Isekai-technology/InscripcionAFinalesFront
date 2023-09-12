@@ -16,6 +16,7 @@ export interface UserData {
   vocal1: string;
   vocal2: string;
   fecha:string;
+  fechadecierre: string;
 }
 
 export interface Curso {
@@ -34,6 +35,7 @@ let mesas: UserData[] = [
     vocal1: 'Asher',
     vocal2: 'Asher',
     fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Analista',
@@ -43,6 +45,7 @@ let mesas: UserData[] = [
     vocal1: 'Maia',
     vocal2: 'Maia',
     fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Analista',
@@ -52,6 +55,7 @@ let mesas: UserData[] = [
     vocal1: 'Asher',
     vocal2: 'Asher',
     fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -61,6 +65,7 @@ let mesas: UserData[] = [
     vocal1: 'Maia',
     vocal2: 'Asher',
     fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -70,6 +75,7 @@ let mesas: UserData[] = [
     vocal1: 'Asher',
     vocal2: 'Amelia',
     fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -79,6 +85,7 @@ let mesas: UserData[] = [
     vocal1: 'Asher',
     vocal2: 'Amelia',
     fecha: '123',
+    fechadecierre: "123",
   }
   
 
@@ -91,7 +98,7 @@ let mesas: UserData[] = [
 })
 
 export class TablaMesasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha', 'modificar', 'eliminar'];
+  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha', 'fechadecierre', 'modificar', 'eliminar'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)

@@ -1,26 +1,99 @@
+<br>
+<h1>Profesores</h1>
+
+<div class="filtros">
+
+  <div class="filtro-carrera">
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+          {{option.name}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>  
+  </div>
+  
+  <div class="filtro-carrera">
+    <mat-form-field>
+      <mat-label>Carrera</mat-label>
+      <mat-select (selectionChange)="selectOption($event)">
+        <mat-option value="Analista">Analista</mat-option>
+        <mat-option value="Publicidad">Publicidad</mat-option>
+        <mat-option value="Todos">Todos</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div> 
+
+  <div class="filtro-curso">
+    <section>
+      <span>
+        <ul class="curso-list">
+          <li *ngFor="let subCurso of cursos.subCursos">
+            <mat-checkbox [(ngModel)]="subCurso.completed"
+                          [color]="subCurso.color"
+                          (ngModelChange)="updateAllComplete($event,subCurso.name)">
+              {{subCurso.name}}
+            </mat-checkbox>
+          </li>
+        </ul>
+      </span>
+    </section>
+  </div>
+
+  <button mat-raised-button color="primary" class="agregar-btn" (click)="agregarMesa()">
+    <mat-icon>add</mat-icon> Agregar Profesor
+  </button>
+</div>
+
 <div class="mat-elevation-z8">
-  <table mat-table class="full-width-table" matSort aria-label="Elements">
-    <!-- Id Column -->
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- id Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+      <td mat-cell *matCellDef="let row"> {{row.id}} </td>
     </ng-container>
 
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    <!-- Nombre Column -->
+    <ng-container matColumnDef="nombre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+      <td mat-cell *matCellDef="let row"> {{row.nombre}} </td>
+    </ng-container>
+
+    <!-- apellido Column -->
+    <ng-container matColumnDef="apellido">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
+      <td mat-cell *matCellDef="let row"> {{row.apellido}} </td>
+    </ng-container>
+
+    <!-- DNI Column -->
+    <ng-container matColumnDef="DNI">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI </th>
+      <td mat-cell *matCellDef="let row"> {{row.DNI}} </td>
+    </ng-container>
+
+    <!-- carrera Column -->
+    <ng-container matColumnDef="carrera">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Carrera </th>
+      <td mat-cell *matCellDef="let row"> {{row.carrera}} </td>
+    </ng-container>
+
+    <!-- curso Column -->
+    <ng-container matColumnDef="curso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Año </th>
+      <td mat-cell *matCellDef="let row"> {{row.curso}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <tr
+      mat-row
+      (click)="clickedRows(row)"
+      *matRowDef="let row; columns: displayedColumns;"
+    ></tr>
   </table>
 
-  <mat-paginator #paginator
-      [length]="dataSource.data.length"
-      [pageIndex]="0"
-      [pageSize]="10"
-      [pageSizeOptions]="[5, 10, 20]"
-      aria-label="Select page">
-  </mat-paginator>
+  <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
 </div>
+<br>
