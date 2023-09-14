@@ -22,7 +22,7 @@ import { CardsDataComponent } from './components/home/content-register/cards-dat
 import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
 import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
 import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
-import { CargarPlanDialogFormComponent } from './components/admin/planes-admin/cargar-plan-dialog-form/cargar-plan-dialog-form.component';
+
 
 export const COMPONENTS = [
   LoginComponent,
@@ -47,7 +47,7 @@ export const COMPONENTS = [
   CargarMateriasDialogFormComponent,
   CardsDataComponent,
   TablaPlanesComponent,
-  CargarPlanDialogFormComponent,
+
   PlanesAdminComponent,
   MesasAntiguasComponent,
 ]

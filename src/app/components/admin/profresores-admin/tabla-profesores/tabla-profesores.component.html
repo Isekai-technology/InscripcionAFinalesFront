@@ -15,32 +15,6 @@
     </mat-form-field>  
   </div>
   
-  <div class="filtro-carrera">
-    <mat-form-field>
-      <mat-label>Carrera</mat-label>
-      <mat-select (selectionChange)="selectOption($event)">
-        <mat-option value="Analista">Analista</mat-option>
-        <mat-option value="Publicidad">Publicidad</mat-option>
-        <mat-option value="Todos">Todos</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div> 
-
-  <div class="filtro-curso">
-    <section>
-      <span>
-        <ul class="curso-list">
-          <li *ngFor="let subCurso of cursos.subCursos">
-            <mat-checkbox [(ngModel)]="subCurso.completed"
-                          [color]="subCurso.color"
-                          (ngModelChange)="updateAllComplete($event,subCurso.name)">
-              {{subCurso.name}}
-            </mat-checkbox>
-          </li>
-        </ul>
-      </span>
-    </section>
-  </div>
 
   <button mat-raised-button color="primary" class="agregar-btn" (click)="agregarMesa()">
     <mat-icon>add</mat-icon> Agregar Profesor
@@ -66,24 +40,6 @@
     <ng-container matColumnDef="apellido">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellido </th>
       <td mat-cell *matCellDef="let row"> {{row.apellido}} </td>
-    </ng-container>
-
-    <!-- DNI Column -->
-    <ng-container matColumnDef="DNI">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI </th>
-      <td mat-cell *matCellDef="let row"> {{row.DNI}} </td>
-    </ng-container>
-
-    <!-- carrera Column -->
-    <ng-container matColumnDef="carrera">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Carrera </th>
-      <td mat-cell *matCellDef="let row"> {{row.carrera}} </td>
-    </ng-container>
-
-    <!-- curso Column -->
-    <ng-container matColumnDef="curso">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Año </th>
-      <td mat-cell *matCellDef="let row"> {{row.curso}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

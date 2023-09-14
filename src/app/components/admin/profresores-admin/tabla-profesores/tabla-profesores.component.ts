@@ -85,7 +85,7 @@ export interface User {
 })
 
 export class TablaProfesoresComponent {
-  displayedColumns: string[] = ['id', 'nombre', 'apellido','DNI', 'carrera', 'curso'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   dataSource: MatTableDataSource<AlumnoData>;
