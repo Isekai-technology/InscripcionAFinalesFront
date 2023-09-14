@@ -15,6 +15,7 @@ import { PlanesAdminComponent } from './components/admin/planes-admin/planes-adm
 import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
 import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
 import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
+import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
       { path: 'mesas-antiguas', component: MesasAntiguasComponent },
       { path: 'mesas-antiguas-alumnos', component: MesasAntiguasAlumnosComponent },
       { path: 'profesor', component: ProfesoresCardComponent },
+      { path: 'cargarPlan', component: CargarPlanComponent },
     ]
   },
 ];

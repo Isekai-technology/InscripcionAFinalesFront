@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CargarPlanDialogFormComponent } from '../cargar-plan-dialog-form/cargar-plan-dialog-form.component';
+import { Router } from '@angular/router';
 
 export interface Plan {
   nombre: string,
@@ -21,11 +21,15 @@ export class TablaPlanesComponent {
   columnas: string[] = ['nombre', 'carrera', 'acciones'];
   datos = Planes;
 
-  constructor (private cargarPlanes: MatDialog){
-
+  constructor (private router: Router){
+    
   }
 
-  
+  cargarPlan(){
+    this.router.navigate(['/admin/cargarPlan']);
+  }
+
+  /*
   abrirVentanaCargarPlanes(): void {
     const dialogRef = this.cargarPlanes.open(CargarPlanDialogFormComponent, {
       width: '400px',
@@ -35,5 +39,5 @@ export class TablaPlanesComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-  }
+  }*/
 }
