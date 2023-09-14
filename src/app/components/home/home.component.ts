@@ -15,8 +15,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
-  loggedUser: string = "";
-  career: string = 'Publicidad'; //para test
+  carreraUsuario: string = "";
+  usuario: string = "";
 
   selectedDate: Date | null = new Date(2023, 7, 28) ;
 
@@ -40,8 +40,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    this.loggedUser = localStorage.getItem('user') || "" ;
-    if (this.loggedUser=="publicidad")
+    this.usuario = localStorage.getItem('usuario') || "";
+    this.carreraUsuario = localStorage.getItem('carrera') || "" ;
+    if (this.carreraUsuario=="publicidad")
     {
       const imageUrl = '../../../assets/imgs/LOGO_PUBLI.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
@@ -50,7 +51,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     else
     {
-      this.career = "Analista de Sistemas";
       const imageUrl = '../../../assets/imgs/LOGO_AS.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
       logoElement.src = imageUrl;
@@ -128,6 +128,9 @@ export class CloseSession {
     this.volverColorBody();
     this.router.navigateByUrl("/login");
     this.dialogRef.close();
+    localStorage.removeItem('user');
+    localStorage.removeItem('email');
+    localStorage.removeItem('rol');
   }
 }
 

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 import { CredencialesLogin } from 'src/app/models/Credenciales';
 import { Usuario } from 'src/app/models/Usuario';
@@ -22,6 +22,7 @@ export class LoginService {
       headers: { 'ContentType': 'application/json' }
     }).subscribe((response) => {
       const res= JSON.parse(response);
+      console.log(res);
       if (res){
         return new Usuario(res["Nombre"], res["Email"], res["Rol"]);
         // if (usuario.rol == 1)
