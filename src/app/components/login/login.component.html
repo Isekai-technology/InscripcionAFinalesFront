@@ -2,7 +2,7 @@
     <div class="image-container">
         <img src="../../../assets/imgs/loginImg.jpg" alt="">
     </div>
-    <form class="form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <form class="form" [formGroup]="loginForm" (ngSubmit)="submit()">
         <h1>HILET</h1>
         <h2>Inscripción a finales</h2>
         <div class="inputContainer">
@@ -20,6 +20,6 @@
                 </mat-form-field>
         </div>
         <p class="inputContainer"><a routerLink="forgot-password">Olvidó su contraseña?</a></p>
-        <button mat-fab extended color="accent" id="loginBtn" [disabled]="!loginForm.valid" routerLink="home">Ingresar</button>
+        <button type="submit" mat-fab extended color="accent" id="loginBtn" [disabled]="!loginForm.valid" >Ingresar</button>
     </form> 
 </div>

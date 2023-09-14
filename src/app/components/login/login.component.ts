@@ -30,28 +30,30 @@ export class LoginComponent {
     password: new FormControl<string>('',  {nonNullable: true, validators: Validators.required}),
   });
 
-    login() {
-      const credentials: CredencialesLogin = {
-        nombre: this.loginForm.get('username')!.value,
-        contra: this.loginForm.get('password')!.value,
-        tipo: 'login'
-      };
+  submit() {
+    const credentials: CredencialesLogin = {
+      nombre: this.loginForm.get('username')!.value,
+      contra: this.loginForm.get('password')!.value,
+      tipo: 'login'
+    };
       
-      const res = this._loginSer.login(credentials);
+    const res = this._loginSer.login(credentials);
 
-      if (res) {
-        const usuario: Usuario= res as Usuario;
-        localStorage.setItem('user',usuario.nombre);
-        localStorage.setItem('email', usuario.email);
-        localStorage.setItem('rol', usuario.rol.toString());
-        if (usuario.rol == 1) {
-          this.router.navigateByUrl('/admin');
-        }
-        else{
-          this.router.navigateByUrl("/home");
-        }
+    console.log(res);
+    if (res) {
+      const usuario: Usuario= res as Usuario;
+      console.log(usuario);
+      localStorage.setItem('user',usuario.nombre);
+      localStorage.setItem('email', usuario.email);
+      localStorage.setItem('rol', usuario.rol.toString());
+      localStorage.setItem('carrera', 'publicidad');
+      if (usuario.rol == 1) {
+        this.router.navigateByUrl('/admin');
       }
-
-
+      else{
+        this.router.navigateByUrl("/home");
+      }
     }
+  }
+
 }
