@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { environment } from 'src/environments/environment';
 
@@ -12,27 +11,36 @@ import { Usuario } from 'src/app/models/Usuario';
 })
 export class LoginService {
 
-  baseUrl: string= environment.apiUrl + 'UsuariosContro/';
+  baseUrl: string= environment.apiUrl + 'UsuariosContro.php';
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient) { }
 
-  login(credenciales: CredencialesLogin) : Usuario | Boolean{
-    this.http.post(this.baseUrl + "login", JSON.stringify(credenciales), {
+  login(credenciales: CredencialesLogin){
+    const resultado= this.http.post(this.baseUrl, JSON.stringify(credenciales), {
       responseType: "text",
-      headers: { 'ContentType': 'application/json' }
+      //headers: { 'Content-Type': 'application/json' }
     }).subscribe((response) => {
-      const res= JSON.parse(response);
+      const res: Usuario = JSON.parse(response);
       console.log(res);
-      if (res){
-        return new Usuario(res["Nombre"], res["Email"], res["Rol"]);
-        // if (usuario.rol == 1)
-        //   this.router.navigateByUrl('/admin');
-        // else
-        //   this.router.navigateByUrl('/home');
+      //Tendriamos que hacer otra llamada a la API para verificar si es un estudiante o un admin
+      try { //Hago un try/catch porque si no funca el login no devuelve nada
+        localStorage.setItem('usuario', res.Nombre);
+        localStorage.setItem('email', res.Email);
+        if (res.Rol == '1')        
+          localStorage.setItem('rol', 'admin');
+        else
+          localStorage.setItem('rol', 'usuario');
+        localStorage.setItem('carrera', 'publicidad');
+      } catch (error) {
+        console.log(error); //Aca seria si falla el login?
       }
-      else return false;
     });
-    return false;
   }
 
+  logout(){
+    localStorage.removeItem('usuario');
+    localStorage.removeItem('email');
+    localStorage.removeItem('rol');
+    localStorage.removeItem('carrera');
+  }
 }
