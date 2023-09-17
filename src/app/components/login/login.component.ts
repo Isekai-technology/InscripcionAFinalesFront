@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators,  } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { CredencialesLogin } from 'src/app/models/Credenciales';
-import { Usuario } from 'src/app/models/Usuario';
 import { LoginService } from 'src/app/services/login-service/login.service';
 
 
@@ -37,23 +37,28 @@ export class LoginComponent {
       tipo: 'login'
     };
       
-    const res = this._loginSer.login(credentials);
+    this._loginSer.login(credentials);
 
-    console.log(res);
-    if (res) {
+    const rol= localStorage.getItem('rol');
+    console.log(rol);
+
+    if (rol == 'admin') {
+      this.router.navigateByUrl('/admin');
+    }
+    else{
+      this.router.navigateByUrl("/home");
+    }
+    
+    /*
+    if (res != null) {
       const usuario: Usuario= res as Usuario;
       console.log(usuario);
       localStorage.setItem('user',usuario.nombre);
       localStorage.setItem('email', usuario.email);
       localStorage.setItem('rol', usuario.rol.toString());
       localStorage.setItem('carrera', 'publicidad');
-      if (usuario.rol == 1) {
-        this.router.navigateByUrl('/admin');
-      }
-      else{
-        this.router.navigateByUrl("/home");
-      }
-    }
+
+    }*/
   }
 
 }

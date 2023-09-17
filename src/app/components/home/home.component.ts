@@ -3,6 +3,7 @@ import { MatDialog,MatDialogModule, MatDialogRef } from '@angular/material/dialo
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
 import { CardsDataComponent } from './content-register/cards-data/cards-data.component';
+import { LoginService } from 'src/app/services/login-service/login.service';
 
 
 @Component({
@@ -118,7 +119,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 })
 export class CloseSession {
 
-  constructor (private router : Router, private dialogRef: MatDialogRef<CloseSession>, private renderer: Renderer2) {}
+  constructor (private router : Router, private dialogRef: MatDialogRef<CloseSession>, private renderer: Renderer2, private _logSer: LoginService) {}
 
   volverColorBody(){
     this.renderer.setStyle(document.body, 'background-color', "#213F60");
@@ -128,9 +129,7 @@ export class CloseSession {
     this.volverColorBody();
     this.router.navigateByUrl("/login");
     this.dialogRef.close();
-    localStorage.removeItem('user');
-    localStorage.removeItem('email');
-    localStorage.removeItem('rol');
+    this._logSer.logout();
   }
 }
 
