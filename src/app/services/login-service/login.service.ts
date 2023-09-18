@@ -1,10 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
 import { environment } from 'src/environments/environment';
-
-import { CredencialesLogin } from 'src/app/models/Credenciales';
 import { Usuario } from 'src/app/models/Usuario';
+import jwtDecode from 'jwt-decode';
+import { CredencialesLogin } from 'src/app/models/Credenciales';
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +15,22 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(credenciales: CredencialesLogin){
-    const resultado= this.http.post(this.baseUrl, JSON.stringify(credenciales), {
-      responseType: "text",
-      //headers: { 'Content-Type': 'application/json' }
-    }).subscribe((response) => {
-      const res: Usuario = JSON.parse(response);
-      console.log(res);
-      //Tendriamos que hacer otra llamada a la API para verificar si es un estudiante o un admin
-      try { //Hago un try/catch porque si no funca el login no devuelve nada
+    this.http.post(this.baseUrl, JSON.stringify(credenciales), {
+      responseType: 'text',
+    }).subscribe(
+      (response) => {
+        try {
+        let res : Usuario = JSON.parse(response);
         localStorage.setItem('usuario', res.Nombre);
         localStorage.setItem('email', res.Email);
-        if (res.Rol == '1')        
+        console.log (res)
+        if (res.ID_Rol == 1)        
           localStorage.setItem('rol', 'admin');
-        else
+        else if(res.ID_Rol == 2)
           localStorage.setItem('rol', 'usuario');
         localStorage.setItem('carrera', 'publicidad');
       } catch (error) {
-        console.log(error); //Aca seria si falla el login?
+        console.log(error); 
       }
     });
   }

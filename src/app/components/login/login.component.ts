@@ -15,7 +15,7 @@ import { LoginService } from 'src/app/services/login-service/login.service';
 export class LoginComponent {
 
   constructor (private router: Router, private _loginSer: LoginService){
-
+    localStorage.clear();
   }
 
   // Estados
@@ -41,24 +41,14 @@ export class LoginComponent {
 
     const rol= localStorage.getItem('rol');
     console.log(rol);
-
     if (rol == 'admin') {
+      localStorage.clear();
       this.router.navigateByUrl('/admin');
     }
-    else{
+    else if (rol== 'usuario'){
+      localStorage.clear();
       this.router.navigateByUrl("/home");
     }
-    
-    /*
-    if (res != null) {
-      const usuario: Usuario= res as Usuario;
-      console.log(usuario);
-      localStorage.setItem('user',usuario.nombre);
-      localStorage.setItem('email', usuario.email);
-      localStorage.setItem('rol', usuario.rol.toString());
-      localStorage.setItem('carrera', 'publicidad');
-
-    }*/
   }
 
 }

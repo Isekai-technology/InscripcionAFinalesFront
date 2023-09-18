@@ -1,5 +1,7 @@
 export interface Usuario {
+    id:number;
+    contra:string;
     Nombre: string;
     Email: string;
-    Rol: string;
+    ID_Rol: number;
 }
