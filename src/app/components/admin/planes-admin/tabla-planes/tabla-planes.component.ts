@@ -1,15 +1,15 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 export interface Plan {
-  nombre: string,
-  carrera: string
+  nombre: string;
+  carrera: string;
 }
 
 const Planes: Plan[] = [
-  {nombre: "ASDGF", carrera: "Analista"},
-  {nombre: "YDSYH", carrera: "Publicidad"}
+  { nombre: "ASDGF", carrera: "Analista" },
+  { nombre: "YDSYH", carrera: "Publicidad" }
 ];
 
 @Component({
@@ -21,13 +21,27 @@ export class TablaPlanesComponent {
   columnas: string[] = ['nombre', 'carrera', 'acciones'];
   datos = Planes;
 
-  constructor (private router: Router){
-    
-  }
+  constructor(private router: Router, public dialog: MatDialog) {}
 
-  cargarPlan(){
+  cargarPlan() {
     this.router.navigate(['/admin/cargarPlan']);
   }
+
+  editarPlan(plan: Plan) {
+   
+    console.log('Editar plan:', plan);
+  }
+
+  eliminarPlan(plan: Plan) {
+    
+    console.log('Eliminar plan:', plan);
+  }
+
+  verMaterias(plan: Plan) {
+
+    console.log('Ver materias de:', plan);
+  }
+
 
   /*
   abrirVentanaCargarPlanes(): void {

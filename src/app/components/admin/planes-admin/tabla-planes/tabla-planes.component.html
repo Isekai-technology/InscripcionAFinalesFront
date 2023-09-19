@@ -23,12 +23,35 @@
           <td mat-cell *matCellDef="let element">{{element.carrera}}</td>
         </ng-container>
       
-        <!-- Acciones -->
+       <!-- Acciones -->
         <ng-container matColumnDef="acciones">
           <th mat-header-cell *matHeaderCellDef></th>
-          <td mat-cell *matCellDef="let element"></td>
+          <td mat-cell *matCellDef="let element">
+            <button mat-mini-fab color="primary" class="boton-accion" (click)="editarPlan(element);$event.stopPropagation()">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button  mat-mini-fab color="primary" class="boton-accion" (click)="eliminarPlan(element);$event.stopPropagation()">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
         </ng-container>
-      
+
+           <!-- correlativas Column -->
+  
+
+    <!-- Materias Column -->
+  <ng-container matColumnDef="materias">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Materias</th>
+    <td mat-cell *matCellDef="let element">
+      <button mat-raised-button color="primary" class="boton-accion" (click)="verMaterias(element)">Materias</button>
+    </td>
+  </ng-container>
+
+   
+
+
+       
+
         <tr mat-header-row *matHeaderRowDef="columnas"></tr>
         <tr mat-row *matRowDef="let row; columns: columnas;"></tr>
       </table>
