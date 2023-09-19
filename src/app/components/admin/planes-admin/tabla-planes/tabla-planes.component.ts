@@ -37,6 +37,10 @@ export class TablaPlanesComponent {
     console.log('Eliminar plan:', plan);
   }
 
+  verMaterias(plan: Plan) {
+
+    console.log('Ver materias de:', plan);
+  }
 
 
   /*
