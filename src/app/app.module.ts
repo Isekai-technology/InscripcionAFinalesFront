@@ -14,6 +14,7 @@ import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admi
 import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
 import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
 import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
+import { AdminAlumnosService } from "./services/admin-services/admin-alumnos.service";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan
     MATERIAL_MODULES,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AdminAlumnosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
