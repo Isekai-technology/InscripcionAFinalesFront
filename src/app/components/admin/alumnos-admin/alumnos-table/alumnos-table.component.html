@@ -89,8 +89,8 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
-      (click)="clickedRows(row)"
       *matRowDef="let row; columns: displayedColumns;"
+      (click)="clickedRows(row.id)"
     ></tr>
   </table>
 

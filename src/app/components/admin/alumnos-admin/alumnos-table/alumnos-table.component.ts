@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit, AfterViewInit } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
@@ -11,6 +11,7 @@ import { Observable, map, startWith } from 'rxjs';
 
 import { CargarAlumnosComponent } from '../cargar-alumnos/cargar-alumnos.component';
 import { Estudiante } from 'src/app/models/Estudiante';
+import { AdminAlumnosService } from 'src/app/services/admin-services/admin-alumnos.service';
 
 export interface Curso {
   name: string;
@@ -19,6 +20,7 @@ export interface Curso {
   subCursos?: any[];
 }
 
+//BOILERPLATE DE EJEMPLO, ESTOS DATOS VENDRIAN DE UN SERVICIO
 let alumnosEjemplo: Estudiante[] = [
   {
     id:1,
@@ -100,7 +102,8 @@ export interface User {
   templateUrl: './alumnos-table.component.html',
   styleUrls: ['./alumnos-table.component.scss']
 })
-export class AlumnosTableComponent {
+export class AlumnosTableComponent implements OnInit, AfterViewInit {
+
   displayedColumns: string[] = ['id', 'nombre', 'apellido','DNI', 'carrera', 'curso'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -110,7 +113,7 @@ export class AlumnosTableComponent {
   options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
   filteredOptions: Observable<User[]> | undefined;
 
-  constructor(private router: Router,private dialog : MatDialog) {
+  constructor(private router: Router,private dialog : MatDialog, private _alumnosServ: AdminAlumnosService) {
     this.array=alumnosEjemplo;
     this.dataSource = new MatTableDataSource(this.array);
   }
@@ -207,7 +210,10 @@ export class AlumnosTableComponent {
     });
   }
 
-  clickedRows(row:any){
+  clickedRows(id:number){
+    let estudiante: Estudiante = alumnosEjemplo.find( e => e.id == id) as Estudiante;
+    console.log(estudiante);
+    this._alumnosServ.seleccionarEstudiante(estudiante);
     this.router.navigate(['/admin/alumno']);
   }
 }
