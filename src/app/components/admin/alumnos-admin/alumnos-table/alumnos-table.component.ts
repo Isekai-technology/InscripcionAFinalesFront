@@ -100,8 +100,7 @@ export interface User {
 @Component({
   selector: 'app-alumnos-table',
   templateUrl: './alumnos-table.component.html',
-  styleUrls: ['./alumnos-table.component.scss'],
-  providers: [AdminAlumnosService]
+  styleUrls: ['./alumnos-table.component.scss']
 })
 export class AlumnosTableComponent implements OnInit, AfterViewInit {
 
@@ -211,8 +210,9 @@ export class AlumnosTableComponent implements OnInit, AfterViewInit {
     });
   }
 
-  clickedRows(rowId:number){
-    let estudiante: Estudiante = alumnosEjemplo.find( e => e.id= rowId) as Estudiante;
+  clickedRows(id:number){
+    let estudiante: Estudiante = alumnosEjemplo.find( e => e.id == id) as Estudiante;
+    console.log(estudiante);
     this._alumnosServ.seleccionarEstudiante(estudiante);
     this.router.navigate(['/admin/alumno']);
   }
