@@ -41,16 +41,13 @@ import { Usuario } from 'src/app/models/Usuario';
       this._loginSer.login(credentials).subscribe(
         (response: string) => { 
           let user= JSON.parse(response) as Usuario;
-          console.log(user);
-          console.log(user.ID_Rol);
-          const rol = user.ID_Rol.toString();
-          localStorage.setItem('rol', rol);
-
-          if (rol === 'admin') {
+          const rol = user.ID_Rol;
+          if (rol == 1){       
             this.router.navigateByUrl('/admin');
-          } else if (rol === 'usuario') {
+          }
+          else{
             this.router.navigateByUrl('/home');
-          } 
+          }
 
         },
         (error: any) => { 
