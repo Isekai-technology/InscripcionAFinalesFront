@@ -35,7 +35,7 @@ let alumnosEjemplo: Estudiante[] = [
       {id: 1, materia: "Practicas Prof", fecha: new Date(2023, 10, 7), profesor: "Jose Campos"}
     ],
     usuario: {
-      id: 1, Nombre: "654354254", contra: "", Email: "hernan@gmail.com", ID_Rol: 2
+      ID: 1, Nombre: "654354254", Contra: "", Email: "hernan@gmail.com", ID_Rol: 2
     },
     plan: "2023/09"
   },
@@ -52,7 +52,7 @@ let alumnosEjemplo: Estudiante[] = [
       {id: 1, materia: "Introduccion a la Publicidad", fecha: new Date(2023, 10, 4), profesor: "Ramiro Sansinanea"}
     ],
     usuario: {
-      id: 1, Nombre: "654354254", contra: "", Email: "juan@gmail.com", ID_Rol: 2
+      ID: 1, Nombre: "654354254", Contra: "", Email: "juan@gmail.com", ID_Rol: 2
     },
     plan: "2023/09"
   },
@@ -69,7 +69,7 @@ let alumnosEjemplo: Estudiante[] = [
       {id: 1, materia: "Practicas Prof I", fecha: new Date(2023, 10, 4), profesor: "Ramiro Sansinanea"}
     ],
     usuario: {
-      id: 1, Nombre: "654354254", contra: "", Email: "paula@gmail.com", ID_Rol: 2
+      ID: 1, Nombre: "654354254", Contra: "", Email: "paula@gmail.com", ID_Rol: 2
     },
     plan: "2023/09"
   },
@@ -86,7 +86,7 @@ let alumnosEjemplo: Estudiante[] = [
       {id: 1, materia: "Introduccion a la Publicidad", fecha: new Date(2023, 10, 4), profesor: "Ramiro Sansinanea"}
     ],
     usuario: {
-      id: 1, Nombre: "654354254", contra: "", Email: "seba@gmail.com", ID_Rol: 2
+      ID: 1, Nombre: "654354254", Contra: "", Email: "seba@gmail.com", ID_Rol: 2
     },
     plan: "2023/09"
   }

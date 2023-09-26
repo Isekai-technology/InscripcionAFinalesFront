@@ -17,7 +17,7 @@ export class AdminAlumnosService {
     curso: "",
     mesasInscriptas: [],
     usuario: {
-      id: 0, Nombre: "", contra: "", Email: "", ID_Rol: 0
+      ID: 0, Nombre: "", Contra: "", Email: "", ID_Rol: 0
     },
     plan: ""
   });
