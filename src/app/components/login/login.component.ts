@@ -42,10 +42,13 @@ import { Usuario } from 'src/app/models/Usuario';
         (response: string) => { 
           let user= JSON.parse(response) as Usuario;
           const rol = user.ID_Rol;
+          localStorage.setItem('usuario', user.Nombre);
+          localStorage.setItem('email', user.Email);
           if (rol == 1){       
             this.router.navigateByUrl('/admin');
           }
           else{
+            //traer datos de estudiante de la API
             this.router.navigateByUrl('/home');
           }
 
