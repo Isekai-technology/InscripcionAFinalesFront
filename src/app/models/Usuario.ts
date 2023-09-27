@@ -1,6 +1,6 @@
 export interface Usuario {
-    id:number;
-    contra:string;
+    ID:number;
+    Contra:string;
     Nombre: string;
     Email: string;
     ID_Rol: number;

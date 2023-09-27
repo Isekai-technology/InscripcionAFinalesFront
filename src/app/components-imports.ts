@@ -22,6 +22,11 @@ import { CardsDataComponent } from './components/home/content-register/cards-dat
 import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
 import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
 import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
+import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
+import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admin/modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
+import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
+import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
+import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
 
 
 export const COMPONENTS = [
@@ -47,7 +52,11 @@ export const COMPONENTS = [
   CargarMateriasDialogFormComponent,
   CardsDataComponent,
   TablaPlanesComponent,
-
+  ModificarMateriasDialogFormComponent,
+  ModificarMesasDialogFormComponent,
+  MesasAntiguasAlumnosComponent,
+  ProfesoresCardComponent,
+  CargarPlanComponent,
   PlanesAdminComponent,
   MesasAntiguasComponent,
 ]

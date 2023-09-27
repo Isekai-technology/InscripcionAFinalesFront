@@ -9,22 +9,13 @@ import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
-import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
-import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admin/modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
-import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
-import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
-import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
-import { AdminAlumnosService } from "./services/admin-services/admin-alumnos.service";
+
+import { SERVICIOS } from "./services-imports";
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
-    ModificarMateriasDialogFormComponent,
-    ModificarMesasDialogFormComponent,
-    MesasAntiguasAlumnosComponent,
-    ProfesoresCardComponent,
-    CargarPlanComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,9 +26,9 @@ import { AdminAlumnosService } from "./services/admin-services/admin-alumnos.ser
     LayoutModule,
     NoopAnimationsModule,
     MATERIAL_MODULES,
-    HttpClientModule
+    HttpClientModule,  
   ],
-  providers: [AdminAlumnosService],
+  providers: [SERVICIOS],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
