@@ -14,7 +14,6 @@ export class AdminUsuariosService {
   constructor(private http: HttpClient) { }
 
   crearUsuario(usuario: Usuario): Observable<any>{        
-    //ESTO no esta bien. ¿Quejas? Al back que hizo asi la API jajajaja
     let datos= {
       Nombre: usuario.Nombre,
       Contra: usuario.Contra,
