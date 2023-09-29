@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Estudiante } from 'src/app/models/Estudiante';
@@ -22,12 +23,12 @@ export class AdminAlumnosService {
     usuario: {
       ID: 0, Nombre: "", Contra: "", Email: "", ID_Rol: 0
     },
-    plan: ""
+    plan: 1
   });
 
   estudianteSeleccionado= this.estudianteSource.asObservable();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   seleccionarEstudiante(estudiante: Estudiante){
     this.estudianteSource.next(estudiante);
@@ -39,11 +40,14 @@ export class AdminAlumnosService {
       Nombre: estudiante.nombre,
       Apellido: estudiante.apellido,
       Activo: 1,
-      ID_Carrera: 0,
-      ID_Plan: 0,
-      ID_Usuario: idUsuario
-    }    
+      ID_Plan: estudiante.plan,
+      ID_Usuario: idUsuario,
+      tipo: "crear"
+    };  
 
+    return this.http.post(this.baseUrl, datos, {
+      responseType: 'text'
+    });
     
   }
 

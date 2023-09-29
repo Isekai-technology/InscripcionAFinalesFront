@@ -9,6 +9,6 @@ export interface Estudiante {
     dni: string;
     carrera: string;
     curso: string;
-    plan: string;
+    plan: number;
     mesasInscriptas: MesaExamen[];
 }

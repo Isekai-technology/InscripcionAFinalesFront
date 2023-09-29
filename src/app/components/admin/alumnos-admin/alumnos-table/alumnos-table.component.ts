@@ -37,7 +37,7 @@ let alumnosEjemplo: Estudiante[] = [
     usuario: {
       ID: 1, Nombre: "654354254", Contra: "", Email: "hernan@gmail.com", ID_Rol: 2
     },
-    plan: "2023/09"
+    plan: 2
   },
   {
     id:2,
@@ -54,7 +54,7 @@ let alumnosEjemplo: Estudiante[] = [
     usuario: {
       ID: 1, Nombre: "654354254", Contra: "", Email: "juan@gmail.com", ID_Rol: 2
     },
-    plan: "2023/09"
+    plan: 1
   },
   {
     id:3,
@@ -71,7 +71,7 @@ let alumnosEjemplo: Estudiante[] = [
     usuario: {
       ID: 1, Nombre: "654354254", Contra: "", Email: "paula@gmail.com", ID_Rol: 2
     },
-    plan: "2023/09"
+    plan: 2
   },
   {
     id:4,
@@ -88,7 +88,7 @@ let alumnosEjemplo: Estudiante[] = [
     usuario: {
       ID: 1, Nombre: "654354254", Contra: "", Email: "seba@gmail.com", ID_Rol: 2
     },
-    plan: "2023/09"
+    plan: 1
   }
 ]
 
