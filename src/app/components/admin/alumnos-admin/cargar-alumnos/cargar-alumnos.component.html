@@ -22,17 +22,21 @@
 
   <mat-form-field>
     <mat-label>Carrera</mat-label>
-    <mat-select>
+    <mat-select [(ngModel)]="carreraSeleccionada" (selectionChange)="seleccionarCarrera()">
       <mat-option value="analista">Analista de Sistemas</mat-option>
       <mat-option value="publicidad">Publicidad</mat-option>
     </mat-select>
   </mat-form-field>
 
-  <mat-form-field >
+  <mat-form-field>
     <mat-label>Plan</mat-label>
-    <mat-select>
-      <mat-option value="analista">Analista de Sistemas</mat-option>
-      <mat-option value="publicidad">Publicidad</mat-option>
+    <mat-select [disabled]="idCarreraSeleccionada <= 0">
+      <div *ngIf="idCarreraSeleccionada === 1">
+        <mat-option value="analista">Plan de Analista</mat-option>
+      </div>
+      <div *ngIf="idCarreraSeleccionada === 2">
+        <mat-option value="publicidad">Plan de Publicidad</mat-option>
+      </div>
     </mat-select>
   </mat-form-field>
 
