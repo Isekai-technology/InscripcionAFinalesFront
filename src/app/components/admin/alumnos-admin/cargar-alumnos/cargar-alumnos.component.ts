@@ -22,6 +22,12 @@ export class CargarAlumnosComponent {
       this.idCarreraSeleccionada= 2;
   }
 
-  
+  guardarEstudiante(){
+    //tomar datos del form
+
+    //llamar al servicio de usuarios, crear usuario y obtener id
+
+    //llamar al servicio de alumnos y crear alumno
+  }
 
 }
