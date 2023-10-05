@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { AdminAlumnosService } from 'src/app/services/admin-services/admin-alumnos.service';
 import { AdminUsuariosService } from 'src/app/services/admin-services/admin-usuarios.service';
 
@@ -9,21 +10,35 @@ import { AdminUsuariosService } from 'src/app/services/admin-services/admin-usua
 })
 export class CargarAlumnosComponent {
 
-  carreraSeleccionada: string= "";
   idCarreraSeleccionada: number = -1;
+  idPlanSeleccionado: number = -1;
+
+  carreras= [
+    {id: 1, nombre: 'Analista de Sistemas'},
+    {id: 2, nombre: 'Publicidad'}
+  ]
+
+  //campos del formulario
+  nombre= new FormControl("");
+  apellido= new FormControl("");
+  documento= new FormControl("");
+  email= new FormControl("");
 
   constructor(private _alumnosService : AdminAlumnosService, private _usuariosService: AdminUsuariosService) {}
 
-  //tiene que haber una mejor forma de hacer esto
-  seleccionarCarrera(){
-    if (this.carreraSeleccionada === "analista")
-      this.idCarreraSeleccionada= 1;
-    else
-      this.idCarreraSeleccionada= 2;
-  }
-
   guardarEstudiante(){
     //tomar datos del form
+
+    //validaciones
+    if (this.idCarreraSeleccionada <= 0){
+      console.log('No se selecciono una carrera');
+      return;
+    }
+
+    if (this.idPlanSeleccionado <= 0){
+      console.log('No se selecciono un plan');
+      return;
+    }
 
     //llamar al servicio de usuarios, crear usuario y obtener id
 

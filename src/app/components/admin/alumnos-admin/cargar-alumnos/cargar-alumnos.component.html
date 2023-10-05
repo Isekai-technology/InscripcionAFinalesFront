@@ -2,40 +2,39 @@
 <div mat-dialog-content class="dialog-content">
   <mat-form-field>
     <mat-label>Nombre</mat-label>
-    <input matInput placeholder="Nombre">
+    <input [formControl]="nombre" matInput placeholder="Nombre">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Apellido</mat-label>
-    <input matInput placeholder="Apellido">
+    <input [formControl]="apellido" matInput placeholder="Apellido">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Documento</mat-label>
-    <input matInput placeholder="Documento">
+    <input [formControl]="documento" matInput placeholder="Documento">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Email</mat-label>
-    <input matInput type="email" placeholder="email">
+    <input [formControl]="email" matInput type="email" placeholder="email">
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Carrera</mat-label>
-    <mat-select [(ngModel)]="carreraSeleccionada" (selectionChange)="seleccionarCarrera()">
-      <mat-option value="analista">Analista de Sistemas</mat-option>
-      <mat-option value="publicidad">Publicidad</mat-option>
-    </mat-select>
+    <mat-select [(ngModel)]="idCarreraSeleccionada">
+      <mat-option *ngFor="let c of carreras" value={{c.id}}>{{c.nombre}}</mat-option>
+    </mat-select> 
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Plan</mat-label>
-    <mat-select [disabled]="idCarreraSeleccionada <= 0">
+    <mat-select [(ngModel)]="idPlanSeleccionado" [disabled]="idCarreraSeleccionada <= 0">
       <div *ngIf="idCarreraSeleccionada === 1">
-        <mat-option value="analista">Plan de Analista</mat-option>
+        <mat-option value=1 >Plan de Analista</mat-option>
       </div>
       <div *ngIf="idCarreraSeleccionada === 2">
-        <mat-option value="publicidad">Plan de Publicidad</mat-option>
+        <mat-option value=2 >Plan de Publicidad</mat-option>
       </div>
     </mat-select>
   </mat-form-field>
