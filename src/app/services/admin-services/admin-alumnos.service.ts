@@ -34,14 +34,14 @@ export class AdminAlumnosService {
     this.estudianteSource.next(estudiante);
   }
 
-  nuevoEstudiante(idUsuario: number, estudiante: Estudiante){
+  nuevoEstudiante(estudiante: Estudiante){
     let datos= {
       DNI: estudiante.dni,
       Nombre: estudiante.nombre,
       Apellido: estudiante.apellido,
       Activo: 1,
       ID_Plan: estudiante.plan,
-      ID_Usuario: idUsuario,
+      ID_Usuario: estudiante.usuario.ID,
       tipo: "crear"
     };  
 
