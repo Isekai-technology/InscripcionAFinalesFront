@@ -1,46 +1,54 @@
 <h2 mat-dialog-title>Agregar Alumno</h2>
-<div mat-dialog-content class="dialog-content">
-  <mat-form-field>
-    <mat-label>Nombre</mat-label>
-    <input [formControl]="nombre" matInput placeholder="Nombre">
-  </mat-form-field>
 
-  <mat-form-field>
-    <mat-label>Apellido</mat-label>
-    <input [formControl]="apellido" matInput placeholder="Apellido">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Documento</mat-label>
-    <input [formControl]="documento" matInput placeholder="Documento">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Email</mat-label>
-    <input [formControl]="email" matInput type="email" placeholder="email">
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Carrera</mat-label>
-    <mat-select [(ngModel)]="idCarreraSeleccionada">
-      <mat-option *ngFor="let c of carreras" value={{c.id}}>{{c.nombre}}</mat-option>
-    </mat-select> 
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-label>Plan</mat-label>
-    <mat-select [(ngModel)]="idPlanSeleccionado" [disabled]="idCarreraSeleccionada <= 0">
-      <div *ngIf="idCarreraSeleccionada === 1">
-        <mat-option value=1 >Plan de Analista</mat-option>
-      </div>
-      <div *ngIf="idCarreraSeleccionada === 2">
-        <mat-option value=2 >Plan de Publicidad</mat-option>
-      </div>
-    </mat-select>
-  </mat-form-field>
-
-</div>
-<div mat-dialog-actions class="dialog-actions">
-  <button mat-button mat-dialog-close>Cancelar</button>
-  <button mat-button [mat-dialog-close]="guardarEstudiante()">Guardar</button>
+<div mat-dialog-content>
+  <form  class="dialog-content" (ngSubmit)="guardarEstudiante()" #formEstudiante="ngForm">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input name="nombre" [(ngModel)]="modelo.nombre" required matInput placeholder="Nombre">
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input name="apellido" [(ngModel)]="modelo.apellido" required matInput placeholder="Apellido">
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Documento</mat-label>
+      <input name="documento" [(ngModel)]="modelo.documento" required matInput placeholder="Documento">
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input name="email" [(ngModel)]="modelo.email" required matInput type="email" placeholder="Email" >
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Carrera</mat-label>
+      <mat-select name="carrera" [(ngModel)]="modelo.idCarreraSeleccionada">
+        <mat-option *ngFor="let c of carreras" [value]="c.id">{{c.nombre}}</mat-option>
+      </mat-select> 
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <mat-label>Plan</mat-label>
+      <mat-select name="plan" [(ngModel)]="modelo.idPlanSeleccionado" [disabled]="modelo.idCarreraSeleccionada <= 0" >
+        <div *ngIf="modelo.idCarreraSeleccionada === 1">
+          <mat-option value=1 >Plan de Analista</mat-option>
+        </div>
+        <div *ngIf="modelo.idCarreraSeleccionada === 2">
+          <mat-option value=2 >Plan de Publicidad</mat-option>
+        </div>
+      </mat-select>
+      <mat-error>Campo requerido</mat-error>
+    </mat-form-field>
+    <div class="dialog-actions">
+      <button mat-button mat-dialog-close>Cancelar</button>
+      <button mat-button color="primary" type="submit">Guardar</button>
+    </div>
+  </form>
 </div>
