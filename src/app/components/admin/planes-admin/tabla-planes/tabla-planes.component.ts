@@ -1,18 +1,29 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Plan } from 'src/app/services/admin-services/admin-planes.service'; // Importa la interfaz Plan desde el servicio
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { Plan, Planes } from 'src/app/services/admin-services/admin-planes.service'; 
 
 @Component({
   selector: 'app-tabla-planes',
   templateUrl: './tabla-planes.component.html',
   styleUrls: ['./tabla-planes.component.scss']
 })
-export class TablaPlanesComponent {
-  columnas: string[] = ['nombre', 'carrera', 'materias', 'acciones'];
-  datos: Plan[] = []; // Inicializa datos como un arreglo vacío
+export class TablaPlanesComponent implements OnInit {
+  columnas: string[] = ['nombre', 'carrera', 'materias'];
+  datos: Plan[] = [];
+  dataSource!: MatTableDataSource<Plan>;
 
   constructor(private router: Router, public dialog: MatDialog) {}
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngOnInit() {
+    this.datos = Planes; 
+    this.dataSource = new MatTableDataSource(this.datos);
+    this.dataSource.sort = this.sort;
+  }
 
   cargarPlan() {
     this.router.navigate(['/admin/cargarPlan']);
