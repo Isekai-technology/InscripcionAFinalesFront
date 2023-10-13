@@ -16,5 +16,7 @@
         carrera: "Publicidad",
         materias: ["TeoriadelColor", "Excelbasico"],
       },
+
+      
     ];
     
