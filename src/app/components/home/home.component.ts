@@ -38,6 +38,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
     new ExamDate("Algoritmos I", new Date(2023, 7, 24), new Date(2023, 7, 22))
   );
 
+  AcademicHistorial: Array<SubjectComplete> = new Array<SubjectComplete>(
+    new SubjectComplete("Ingles I","9809"),
+    new SubjectComplete("Algoritmos I","9809"),
+    new SubjectComplete("Sistemas y orgaizaciones I","9809"),
+  );
+
+  
+
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
@@ -151,5 +159,15 @@ export class ExamDate {
     this.subject= subject;
     this.date= date;
     this.limitInscriptionDate= limitDate;
+  }
+
+}
+export class SubjectComplete{
+  subject:string;
+  plan:string;
+
+  constructor(subject:string , plan:string){
+    this.subject=subject;
+    this.plan=plan;
   }
 }

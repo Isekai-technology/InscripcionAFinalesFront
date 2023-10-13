@@ -11,11 +11,13 @@ import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
 
 import { SERVICIOS } from "./services-imports";
+import { RegCardsSubjectComponent } from './components/home/content-register/reg-cards-subject/reg-cards-subject.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
+    RegCardsSubjectComponent,
   ],
   imports: [
     BrowserModule,
