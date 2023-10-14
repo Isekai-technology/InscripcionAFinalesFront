@@ -11,11 +11,13 @@ import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
 
 import { SERVICIOS } from "./services-imports";
+import { PlanMateriasDialogComponent } from './components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
+    PlanMateriasDialogComponent,
   ],
   imports: [
     BrowserModule,
