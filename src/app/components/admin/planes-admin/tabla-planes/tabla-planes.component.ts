@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Plan, Planes } from 'src/app/services/admin-services/admin-planes.service'; 
+import { PlanMateriasDialogComponent } from 'src/app/components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
+
+
 
 @Component({
   selector: 'app-tabla-planes',
@@ -37,11 +40,19 @@ export class TablaPlanesComponent implements OnInit {
     console.log('Eliminar plan:', plan);
   }
 
-  verMaterias(materias: string[]) {
+  verMaterias(materias: string[], nombrePlan: string) {
     if (materias && materias.length > 0) {
-      console.log('Materias asociadas:', materias);
+      const dialogRef = this.dialog.open(PlanMateriasDialogComponent, {
+        width: '600px',
+        data: { materias, nombrePlan },
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('Diálogo cerrado', result);
+      });
     } else {
       console.log('No hay materias asociadas a este plan.');
     }
   }
+  
 }
