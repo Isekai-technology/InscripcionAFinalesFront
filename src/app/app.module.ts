@@ -12,12 +12,14 @@ import { COMPONENTS } from './components-imports';
 
 import { SERVICIOS } from "./services-imports";
 import { PlanMateriasDialogComponent } from './components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
+import { ModificarPlanesDialogFormComponent } from './components/admin/planes-admin/modificar-planes-dialog-form/modificar-planes-dialog-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     COMPONENTS,
     PlanMateriasDialogComponent,
+    ModificarPlanesDialogFormComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,7 @@ import { PlanMateriasDialogComponent } from 'src/app/components/admin/planes-adm
   styleUrls: ['./tabla-planes.component.scss']
 })
 export class TablaPlanesComponent implements OnInit {
-  columnas: string[] = ['nombre', 'carrera', 'materias'];
+  columnas: string[] = ['nombre', 'carrera', 'materias','modificar','eliminar'];
   datos: Plan[] = [];
   dataSource!: MatTableDataSource<Plan>;
 
