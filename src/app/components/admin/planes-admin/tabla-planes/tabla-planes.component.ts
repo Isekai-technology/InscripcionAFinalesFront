@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { Plan, Planes } from 'src/app/services/admin-services/admin-planes.service'; 
 import { PlanMateriasDialogComponent } from 'src/app/components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
+import { ModificarPlanesDialogFormComponent } from 'src/app/components/admin/planes-admin/modificar-planes-dialog-form/modificar-planes-dialog-form.component';
 
 
 
@@ -33,8 +34,17 @@ export class TablaPlanesComponent implements OnInit {
   }
 
   editarPlan(plan: Plan) {
-    console.log('Editar plan:', plan);
+    const dialogRef = this.dialog.open(ModificarPlanesDialogFormComponent, {
+      width: '600px',
+      data: plan, // Pasar los datos del plan al componente de diálogo
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Diálogo cerrado', result);
+      // Aquí puedes manejar el resultado después de editar el plan
+    });
   }
+  
 
   eliminarPlan(plan: Plan) {
     console.log('Eliminar plan:', plan);
