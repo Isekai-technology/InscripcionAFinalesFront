@@ -62,10 +62,12 @@ export class CargarAlumnosComponent {
       Email: this.modelo.email,
       ID_Rol: 2
     }
+    console.log(nuevoUsuario);
     
     //llamar al servicio de usuarios, crear usuario y obtener id
     this._usuariosService.crearUsuario(nuevoUsuario).subscribe(
       (resp: string) => {
+        console.log(resp);
         nuevoUsuario.ID= JSON.parse(resp) as number;
 
         let estudiante: Estudiante = {
@@ -76,15 +78,16 @@ export class CargarAlumnosComponent {
           usuario: nuevoUsuario,
           carrera: "",
           curso: "",
-          plan: this.modelo.idPlanSeleccionado,
-          mesasInscriptas: [
-
-          ]
+          plan: this.modelo.idPlanSeleccionado as number,
+          mesasInscriptas: []
         }
+        console.log(estudiante);       
+
 
         //llamar al servicio de alumnos y crear alumno
         this._alumnosService.nuevoEstudiante(estudiante).subscribe(
           (resp: string) => {
+            console.log(resp);
             console.log("exito");
           },
           (error: any) => {

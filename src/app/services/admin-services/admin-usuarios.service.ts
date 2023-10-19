@@ -15,10 +15,10 @@ export class AdminUsuariosService {
 
   crearUsuario(usuario: Usuario): Observable<any>{        
     let datos= {
-      Nombre: usuario.Nombre,
-      Contra: usuario.Contra,
-      Email: usuario.Email,
-      ID_Rol: usuario.ID_Rol,
+      nombre: usuario.Nombre,
+      contra: usuario.Contra,
+      email: usuario.Email,
+      rol: usuario.ID_Rol,
       tipo: 'crear'
     };
 
