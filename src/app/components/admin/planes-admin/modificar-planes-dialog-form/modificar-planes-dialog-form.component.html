@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Modificar Plan</h2>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <mat-label>Nombre del Plan</mat-label>
+    <input matInput placeholder="Nombre del plan" [(ngModel)]="datos.nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Carrera</mat-label>
+    <mat-select>
+      <mat-option value="analista">Analista</mat-option>
+      <mat-option value="publicidad">Publicidad</mat-option>
+    </mat-select>
+  </mat-form-field>
+  
+  <mat-form-field>
+    <mat-label>Materias</mat-label>
+    <mat-select [(ngModel)]="materiasSeleccionadas" multiple>
+      <mat-option *ngFor="let materia of datos.materias" [value]="materia">{{materia}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="{materias: materiasSeleccionadas}">Save</button>
+</div>

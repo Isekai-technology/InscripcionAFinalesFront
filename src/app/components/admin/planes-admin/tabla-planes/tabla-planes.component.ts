@@ -1,57 +1,68 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { Plan, Planes } from 'src/app/services/admin-services/admin-planes.service'; 
+import { PlanMateriasDialogComponent } from 'src/app/components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
+import { ModificarPlanesDialogFormComponent } from 'src/app/components/admin/planes-admin/modificar-planes-dialog-form/modificar-planes-dialog-form.component';
 
-export interface Plan {
-  nombre: string;
-  carrera: string;
-}
 
-const Planes: Plan[] = [
-  { nombre: "ASDGF", carrera: "Analista" },
-  { nombre: "YDSYH", carrera: "Publicidad" }
-];
 
 @Component({
   selector: 'app-tabla-planes',
   templateUrl: './tabla-planes.component.html',
   styleUrls: ['./tabla-planes.component.scss']
 })
-export class TablaPlanesComponent {
-  columnas: string[] = ['nombre', 'carrera', 'acciones'];
-  datos = Planes;
+export class TablaPlanesComponent implements OnInit {
+  columnas: string[] = ['nombre', 'carrera', 'materias','modificar','eliminar'];
+  datos: Plan[] = [];
+  dataSource!: MatTableDataSource<Plan>;
 
   constructor(private router: Router, public dialog: MatDialog) {}
+
+  @ViewChild(MatSort) sort!: MatSort;
+
+  ngOnInit() {
+    this.datos = Planes; 
+    this.dataSource = new MatTableDataSource(this.datos);
+    this.dataSource.sort = this.sort;
+  }
 
   cargarPlan() {
     this.router.navigate(['/admin/cargarPlan']);
   }
 
   editarPlan(plan: Plan) {
-   
-    console.log('Editar plan:', plan);
+    const dialogRef = this.dialog.open(ModificarPlanesDialogFormComponent, {
+      width: '600px',
+      data: plan, // Pasar los datos del plan al componente de diálogo
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Diálogo cerrado', result);
+      // Aquí puedes manejar el resultado después de editar el plan
+    });
   }
+  
 
   eliminarPlan(plan: Plan) {
-    
     console.log('Eliminar plan:', plan);
   }
 
-  verMaterias(plan: Plan) {
-
-    console.log('Ver materias de:', plan);
+  verMaterias(materias: string[], nombrePlan: string) {
+    if (materias && materias.length > 0) {
+      const dialogRef = this.dialog.open(PlanMateriasDialogComponent, {
+        width: '600px',
+        data: { materias, nombrePlan },
+      });
+  
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log('Diálogo cerrado', result);
+      });
+    } else {
+      console.log('No hay materias asociadas a este plan.');
+    }
   }
-
-
-  /*
-  abrirVentanaCargarPlanes(): void {
-    const dialogRef = this.cargarPlanes.open(CargarPlanDialogFormComponent, {
-      width: '400px',
-    });
-
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }*/
+  
 }

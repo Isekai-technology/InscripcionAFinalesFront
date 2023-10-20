@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminAlumnosService {
   
-  baseUrl= environment.apiUrl + "EstudiantesContro.php";
+  baseUrl= environment.apiUrl + "EstudianteControl.php";
 
   //tiene que haber una mejor forma de hacer esto
   private estudianteSource: BehaviorSubject<Estudiante> = new BehaviorSubject<Estudiante>({
@@ -36,16 +36,16 @@ export class AdminAlumnosService {
 
   nuevoEstudiante(estudiante: Estudiante){
     let datos= {
-      DNI: estudiante.dni,
-      Nombre: estudiante.nombre,
-      Apellido: estudiante.apellido,
-      Activo: 1,
-      ID_Plan: estudiante.plan,
-      ID_Usuario: estudiante.usuario.ID,
+      dni: estudiante.dni,
+      nombre: estudiante.nombre,
+      apellido: estudiante.apellido,
+      activo: 1,
+      id_plan: estudiante.plan,
+      id_usuario: estudiante.usuario.ID,
       tipo: "crear"
     };  
 
-    return this.http.post(this.baseUrl, datos, {
+    return this.http.post(this.baseUrl, JSON.stringify(datos), {
       responseType: 'text'
     });
     
