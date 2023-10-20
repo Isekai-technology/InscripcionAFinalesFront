@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AdminUsuariosService {
 
-  baseUrl: string= environment.apiUrl + 'UsuariosContro.php' ;
+  baseUrl: string= environment.apiUrl + 'UsuariosControl.php' ;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +21,7 @@ export class AdminUsuariosService {
       rol: usuario.ID_Rol,
       tipo: 'crear'
     };
+    console.log(datos);
 
     //Devuelve el ID del ultimo usuario insertado
     return this.http.post(this.baseUrl, JSON.stringify(datos), {

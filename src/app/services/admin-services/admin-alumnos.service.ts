@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Estudiante } from 'src/app/models/Estudiante';
 import { environment } from 'src/environments/environment';
 
@@ -34,7 +34,7 @@ export class AdminAlumnosService {
     this.estudianteSource.next(estudiante);
   }
 
-  nuevoEstudiante(estudiante: Estudiante){
+  nuevoEstudiante(estudiante: Estudiante): Observable<any>{
     let datos= {
       dni: estudiante.dni,
       nombre: estudiante.nombre,
@@ -44,6 +44,7 @@ export class AdminAlumnosService {
       id_usuario: estudiante.usuario.ID,
       tipo: "crear"
     };  
+    console.log(datos);
 
     return this.http.post(this.baseUrl, JSON.stringify(datos), {
       responseType: 'text'

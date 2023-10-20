@@ -9,7 +9,7 @@ import { CredencialesLogin } from 'src/app/models/Credenciales';
 })
 export class LoginService {
 
-  baseUrl: string = environment.apiUrl + 'UsuariosContro.php';
+  baseUrl: string = environment.apiUrl + 'UsuariosControl.php';
 
   constructor(private http: HttpClient) { }
 
