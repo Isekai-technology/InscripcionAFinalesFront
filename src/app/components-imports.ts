@@ -59,5 +59,6 @@ export const COMPONENTS = [
   CargarPlanComponent,
   PlanesAdminComponent,
   MesasAntiguasComponent,
-  PlanMateriasDialogComponent
+  PlanMateriasDialogComponent,
+  
 ]
