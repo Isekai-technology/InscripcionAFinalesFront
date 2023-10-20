@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/Usuario';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class AuthService {
   private sessionTimeout: any;
   private readonly AUTH_KEY = 'authenticatedUser';
 
-  constructor() {
+  constructor(private router:Router) {
     this.loadAuthentication();
   }
 
@@ -38,7 +39,8 @@ export class AuthService {
     this.clearSessionTimeout();
     this.sessionTimeout = setTimeout(() => {
       this.logout();
-    }, 300000); // 5 minutes of inactivity before automatically logging out
+      this.router.navigateByUrl('/');
+    }, 50000); // 5 minutes of inactivity before automatically logging out
   }
 
   private clearSessionTimeout() {
