@@ -27,7 +27,7 @@ import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admi
 import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
 import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
 import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
-
+import { PlanMateriasDialogComponent } from './components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
 
 export const COMPONENTS = [
   LoginComponent,
@@ -59,4 +59,5 @@ export const COMPONENTS = [
   CargarPlanComponent,
   PlanesAdminComponent,
   MesasAntiguasComponent,
+  PlanMateriasDialogComponent
 ]
