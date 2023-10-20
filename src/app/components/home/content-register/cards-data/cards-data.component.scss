@@ -1,11 +1,33 @@
-.dialog-title{
-  text-align: center;
+.dialog-title {
+  font-family: 'Arial', sans-serif;
+  font-size: 24px;
+  color:#000;
 }
 
-.dialog-actions{
-  justify-content: center;
+.dialog-content {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  color: #000;
+  
+  p {
+    strong {
+      color: #000080;
+    }
+  }
 }
 
-.dialog-content{
+.dialog-actions {
   text-align: center;
+  margin-top: 20px;
+
+  .cancel-button {
+    background-color: #a6a6a6;
+    color: #FFF;
+    margin-right: 10px;
+  }
+
+  .save-button {
+    background-color: #213F60;
+    color: #FFF;
+  }
 }
