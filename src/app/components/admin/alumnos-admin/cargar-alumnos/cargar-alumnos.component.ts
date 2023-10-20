@@ -68,7 +68,8 @@ export class CargarAlumnosComponent {
     this._usuariosService.crearUsuario(nuevoUsuario).subscribe(
       (resp: string) => {
         console.log(resp);
-        nuevoUsuario.ID= JSON.parse(resp) as number;
+        let res= JSON.parse(resp);
+        nuevoUsuario.ID= res.id as number;
 
         let estudiante: Estudiante = {
           id: 0,
