@@ -11,6 +11,7 @@ import { MATERIAL_MODULES } from './material-imports';
 import { COMPONENTS } from './components-imports';
 
 import { SERVICIOS } from "./services-imports";
+import { RegCardsSubjectComponent } from './components/home/content-register/reg-cards-subject/reg-cards-subject.component';
 
 import { ModificarPlanesDialogFormComponent } from './components/admin/planes-admin/modificar-planes-dialog-form/modificar-planes-dialog-form.component';
 
@@ -18,6 +19,7 @@ import { ModificarPlanesDialogFormComponent } from './components/admin/planes-ad
   declarations: [
     AppComponent,
     COMPONENTS,
+    RegCardsSubjectComponent,
     ModificarPlanesDialogFormComponent,
   ],
   imports: [

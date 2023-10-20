@@ -38,6 +38,11 @@
           <app-register-cards [subject]="registered.subject" [date]="registered.date" [limitInscriptionDate]="registered.limitInscriptionDate" (click)="openDialog()"></app-register-cards>
         </div>
       </mat-tab> 
+      <mat-tab label="Historial academico">
+        <div *ngFor="let registered of AcademicHistorial" class="cards">
+          <app-reg-cards-subject [subject]="registered.subject" [plan]="registered.plan" (click)="openDialog" ></app-reg-cards-subject>      
+        </div>
+      </mat-tab>
     </mat-tab-group>
   </div>
 </div>
