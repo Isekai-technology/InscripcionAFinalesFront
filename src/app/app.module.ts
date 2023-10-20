@@ -7,10 +7,10 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { MATERIAL_MODULES } from './material-imports';
-import { COMPONENTS } from './components-imports';
+import { MATERIAL_MODULES } from './imports/material-imports';
+import { COMPONENTS } from './imports/components-imports';
 
-import { SERVICIOS } from "./services-imports";
+import { SERVICIOS } from "./imports/services-imports";
 import { RegCardsSubjectComponent } from './components/home/content-register/reg-cards-subject/reg-cards-subject.component';
 
 import { ModificarPlanesDialogFormComponent } from './components/admin/planes-admin/modificar-planes-dialog-form/modificar-planes-dialog-form.component';
