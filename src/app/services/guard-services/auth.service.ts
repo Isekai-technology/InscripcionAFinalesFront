@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Auth } from 'src/app/models/Auth';
+import { Usuario } from 'src/app/models/Usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private isAuthenticated: boolean = false;
-  private userData: Auth | undefined;
+  private userData: Usuario | undefined;
   private sessionTimeout: any;
   private readonly AUTH_KEY = 'authenticatedUser';
 
@@ -14,7 +14,7 @@ export class AuthService {
     this.loadAuthentication();
   }
 
-  login(userData: Auth) {
+  login(userData: Usuario) {
     this.isAuthenticated = true;
     this.userData = userData;
     this.resetSessionTimeout();
@@ -25,7 +25,7 @@ export class AuthService {
     this.isAuthenticated = false;
     this.userData!.Contra ="";
     this.userData!.Nombre ="";
-    this.userData!.Rol ="";
+    this.userData!.ID_Rol =0;
     this.clearSessionTimeout();
     this.removeAuthentication();
   }
@@ -55,9 +55,7 @@ export class AuthService {
   private loadAuthentication() {
     const authData = localStorage.getItem(this.AUTH_KEY);
     if (authData) {
-      this.userData!.Contra = localStorage.getItem("contra")!;
-      this.userData!.Nombre = localStorage.getItem("nombre")!;
-      this.userData!.Rol = localStorage.getItem("rol")!;
+      this.userData = JSON.parse(authData);
       this.isAuthenticated = true;
       this.resetSessionTimeout();
     }

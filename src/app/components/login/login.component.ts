@@ -4,6 +4,7 @@
 
   import { CredencialesLogin } from 'src/app/models/Credenciales';
 import { Usuario } from 'src/app/models/Usuario';
+import { AuthService } from 'src/app/services/guard-services/auth.service';
   import { LoginService } from 'src/app/services/login-service/login.service';
 
   @Component({
@@ -14,7 +15,7 @@ import { Usuario } from 'src/app/models/Usuario';
   })
   export class LoginComponent {
 
-    constructor(private router: Router, private _loginSer: LoginService) {
+    constructor(private router: Router, private _loginSer: LoginService, private auth: AuthService) {
       localStorage.clear();
     }
 
@@ -42,8 +43,7 @@ import { Usuario } from 'src/app/models/Usuario';
         (response: string) => { 
           let user= JSON.parse(response) as Usuario;
           const rol = user.ID_Rol;
-          localStorage.setItem('usuario', user.Nombre);
-          localStorage.setItem('email', user.Email);
+          this.auth.login(user);
           if (rol == 1){       
             this.router.navigateByUrl('/admin');
           }
