@@ -29,31 +29,19 @@
     </mat-autocomplete>
   </mat-form-field>
   <mat-form-field>
-    <mat-label>Correlativas aprobadas</mat-label>
-    <mat-select [formControl]="aprobadas" multiple>
+    <mat-label>Correlativas</mat-label>
+    <mat-select [formControl]="correlativas" multiple>
       <mat-select-trigger>
-        {{aprobadas.value?.[0] || ''}}
-        <span *ngIf="(aprobadas.value?.length || 0) > 1" class="example-additional-selection">
-          (+{{(aprobadas.value?.length || 0) - 1}} {{aprobadas.value?.length === 2 ? 'other' : 'others'}})
+        {{correlativas.value?.[0] || ''}}
+        <span *ngIf="(correlativas.value?.length || 0) > 1" class="example-additional-selection">
+          (+{{(correlativas.value?.length || 0) - 1}} {{correlativas.value?.length === 2 ? 'other' : 'others'}})
         </span>
       </mat-select-trigger>
-      <mat-option *ngFor="let topping of aprobadaslist" [value]="topping">{{topping}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Correlativas regularizadas</mat-label>
-    <mat-select [formControl]="regularizadas" multiple>
-      <mat-select-trigger>
-        {{regularizadas.value?.[0] || ''}}
-        <span *ngIf="(regularizadas.value?.length || 0) > 1" class="example-additional-selection">
-          (+{{(regularizadas.value?.length || 0) - 1}} {{regularizadas.value?.length === 2 ? 'other' : 'others'}})
-        </span>
-      </mat-select-trigger>
-      <mat-option *ngFor="let topping of regularizadaslist" [value]="topping">{{topping}}</mat-option>
+      <mat-option *ngFor="let topping of correlativaslist" [value]="topping">{{topping}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="dialog-actions">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true">Save</button>
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true">Guardar</button>
 </div>

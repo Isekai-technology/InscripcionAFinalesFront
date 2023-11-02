@@ -10,12 +10,10 @@ export interface User {
   styleUrls: ['./cargar-materias-dialog-form.component.scss']
 })
 export class CargarMateriasDialogFormComponent implements OnInit{
-  regularizadas = new FormControl('');
-  aprobadas = new FormControl('');
-  regularizadaslist: string[] = ['Mate', 'ingles', 'program'];
-  aprobadaslist = this.regularizadaslist;
+  correlativas = new FormControl('');
+  correlativaslist: string[] = ['Mate', 'ingles', 'program'];
   myControl = new FormControl<string | User>('');
-  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+  options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}]; //placeholder a ser reemplazado por profesores
   filteredOptions: Observable<User[]> | undefined;
 
   ngOnInit() {

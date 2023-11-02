@@ -1,0 +1,20 @@
+.campos-carga{
+    display: flex;
+}
+
+.nombre, .carrera{
+    margin-right:20px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+  .boton {
+    align-self: flex-end; 
+    padding: 30px;
+  }

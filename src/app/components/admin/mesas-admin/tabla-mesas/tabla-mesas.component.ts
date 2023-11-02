@@ -6,6 +6,7 @@ import {MatTableDataSource } from '@angular/material/table';
 import { CargarMesasDialogFormComponent } from '../cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { ModificarMesasDialogFormComponent } from '../modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
 
 export interface UserData {
   carrera: string,
@@ -14,8 +15,8 @@ export interface UserData {
   titular: string;
   vocal1: string;
   vocal2: string;
-  fecha1:string;
-  fecha2:string;
+  fecha:string;
+  fechadecierre: string;
 }
 
 export interface Curso {
@@ -33,8 +34,8 @@ let mesas: UserData[] = [
     titular: 'Maia',
     vocal1: 'Asher',
     vocal2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Analista',
@@ -43,8 +44,8 @@ let mesas: UserData[] = [
     titular: 'Olivia',
     vocal1: 'Maia',
     vocal2: 'Maia',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Analista',
@@ -53,8 +54,8 @@ let mesas: UserData[] = [
     titular: 'Maia',
     vocal1: 'Asher',
     vocal2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -63,8 +64,8 @@ let mesas: UserData[] = [
     titular: 'Amelia',
     vocal1: 'Maia',
     vocal2: 'Asher',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -73,8 +74,8 @@ let mesas: UserData[] = [
     titular: 'Atticus',
     vocal1: 'Asher',
     vocal2: 'Amelia',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   },
   {
     carrera: 'Publicidad',
@@ -83,8 +84,8 @@ let mesas: UserData[] = [
     titular: 'Atticus',
     vocal1: 'Asher',
     vocal2: 'Amelia',
-    fecha1: '123',
-    fecha2: '432',
+    fecha: '123',
+    fechadecierre: "123",
   }
   
 
@@ -97,7 +98,7 @@ let mesas: UserData[] = [
 })
 
 export class TablaMesasComponent implements AfterViewInit, OnInit {
-  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha1', 'fecha2'];
+  displayedColumns: string[] = ['nombre', 'carrera', 'curso','titular', 'vocal1','vocal2', 'fecha', 'fechadecierre', 'modificar', 'eliminar'];
   dataSource: MatTableDataSource<UserData>;
 
   @ViewChild(MatPaginator)
@@ -189,6 +190,25 @@ export class TablaMesasComponent implements AfterViewInit, OnInit {
   }
 
   clickedRows(row:any){
+    localStorage.setItem("materia",row.nombre)
     this.router.navigate(['/admin/alumnoXmesas']);
+  }
+
+  verAntiguas(){
+    this.router.navigate(['/admin/mesas-antiguas']);
+  }
+
+  editarMesa(datos:any){
+    const dialogRef = this.dialog.open(ModificarMesasDialogFormComponent, {
+      width: '400px',
+      data: datos,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+  eliminarMesa(){
+
   }
 }

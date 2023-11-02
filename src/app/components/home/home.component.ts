@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit, Renderer2  } from '@angular/core';
 import { MatDialog,MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
+import { CardsDataComponent } from './content-register/cards-data/cards-data.component';
+import { LoginService } from 'src/app/services/login-service/login.service';
 
 
 @Component({
@@ -14,12 +16,14 @@ export class HomeComponent implements OnInit, AfterViewInit {
   
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
-  loggedUser: string = "";
-  career: string = 'Publicidad'; //para test
+  carreraUsuario: string = "";
+  usuario: string = "";
+
+  selectedDate: Date | null = new Date(2023, 7, 28) ;
 
   //Filtro de fechas, mas adelante implementar en base a las fechas en las tarjetas
   minDate= new Date();
-  maxDate= new Date(2023, 7, 21);
+  maxDate= new Date(2023, 7, 28);
 
   availableExamDates: Array<ExamDate> = new Array<ExamDate>(
     new ExamDate("Analisis Matematico I", new Date(2023, 7, 21), new Date(2023, 7, 17)),
@@ -34,11 +38,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     new ExamDate("Algoritmos I", new Date(2023, 7, 24), new Date(2023, 7, 22))
   );
 
+  AcademicHistorial: Array<SubjectComplete> = new Array<SubjectComplete>(
+    new SubjectComplete("Ingles I","9809"),
+    new SubjectComplete("Algoritmos I","9809"),
+    new SubjectComplete("Sistemas y orgaizaciones I","9809"),
+  );
+
+  
+
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    this.loggedUser = localStorage.getItem('user') || "" ;
-    if (this.loggedUser=="publicidad")
+    this.usuario = localStorage.getItem('usuario') || "";
+    this.carreraUsuario = localStorage.getItem('carrera') || "" ;
+    if (this.carreraUsuario=="publicidad")
     {
       const imageUrl = '../../../assets/imgs/LOGO_PUBLI.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
@@ -47,7 +60,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
     else
     {
-      this.career = "Analista de Sistemas";
       const imageUrl = '../../../assets/imgs/LOGO_AS.png';
       const logoElement = document.querySelector('.logo-container') as HTMLImageElement;
       logoElement.src = imageUrl;
@@ -90,7 +102,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(DialogContent);
+    const dialogRef = this.dialog.open(CardsDataComponent);
 
       dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
@@ -115,7 +127,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 })
 export class CloseSession {
 
-  constructor (private router : Router, private dialogRef: MatDialogRef<CloseSession>, private renderer: Renderer2) {}
+  constructor (private router : Router, private dialogRef: MatDialogRef<CloseSession>, private renderer: Renderer2, private _logSer: LoginService) {}
 
   volverColorBody(){
     this.renderer.setStyle(document.body, 'background-color', "#213F60");
@@ -125,6 +137,7 @@ export class CloseSession {
     this.volverColorBody();
     this.router.navigateByUrl("/login");
     this.dialogRef.close();
+    this._logSer.logout();
   }
 }
 
@@ -136,14 +149,6 @@ export class CloseSession {
 })
 export class DialogHelpContent {}
 
- @Component({
-    selector: 'dialog-content',
-    templateUrl: 'dialog-content.html',
-    standalone: true,
-    imports: [MatDialogModule, MatButtonModule],
-  })
-  export class DialogContent {}
-
   //Placeholder para las mesas, DEBERIA SER UNA CLASE EXTERNA
 export class ExamDate {
   subject: string;
@@ -154,5 +159,15 @@ export class ExamDate {
     this.subject= subject;
     this.date= date;
     this.limitInscriptionDate= limitDate;
+  }
+
+}
+export class SubjectComplete{
+  subject:string;
+  plan:string;
+
+  constructor(subject:string , plan:string){
+    this.subject=subject;
+    this.plan=plan;
   }
 }

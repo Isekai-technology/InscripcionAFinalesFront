@@ -1,26 +1,36 @@
-<div class="grid-container">
-  <h1 class="mat-h1"><button mat-mini-fab matTooltip="Ayuda" color="primary" class="help-button">
-    <mat-icon>help</mat-icon>
-</button>Profesores</h1>
-  <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
-        <mat-card-header>
-          <mat-card-title>
-            {{card.title}}
-            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-              <mat-icon>more_vert</mat-icon>
-            </button>
-            <mat-menu #menu="matMenu" xPosition="before">
-              <button mat-menu-item>Expand</button>
-              <button mat-menu-item>Remove</button>
-            </mat-menu>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content class="dashboard-card-content">
-          
-        </mat-card-content>
-      </mat-card>
-    </mat-grid-tile>
-  </mat-grid-list>
+<h2 mat-dialog-title>Agregar Profesor</h2>
+<div mat-dialog-content class="dialog-content">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput placeholder="Nombre">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Apellido</mat-label>
+    <input matInput placeholder="Apellido">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Documento</mat-label>
+    <input matInput placeholder="Documento">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Fecha de Nacimiento</mat-label>
+    <input matInput [matDatepicker]="picker" placeholder="Seleccionar fecha">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Carrera</mat-label>
+    <mat-select>
+      <mat-option value="analista">Analista de Sistemas</mat-option>
+      <mat-option value="publicidad">Publicidad</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button mat-dialog-close>Cancelar</button>
+  <button mat-button [mat-dialog-close]="true">Guardar</button>
 </div>

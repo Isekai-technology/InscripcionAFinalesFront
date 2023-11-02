@@ -4,7 +4,7 @@
   <div class="navbar-content">
     <p class="navbar-nav me-auto mb-2 mb-lg-0 titulo">INSCRIPCION A FINALES</p>
     <div class="right-section">
-      <span class="nombre-usuario">{{loggedUser}}</span>
+      <span class="nombre-usuario">{{usuario}}</span>
       <button mat-fab extended class="cerrar-sesion" (click)="closeSesionDialog()">Cerrar Sesión</button>
     </div>
   </div>
@@ -18,8 +18,14 @@
       <button mat-mini-fab matTooltip="Ayuda" class="help-button" (click)="openHelpDialog()">
         <mat-icon>help</mat-icon>
       </button>
-      <span id="carrera">{{career}}</span>
+      <span id="carrera">{{carreraUsuario}}</span>
     </div>
+    <br>
+    <mat-card class="calendary">
+      <mat-calendar #examDatePicker [minDate]="minDate" [maxDate]="maxDate" ></mat-calendar>
+    </mat-card>
+  </div>
+  <div class="right-panel">
     <br>
     <mat-tab-group animationDuration="0ms" fitInkBarToContent>
       <mat-tab label="Mesas Disponibles">
@@ -32,12 +38,12 @@
           <app-register-cards [subject]="registered.subject" [date]="registered.date" [limitInscriptionDate]="registered.limitInscriptionDate" (click)="openDialog()"></app-register-cards>
         </div>
       </mat-tab> 
+      <mat-tab label="Historial academico">
+        <div *ngFor="let registered of AcademicHistorial" class="cards">
+          <app-reg-cards-subject [subject]="registered.subject" [plan]="registered.plan" (click)="openDialog" ></app-reg-cards-subject>      
+        </div>
+      </mat-tab>
     </mat-tab-group>
-  </div>
-  <div class="right-panel">
-    <mat-card class="calendary">
-      <mat-calendar #examDatePicker [minDate]="minDate" [maxDate]="maxDate" ></mat-calendar>
-    </mat-card>
   </div>
 </div>
 <nav class="navbar navbar-expand-lg contact-data"> 

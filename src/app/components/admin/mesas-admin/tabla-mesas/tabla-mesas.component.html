@@ -2,36 +2,40 @@
 <h1>Mesas</h1>
 
 <div class="filtros">
-  <div class="filtro-carrera">
-    <mat-form-field>
-      <mat-label>Carrera</mat-label>
-      <mat-select (selectionChange)="selectOption($event)">
-        <mat-option value="Analista">Analista</mat-option>
-        <mat-option value="Publicidad">Publicidad</mat-option>
-        <mat-option value="Todos">Todos</mat-option>
-      </mat-select>
-    </mat-form-field>
-  </div>
+  <div class="separador">
+    <div class="filtro-carrera">
+      <mat-form-field>
+        <mat-label>Carrera</mat-label>
+        <mat-select (selectionChange)="selectOption($event)">
+          <mat-option value="Analista">Analista</mat-option>
+          <mat-option value="Publicidad">Publicidad</mat-option>
+          <mat-option value="Todos">Todos</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
 
-  <div class="filtro-curso">
-    <section>
-      <span>
-        <ul class="curso-list">
-          <li *ngFor="let subCurso of cursos.subCursos">
-            <mat-checkbox [(ngModel)]="subCurso.completed"
-                          [color]="subCurso.color"
-                          (ngModelChange)="updateAllComplete($event,subCurso.name)">
-              {{subCurso.name}}
-            </mat-checkbox>
-          </li>
-        </ul>
-      </span>
-    </section>
+    <div class="filtro-curso">
+      <section>
+        <span>
+          <ul class="curso-list">
+            <li *ngFor="let subCurso of cursos.subCursos">
+              <mat-checkbox [(ngModel)]="subCurso.completed"
+                            [color]="subCurso.color"
+                            (ngModelChange)="updateAllComplete($event,subCurso.name)">
+                {{subCurso.name}}
+              </mat-checkbox>
+            </li>
+          </ul>
+        </span>
+      </section>
+    </div>
   </div>
-
-  <button mat-raised-button color="primary" class="agregar-btn" (click)="openDialog()">
-    <mat-icon>add</mat-icon> Agregar Mesa
-  </button>
+  <div class="button-container">
+    <button mat-raised-button color="warn" class="agregar-btn" (click)="verAntiguas()">Mesas antiguas</button>
+    <button mat-raised-button color="primary" class="agregar-btn" (click)="openDialog()">
+      <mat-icon>add</mat-icon> Agregar Mesa
+    </button>
+  </div>
 </div>
 <section class="example-container mat-elevation-z8" tabindex="0">
   <table mat-table [dataSource]="dataSource" matSort>
@@ -72,16 +76,37 @@
       <td mat-cell *matCellDef="let row"> {{row.vocal2}} </td>
     </ng-container>
 
-    <!-- Fecha1 Column -->
-    <ng-container matColumnDef="fecha1">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Primera Fecha </th>
-      <td mat-cell *matCellDef="let row"> {{row.fecha1}} </td>
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fecha">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha </th>
+      <td mat-cell *matCellDef="let row"> {{row.fecha}} </td>
     </ng-container>
 
-    <!-- Fecha2 Column -->
-    <ng-container matColumnDef="fecha2">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Segunda Fecha </th>
-      <td mat-cell *matCellDef="let row"> {{row.fecha2}} </td>
+    <!-- Fecha Column -->
+    <ng-container matColumnDef="fechadecierre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de cierre</th>
+      <td mat-cell *matCellDef="let row"> {{row.fechadecierre}} </td>
+    </ng-container>
+
+
+    <!-- modificar Column -->
+    <ng-container matColumnDef="modificar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-mini-fab color="primary" (click)="editarMesa(row); $event.stopPropagation()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <!-- eliminar Column -->
+    <ng-container matColumnDef="eliminar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+      <td mat-cell *matCellDef="let row" class="button-cell">
+        <button mat-mini-fab color="primary" (click)="eliminarMesa(); $event.stopPropagation()">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

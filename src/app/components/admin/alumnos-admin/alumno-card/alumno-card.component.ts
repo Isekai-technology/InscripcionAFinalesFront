@@ -1,48 +1,50 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-
-export interface materias{
-  id:number,
-  name: string,
-  curso:string,
-  titular: string,
-  fecha: number,
-}
-
-let materiasinscr: materias[] = [
-  {id: 1, name: 'Hydrogen', curso: "Primero", titular: "gedvsvs", fecha: 643234},
-  {id: 2, name: 'Helium', curso: "Segundo",titular: "vsrsre", fecha: 7654},
-  {id: 3, name: 'Lithium',curso: "Tercero", titular: "btyrvfd", fecha: 234},
-  {id: 4, name: 'Beryllium', curso: "Primero",titular: "yrtdsf", fecha: 546},
-]
+import { Estudiante } from 'src/app/models/Estudiante';
+import { MesaExamen } from 'src/app/models/MesaExamen';
+import { AdminAlumnosService } from 'src/app/services/admin-services/admin-alumnos.service';
 
 @Component({
   selector: 'app-alumno-card',
   templateUrl: './alumno-card.component.html',
   styleUrls: ['./alumno-card.component.scss']
 })
-export class AlumnoCardComponent {
-  displayedColumns: string[] = ['id', 'name', 'curso', 'titular', 'fecha'];
+export class AlumnoCardComponent implements AfterViewInit {
+  displayedColumns: string[] = ['id', 'materia', 'fecha', 'profesor', 'eliminar'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  datasource: MatTableDataSource<materias>
-  array:any[];
-  constructor(private router: Router){
-    this.array=materiasinscr;
-    this.datasource= new MatTableDataSource(this.array);
+  datasource!: MatTableDataSource<MesaExamen>;
+
+  nombreCompleto: string;
+  estudiante!: Estudiante;
+
+  constructor(private router: Router, private _alumnosServ: AdminAlumnosService){
+    this._alumnosServ.estudianteSeleccionado.subscribe( e => this.estudiante= e);
+    this.datasource= new MatTableDataSource(this.estudiante.mesasInscriptas);
+    this.nombreCompleto= (this.estudiante.apellido.concat(', ', this.estudiante.nombre)).toUpperCase();
   }
 
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void {        
+    if (this.estudiante == null || this.estudiante.id == 0) {
+      this.router.navigateByUrl('/admin/alumnos');
+    }
     this.datasource.sort = this.sort;
     this.datasource.paginator = this.paginator;
   }
+
   addData(){
 
   }
   volver(){
     this.router.navigateByUrl('/admin/alumnos');
+  }
+  eliminar(){
+    this.router.navigateByUrl('/admin/alumnos');
+  }
+  eliminarMesa(){
+
   }
 }

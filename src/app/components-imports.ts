@@ -1,8 +1,7 @@
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { RegisterCardsComponent } from './components/register-cards/register-cards.component';
-import { MateriasTreeComponent } from './components/admin/materias-admin/materias-tree/materias-tree.component';
+import { RegisterCardsComponent } from './components/home/content-register/register-cards/register-cards.component';
 import { NavigationComponent } from './components/admin/navigation/navigation.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AlumnosTableComponent } from './components/admin/alumnos-admin/alumnos-table/alumnos-table.component';
@@ -19,14 +18,22 @@ import { AlumnoCardComponent } from './components/admin/alumnos-admin/alumno-car
 import { MateriasTablaComponent } from './components/admin/materias-admin/materias-tabla/materias-tabla.component';
 import { CargarMesasDialogFormComponent } from './components/admin/mesas-admin/cargar-mesas-dialog-form/cargar-mesas-dialog-form.component';
 import { CargarMateriasDialogFormComponent } from './components/admin/materias-admin/cargar-materias-dialog-form/cargar-materias-dialog-form.component';
-
+import { CardsDataComponent } from './components/home/content-register/cards-data/cards-data.component';
+import { PlanesAdminComponent } from './components/admin/planes-admin/planes-admin.component';
+import { TablaPlanesComponent } from './components/admin/planes-admin/tabla-planes/tabla-planes.component';
+import { MesasAntiguasComponent } from './components/admin/mesas-admin/mesas-antiguas/mesas-antiguas.component';
+import { ModificarMateriasDialogFormComponent } from './components/admin/materias-admin/modificar-materias-dialog-form/modificar-materias-dialog-form.component';
+import { ModificarMesasDialogFormComponent } from './components/admin/mesas-admin/modificar-mesas-dialog-form/modificar-mesas-dialog-form.component';
+import { MesasAntiguasAlumnosComponent } from './components/admin/mesas-admin/mesas-antiguas-alumnos/mesas-antiguas-alumnos.component';
+import { ProfesoresCardComponent } from './components/admin/profresores-admin/profesores-card/profesores-card.component';
+import { CargarPlanComponent } from './components/admin/planes-admin/cargar-plan/cargar-plan.component';
+import { PlanMateriasDialogComponent } from './components/admin/planes-admin/plan-materias-dialog/plan-materias-dialog.component';
 
 export const COMPONENTS = [
   LoginComponent,
   ForgotPasswordComponent,
   RegisterCardsComponent,
   HomeComponent,
-  MateriasTreeComponent,
   AdminComponent,
   NavigationComponent,
   AlumnosTableComponent,
@@ -43,4 +50,15 @@ export const COMPONENTS = [
   MateriasTablaComponent,
   CargarMesasDialogFormComponent,
   CargarMateriasDialogFormComponent,
+  CardsDataComponent,
+  TablaPlanesComponent,
+  ModificarMateriasDialogFormComponent,
+  ModificarMesasDialogFormComponent,
+  MesasAntiguasAlumnosComponent,
+  ProfesoresCardComponent,
+  CargarPlanComponent,
+  PlanesAdminComponent,
+  MesasAntiguasComponent,
+  PlanMateriasDialogComponent,
+  
 ]

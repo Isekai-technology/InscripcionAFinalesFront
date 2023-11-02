@@ -30,14 +30,15 @@ let data: UserData[] = [
 export class TablaAlumnosComponent implements AfterViewInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
-  displayedColumns = ['DNI', 'name'];
+  nombreMateria: string;
+  displayedColumns = ['DNI', 'name', 'eliminar'];
   dataSource: MatTableDataSource<UserData>;
 
   array:any=[];
   constructor(private router:Router) {
     this.array=data;
     this.dataSource = new MatTableDataSource(this.array);
+    this.nombreMateria=localStorage.getItem("materia")!;
   }
 
 
@@ -49,5 +50,15 @@ export class TablaAlumnosComponent implements AfterViewInit{
 
   volver(){
     this.router.navigate(['/admin/mesas']);
+  }
+
+  eliminarAlumno(){
+
+  }
+  darDeBaja(){
+    
+  }
+  actaVolante(){
+
   }
 }
