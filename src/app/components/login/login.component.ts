@@ -40,18 +40,21 @@ import { Usuario } from 'src/app/models/Usuario';
       
       this._loginSer.login(credentials).subscribe(
         (response: string) => { 
-          let user= JSON.parse(response) as Usuario;
-          const rol = user.ID_Rol;
-          localStorage.setItem('usuario', user.Nombre);
-          localStorage.setItem('email', user.Email);
-          if (rol == 1){       
-            this.router.navigateByUrl('/admin');
+          if (response != "false"){
+            console.log(response);
+            let user= JSON.parse(response as string) as Usuario;
+            console.log(user);
+            const rol = user.ID_Rol;
+            localStorage.setItem('usuario', user.Nombre);
+            localStorage.setItem('email', user.Email);
+            if (rol == 1){       
+              this.router.navigateByUrl('/admin');
+            }
+            else{
+              //traer datos de estudiante de la API
+              this.router.navigateByUrl('/home');
+            }
           }
-          else{
-            //traer datos de estudiante de la API
-            this.router.navigateByUrl('/home');
-          }
-
         },
         (error: any) => { 
           
