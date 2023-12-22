@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   //Estados
   validUser: boolean = true; //deberá ser falso para evitar que entren directo usando la url
   carreraUsuario: string = "";
-  usuario: string = "";
+  usuario: string = localStorage.getItem('usuario') ?? "";
 
   selectedDate: Date | null = new Date(2023, 7, 28) ;
 
@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   ngAfterViewInit(): void {
-    this.usuario = localStorage.getItem('usuario') || "";
     this.carreraUsuario = localStorage.getItem('carrera') || "" ;
     if (this.carreraUsuario=="publicidad")
     {
@@ -95,6 +94,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     window.addEventListener('popstate', () => {
       this.changeColor();
     });
+
   }
 
   changeColor(){
