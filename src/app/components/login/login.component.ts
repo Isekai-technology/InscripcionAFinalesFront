@@ -41,9 +41,7 @@ import { Usuario } from 'src/app/models/Usuario';
       this._loginSer.login(credentials).subscribe(
         (response: string) => { 
           if (response != "false"){
-            console.log(response);
             let user= JSON.parse(response as string) as Usuario;
-            console.log(user);
             const rol = user.ID_Rol;
             localStorage.setItem('usuario', user.Nombre);
             localStorage.setItem('email', user.Email);
